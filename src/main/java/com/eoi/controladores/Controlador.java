@@ -132,6 +132,7 @@ public class Controlador extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			break;
 		case "modiArt":
 			try {
@@ -168,5 +169,5 @@ public class Controlador extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(destPage);
 		rd.forward(request, response);
 	}
-
+//COMENTARIO 
 }
