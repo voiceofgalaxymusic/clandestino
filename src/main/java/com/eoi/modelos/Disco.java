@@ -11,6 +11,14 @@ public class Disco {
 	public Disco() {
 
 	}
+	
+	public Disco(String disc_nom, String disc_idart, String disc_img, String disc_pre) {
+		super();
+		this.disc_nom = disc_nom;
+		this.disc_idart = disc_idart;
+		this.disc_img = disc_img;
+		this.disc_pre = disc_pre;
+	}
 
 	public Disco(String disc_id, String disc_nom, String disc_idart, String disc_img, String disc_pre) {
 		super();

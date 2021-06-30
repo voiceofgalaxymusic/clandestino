@@ -11,6 +11,13 @@ public class Artista {
 		super();
 	}
 
+	public Artista(String nomArt, String genero, String img) {
+		super();
+		this.nomart = nomArt;
+		this.genero = genero;
+		this.img = img;
+	}
+	
 	public Artista(String idart, String nomArt, String genero, String img) {
 		super();
 		this.idart = idart;
@@ -18,7 +25,7 @@ public class Artista {
 		this.genero = genero;
 		this.img = img;
 	}
-
+	
 	public String getidart() {
 		return nomart;
 	}
