@@ -12,6 +12,33 @@ public class UsuarioDAO {
 	private PreparedStatement pst;
 	private ResultSet rs;
 
+	
+	public Usuario login(String nick, String pass) throws SQLException {
+		Usuario u = null;
+		
+		String query = "SELECT * FROM t_user WHERE nick=? and pass=?";
+		con =  Conexion.getInstance().getConnection();
+		pst = con.prepareStatement(query);
+		pst.setString(1, nick);
+		pst.setString(2, pass);
+		
+		rs = pst.executeQuery();
+		
+		if (rs.next()) {
+			u = new Usuario();
+			u.setNick(nick);
+			u.setPass(pass);
+			u.setNom("nom");
+			u.setRol("rol");
+			u.setCiu("ciu");
+			u.setPai("pai");
+			u.setImg("img");	
+		}
+		
+		return u; 
+	}
+	
+	
 	public void altaUser(Usuario u) throws SQLException {
 		String sql = "insert into t_user(user_rol , user_nik , user_pass,  user_nom , user_pai , user_ciu , user_img  ) values (?,?,?,?,?,?,?)";
 		con = Conexion.getInstance().getConnection();
