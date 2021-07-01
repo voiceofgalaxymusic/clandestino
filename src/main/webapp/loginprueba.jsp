@@ -28,7 +28,7 @@
 		<input type="text" class="input" name="urlava" value=""><br>
 		<input type="submit" value="Crear usuario">
 	</form>
-	<form action="" method="post">
+	<form action="Login" method="post">
 		<h1>Login usuario</h1>
 		<label for="nick">Nickname</label>
 		<input type="text" class="input" name="nick" value="">*<br>

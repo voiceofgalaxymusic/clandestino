@@ -22,16 +22,7 @@ public class Controlador extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-		 * String iduser = request.getParameter("iduser"); UsuarioDAO udao = new
-		 * UsuarioDAO();
-		 * 
-		 * Usuario u = null; String destPage = "prueba.jsp"; try { u =
-		 * udao.getUser(iduser); request.setAttribute("user",u); } catch (SQLException
-		 * e) { e.printStackTrace(); } RequestDispatcher rd =
-		 * request.getRequestDispatcher(destPage); rd.forward(request, response);
-		 */
-
+		
 		//CON EL METODO DOGET UTILIZAMOS PARA ELIMINAR USUARIOS, ARTISTAS O DISCOS
 		
 		String opcion = request.getParameter("opcion");
