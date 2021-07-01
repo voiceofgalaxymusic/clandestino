@@ -12,6 +12,7 @@
 <title>Usuario</title>
 </head>
 <script>
+<!-- +++++++++++++++++++++++++++++++++++++ user ++++++++++++++++++++++++++++++++++++++ -->
 	function inFormCrearuser() {
 	  document.getElementById("formcreauser").style.left = "200px";
 	}function outFormCrearuser() {
@@ -23,7 +24,7 @@
 	}function outFormModiuser() {
 	  document.getElementById("fomrmodiuser").style.left = "-800px";
 	}
-	
+	<!-- ++++++++++++++++++++++++++++++ artista ++++++++++++++++++++++++++++++++++++++ -->
 	function inFormCrearart() {
 	  document.getElementById("formcrearart").style.left = "200px";
 	}function outFormCrearart() {
@@ -38,12 +39,10 @@
 </script>
 <body>
 <%@include file="header.jsp" %>
-	<%
-		Connection con = Conexion.getInstance().getConnection();
+	<%  Connection con = Conexion.getInstance().getConnection();
 		String sql = "select * from t_user where user_id='1'";
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql);
-	%>
+		ResultSet rs = st.executeQuery(sql); %>
 	<section>
 	<div class="headuser">
 	<% while(rs.next()){ %>
@@ -58,13 +57,12 @@
 		</div>
 		<%} %>
 	</div>
+	<!--  +++++++++++++++++++++++++++++++++++  tabla de usuarios +++++++++++++++++++++++++++++++++++++ -->
 	<button class="botoncrear" onclick="inFormCrearuser()"><i class="fa fa-user-plus"></i></button>
 	<table>
-	<%
-		sql = "select * from t_user";
+	<%  sql = "select * from t_user";
 		st = con.createStatement();
-		rs = st.executeQuery(sql);
-	%>
+		rs = st.executeQuery(sql); %>
 		<caption><b>Usuarios</b></caption>
 		<tr>
 			<th>ID</th>
@@ -85,12 +83,14 @@
 			<td><%= rs.getString("user_pai") %></td>
 			<td><%= rs.getString("user_ciu") %></td>
 			<td><img src="<%= rs.getString("user_img") %>"></td>
-			<td><button onclick="inForModiuser()"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
+			<td><button onclick="inFormModiuser()"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
 		</tr><%} %>
 	</table>
 	<div id="formuser1"><div id="formuser2">
 	<div id="formcreauser"><button class="botoncerrar" onclick="outFormCrearuser()"><i class="fa fa-times-circle"></i></button><%@include file="formcreauser.jsp" %></div>
 	<div id="fomrmodiuser"><button class="botoncerrar" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button><%@include file="formmodiuser.jsp" %></div></div></div>
+	
+	<!--  +++++++++++++++++++++++++++++++++++  tabla de artistas +++++++++++++++++++++++++++++++++++++ -->
 	<button class="botoncrear" onclick="inFormCrearart()"><i class="fa fa-user-plus"></i></button>
 	<table>
 	<%
