@@ -1,6 +1,3 @@
-@charset "ISO-8859-1";
-
-
 *{
 	margin: 0px;
 	padding: 0px;
@@ -71,9 +68,10 @@ body{
 }
 /*+++++++++++++++ NAV ++++++++++++++++++*/
 #flag:checked ~ nav{
-	top: 39px;
+	top: 60px;
 }
 nav{
+	height: 60px;
 	z-index:-1;
 	position: relative;
 	top: 0px;
@@ -125,13 +123,24 @@ nav {
 }
 nav ul li{
 	display: inline-block;
-	margin: 5px 20px;
+	margin: 15px 20px;
 	font-size: 25px;
 }
 nav ul li a{
 	color: white;
 }
-/*++++++++++++++++++ /index -> datosdepartamentos ++++++++++++++++++++++++++*/
+/*++++++++++++++++++ tablas ++++++++++++++++++++++++++*/
+.botoncrear{
+	position: absolute;
+	margin-left: 50px;
+	background: none;
+	border: none;
+	font-size: 30px;
+	cursor: pointer;
+}
+.botoncrear:hover{
+	color: #a8199f;	
+}
 table, th, td{
     border-left: solid 2px #fff!important;
     border-right: solid 2px #fff!important;
@@ -149,34 +158,49 @@ table caption {
 }
 
 table img{
-	width: 50px;
+	max-height: 50px;
 }
 table th, td{
 	padding: 5px 40px;
+	color: #fff;
+}
+table td button{
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin-right: 20px;
+}
+table tr .fa-edit:hover{
+	color: #a8199f;
 }
 table th{
-    background-color: #d17ecf;
+    background-color: #a8199f;
 	font-size: 20px;
 	color: #fff;
 }
 table tr:nth-child(even) td{
-    background-color: #f7b2f6;
+    background-color: #525252;
 }
 table tr:nth-child(odd) td{
-    background-color: #d17ecf;
+    background-color: #a8199f;;
+}
+table tr:nth-child(even) .fa-edit:hover{
+	color: #a8199f;
+}
+table tr:nth-child(odd) .fa-edit:hover{
+	color: #525252;
 }
 
-table tr:nth-child(even) .fa{
-	color: #d17ecf;
+table tr .fa-edit{
+	color: #fff;
 	font-size: 25px;
 }
-table tr:nth-child(odd) .fa{
-	color: #f7b2f6;
+table tr .fa-trash{
+	color: #ff0000;;
 	font-size: 25px;
 }
 
 /*++++++++++++ formularios +++++++++++++*/
-
 form {
 	width: 350px;
 	margin: auto;
@@ -206,6 +230,66 @@ form input{
 	margin-top: 30px;
 }
 
+/*+++++++++++++++++++++++++ Pagina de Usuario ++++++++++++++++++++++*/
+section{
+	margin: 60px;
+	padding: 50px;
+	background-color: white;
+}
+.headuser{
+	position: relative;
+	margin-bottom: 50px;
+}
+.headuser img, .nameuser, .lugaruser{
+	display: inline-block;
+}
+.headuser .nameuser, .lugaruser{
+	position: absolute;
+}
+.headuser img{
+	width: 200px;
+}
+.nameuser{
+	margin-left: 50px;
+}
+.nameuser h1:nth-child(1){
+	font-size: 100px;
+}
+.lugaruser{
+	right: 0px;
+	bottom: 0px;
+	text-align: right;
+}
+.lugaruser h1:nth-child(1){
+	font-size: 100px;
+}
+
+#formuser1 {
+	position: fixed;
+	top: -500px;
+}
+#formuser2{
+	position: relative;
+}
+.botoncerrar{
+	position: absolute;
+	right: 0px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+.botoncerrar:hover{
+	color: white;
+}
+.botoncerrar i{
+	font-size: 30px;
+}
+#formcreauser, #fomrmodiuser, #fomrmodiart, #formcrearart{
+	position: absolute;
+	left: -800px;
+	top: 700px;
+	transition: 1s;
+}
 
 
 

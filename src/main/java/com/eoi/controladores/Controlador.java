@@ -116,7 +116,7 @@ public class Controlador extends HttpServlet {
 		Disco d2 = new Disco(idDisc, nomDisc, idArtDisc, imgDisc, preDisc);
 		DiscoDAO ddao = new DiscoDAO();
 
-		String destPage = "prueba.jsp";
+		String destPage = "user.jsp";
 		switch (opcion) {
 		case "modiUser":
 			try {
