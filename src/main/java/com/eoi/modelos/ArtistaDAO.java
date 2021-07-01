@@ -28,7 +28,7 @@ public class ArtistaDAO {
 
 	public void modificarArtista(Artista a) throws SQLException {
 
-		String query = "UPDATE t_art SET art_nom = ?, art_gen = ?, art_img = ? WHERE art_id = ?";
+		String query = "UPDATE t_art SET art_nom=?, art_gen=?, art_img=? WHERE art_id=?";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(query);
 		pst.setString(1, a.getNomArt());

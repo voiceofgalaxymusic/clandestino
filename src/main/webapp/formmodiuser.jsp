@@ -11,7 +11,7 @@
 		<label for="pass">Password</label>
 		<input type="text" class="input" name="pass"  value="" >*<br>
 		<label for="nombre">Nombre</label>
-		<input type="text" class="input" name="nombre"  value="" >*<br>
+		<input type="text" class="input" name="nomUser"  value="" >*<br>
 		<label for="pais">Pais</label>
 		<input type="text" class="input" name="pais"  value="" >*<br>
 		<label for="ciudad">Ciudad</label>
