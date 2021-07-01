@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <header>
-	<div class="logo">Clandestino</div>
+	<div class="logo" ><a href="index.jsp">Clandestino</a></div>
 	<input type="checkbox" class="checkbox" id="flag"/>
 	<label for="flag" class="menu-toogle"><span></span></label>
 	<nav>
