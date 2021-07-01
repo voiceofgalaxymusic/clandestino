@@ -28,11 +28,11 @@ public class UsuarioDAO {
 			u = new Usuario();
 			u.setNick(nick);
 			u.setPass(pass);
-			u.setNom("nom");
-			u.setRol("rol");
-			u.setCiu("ciu");
-			u.setPai("pai");
-			u.setImg("img");	
+			u.setNom(rs.getString("user_nom"));
+			u.setRol(rs.getString("user_rol"));
+			u.setCiu(rs.getString("user_ciu"));
+			u.setPai(rs.getString("user_pai"));
+			u.setImg(rs.getString("user_img"));	
 		}
 		
 		return u; 
@@ -80,7 +80,7 @@ public class UsuarioDAO {
 	}
 	public Usuario getUser(String userId) throws SQLException {
 		Usuario u = null;
-		String sql = "select * from departamento where codDepto = ?";
+		String sql = "select * from departamento where user_id = ?";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
 		pst.setString(1, userId);

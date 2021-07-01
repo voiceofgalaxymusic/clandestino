@@ -42,8 +42,8 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nick = request.getParameter("user_nick");
-		String pass = request.getParameter("user_pass");
+		String nick = request.getParameter("nick");
+		String pass = request.getParameter("pass");
 		
 		UsuarioDAO udao = new UsuarioDAO();
 		Usuario user = null;
@@ -55,7 +55,6 @@ public class Login extends HttpServlet {
 			if (user != null) {
 				
 				pagDest = "user.jsp";
-				
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("nick", user.getNom());
 				sesion.setAttribute("rol", user.getRol());	

@@ -7,7 +7,7 @@
 	<label for="flag" class="menu-toogle"><span></span></label>
 	<nav>
 		<ul>
-			<li><a href="#">Usuario</a>
+			<li><a href="user.jsp">Usuario</a>
 			<li><a href="#">Artistas</a>
 			<li><a href="#">Géneros</a>
 			<li><a href="#">Noticias</a>

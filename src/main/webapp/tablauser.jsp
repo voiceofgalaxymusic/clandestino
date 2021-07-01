@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.eoi.controladores.Conexion"%>
+<%@ page import="com.eoi.modelos.*"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,9 @@
 <title>Insert title here</title>
 </head>
 <script>
-function inFormModiuser() {
+function inFormModiuser(id) {
 	  document.getElementById("fomrmodiuser").style.left = "0px";
+	  document.getElementById("idvalue").value = id;
 	}
 	function outFormModiuser() {
 	  document.getElementById("fomrmodiuser").style.left = "-1300px";
@@ -22,7 +24,8 @@ function inFormModiuser() {
 <%  Connection con = Conexion.getInstance().getConnection();
 		String sql = "select * from t_user";
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql); %>
+		ResultSet rs = st.executeQuery(sql);
+		Usuario u;%>
 		<tr>
 			<th>ID</th>
 			<th>Roll</th>
@@ -42,24 +45,24 @@ function inFormModiuser() {
 			<td><%= rs.getString("user_pai") %></td>
 			<td><%= rs.getString("user_ciu") %></td>
 			<td><img src="<%= rs.getString("user_img") %>"></td>
-			<td><button onclick="inFormModiuser()"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
+			<td><button onclick="inFormModiuser(<%= rs.getString("user_id")%>)"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
 		</tr><%} %>
 	</table>
 	
 	<div id="formuser1"><div id="formuser2">
 	<div id="fomrmodiuser"><button class="botoncerrar" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button>
 		<div style="position:absolute;padding: 20px;">
-			<%String sql2 = "select * from t_user where user_id='1'";
+			<%String sql2 = "select * from t_user where user_id='?'";
 			Statement st2 = con.createStatement();
 			ResultSet rs2 = st2.executeQuery(sql2); 
 			while(rs2.next()){ %>
 				<img src="<%= rs2.getString("user_img") %>" style="width:200px;">
 			<%} %></div>
 		<form id="formiframeuser" action="Controlador" method="post" style="display: inline-blocK;">
-			<label for="iduser">ID del Usuario*</label>
-			<input type="text" class="input" name="iduser"  value="" style="width:50px;margin-right:318px;">
+			<label for="iduser">ID del Usuario</label>
+			<input id="idvalue" type="text" class="input" name="iduser" readonly value="" style="width:50px;margin-right:318px;">
 			<label for="rollUser">Roll*</label>
-			<input type="text" class="input" name="rollUser"  value="" ><br>
+			<input id="rollvalue" type="text" class="input" name="rollUser" readonly value="" ><br>
 			<label for="nick">Nick*</label>
 			<input type="text" class="input" name="nick"  value="" style="margin-right:250px;">
 			<label for="pass">Password*</label>

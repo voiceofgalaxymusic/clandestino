@@ -18,6 +18,7 @@ a{
 
 header{
 	background-image: linear-gradient(to right, #dadada, #525252);
+	overflow: hidden;
 }
 .logo {
 	font-size: 150px;
@@ -44,7 +45,7 @@ body{
 	height: 45px;
 	cursor: pointer;
 	right: 20px;
-	top: 190px;
+	top: 160px;
 }
 .menu-toogle span {
 	position: absolute;
@@ -74,13 +75,12 @@ body{
 }
 /*+++++++++++++++ NAV ++++++++++++++++++*/
 #flag:checked ~ nav{
-	top: 60px;
+	bottom: 0px;
 }
 nav{
 	height: 60px;
-	z-index:-1;
 	position: relative;
-	top: 0px;
+	bottom: -60px;
 	transition: all 0.5s ease;
 }
 /*++++++++++ ANIMATION HAMBUR +++++++++*/
@@ -167,7 +167,7 @@ table img{
 	max-height: 50px;
 }
 table th, td{
-	padding: 5px 40px;
+	padding: 5px 20px;
 	color: #fff;
 }
 table td button{
@@ -207,7 +207,7 @@ table tr .fa-trash{
 }
 /*   +++++++++++++++++++++++++++++++++++ iframe de las tablas   +++++++++++++++++++++++++++++++++++*/
 #iframeuser {
-	width: 1250px;
+	width: 70vw;
 	height: 300px;
 	margin: 0px auto 100px auto;
 	display: block
@@ -234,7 +234,7 @@ table tr .fa-trash{
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
 #formiframeuser{
-	width: 1150px;
+	width: 90vw;
 	height: 240px;
 	margin: auto;
 	padding: 50px 40px;
@@ -260,12 +260,40 @@ table tr .fa-trash{
 #formuser2{
 	position: relative;
 }
+.input {
+	background-color: #525252;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: solid 1px #fff;
+	color: white;
+	height: 20px;
+}
 .botoncerrar{
 	position: absolute;
-	right: 0px;
+	right: 20px;
+	top: 10px;
 	background: none;
 	border: none;
 	cursor: pointer;
+}
+.botonform{
+	border: none;
+	font-size: 30px;
+	padding: 20px;
+	font-family: 'Stardos Stencil', cursive;
+	margin-top: 20px;
+	transform: rotate(5deg);
+	cursor: pointer;
+	position: absolute;
+	left: 200px;
+}
+.botonform:hover{
+	background-color: #525252;
+	color: #fff;
+	transition:0.3s;
+	padding: 30px;
+	transform: rotate(-5deg);
 }
 .botoncerrar:hover{
 	color: white;
