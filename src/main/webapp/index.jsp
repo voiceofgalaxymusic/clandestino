@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.eoi.controladores.Conexion"%>
+<%@ page import="com.eoi.controladores.*"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
@@ -27,6 +27,7 @@
 		<%=rs.getString("art_nom") %>
 		<%=rs.getString("art_gen") %>
 		<img src="<%= rs.getString("art_img") %>">
+		<a href="Controlador?opcion=art&idart=<%=rs.getString("art_id")%>">Aquí</a>
 	<%}%>
 </div>
 	
