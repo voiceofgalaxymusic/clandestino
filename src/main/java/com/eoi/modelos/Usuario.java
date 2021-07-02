@@ -3,7 +3,7 @@ package com.eoi.modelos;
 public class Usuario {
 	private String id;
 	private String rol;
-	private String nick;
+	private String nik;
 	private String nom;
 	private String pass;
 	private String pai;
@@ -12,21 +12,21 @@ public class Usuario {
 	public Usuario() {
 		super();
 	}
-	public Usuario(String rol, String nick, String nom, String pass, String pai, String ciu, String img) {
+	public Usuario(String rol, String nik, String nom, String pass, String pai, String ciu, String img) {
 		super();
 		this.rol = rol;
-		this.nick = nick;
+		this.nik = nik;
 		this.nom = nom;
 		this.pass = pass;
 		this.pai = pai;
 		this.ciu = ciu;
 		this.img = img;
 	}
-	public Usuario(String id, String rol, String nick, String nom, String pass, String pai, String ciu, String img) {
+	public Usuario(String id, String rol, String nik, String nom, String pass, String pai, String ciu, String img) {
 		super();
 		this.id = id;
 		this.rol = rol;
-		this.nick = nick;
+		this.nik = nik;
 		this.nom = nom;
 		this.pass = pass;
 		this.pai = pai;
@@ -45,11 +45,11 @@ public class Usuario {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
-	public String getNick() {
-		return nick;
+	public String getNik() {
+		return nik;
 	}
-	public void setNick(String nick) {
-		this.nick = nick;
+	public void setNik(String nik) {
+		this.nik = nik;
 	}
 	public String getNom() {
 		return nom;
@@ -83,7 +83,7 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", rol=" + rol + ", nick=" + nick + ", nom=" + nom + ", pass=" + pass + ", pai="
+		return "Usuario [id=" + id + ", rol=" + rol + ", nick=" + nik + ", nom=" + nom + ", pass=" + pass + ", pai="
 				+ pai + ", ciu=" + ciu + ", img=" + img + "]";
 	}
 	

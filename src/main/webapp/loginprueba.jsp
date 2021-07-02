@@ -14,8 +14,8 @@
 		<h1>Regístrese como usuario</h1>
 		<label for="roll">Roll</label>
 		<input type="text" class="input" name="roll" value="">*<br>
-		<label for="nick">Nickname</label>
-		<input type="text" class="input" name="nick" value="">*<br>
+		<label for="nik">Nickname</label>
+		<input type="text" class="input" name="nik" value="">*<br>
 		<label for="nom">Nombre</label>
 		<input type="text" class="input" name="nomuser" value="">*<br>
 		<label for="pass">Contraseña</label>
@@ -30,8 +30,8 @@
 	</form>
 	<form action="Login" method="post">
 		<h1>Login usuario</h1>
-		<label for="nick">Nickname</label>
-		<input type="text" class="input" name="nick" value="">*<br>
+		<label for="nik">Nickname</label>
+		<input type="text" class="input" name="nik" value="">*<br>
 		<label for="pass">Contraseña</label>
 		<input type="password" class="input" name="pass" value="">*<br>
 		<input type="submit" value="Login">
