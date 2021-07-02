@@ -49,78 +49,35 @@
 		<img src="<%= rs.getString("user_img") %>">
 		<div class="nameuser">
 		<h1><%= rs.getString("user_nik") %></h1>
-		<h1><%= rs.getString("user_nom") %></h1>
+		<h2><%= rs.getString("user_nom") %></h2>
 		</div>
 		<div class="lugaruser">
 		<h1><%= rs.getString("user_ciu") %></h1>
-		<h1><%= rs.getString("user_pai") %></h1>
+		<h2><%= rs.getString("user_pai") %></h2>
 		</div>
 		<%} %>
 	</div>
+	<div class="bodysection">
 	<!--  +++++++++++++++++++++++++++++++++++  tabla de usuarios +++++++++++++++++++++++++++++++++++++ -->
+	<h2>Usuarios</h2>
 	<button class="botoncrear" onclick="inFormCrearuser()"><i class="fa fa-user-plus"></i></button>
-	<table>
-	<%  sql = "select * from t_user";
-		st = con.createStatement();
-		rs = st.executeQuery(sql); %>
-		<caption><b>Usuarios</b></caption>
-		<tr>
-			<th>ID</th>
-			<th>Roll</th>
-			<th>Nick</th>
-			<th>Nombre</th>
-			<th>Pais</th>
-			<th>Ciudad</th>
-			<th>Avatar</th>
-			<th>Acción</th>
-		</tr>
-		<% while(rs.next()){ %>
-		<tr>
-			<td><%= rs.getString("user_id") %></td>
-			<td><%= rs.getString("user_rol") %></td>
-			<td><%= rs.getString("user_nik") %></td>
-			<td><%= rs.getString("user_nom") %></td>
-			<td><%= rs.getString("user_pai") %></td>
-			<td><%= rs.getString("user_ciu") %></td>
-			<td><img src="<%= rs.getString("user_img") %>"></td>
-			<td><button onclick="inFormModiuser()"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
-		</tr><%} %>
-	</table>
-	<div id="formuser1"><div id="formuser2">
-	<div id="formcreauser"><button class="botoncerrar" onclick="outFormCrearuser()"><i class="fa fa-times-circle"></i></button><%@include file="formcreauser.jsp" %></div>
-	<div id="fomrmodiuser"><button class="botoncerrar" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button><%@include file="formmodiuser.jsp" %></div></div></div>
+	<iframe id="iframeuser" src="tablauser.jsp" ></iframe>
 	
 	<!--  +++++++++++++++++++++++++++++++++++  tabla de artistas +++++++++++++++++++++++++++++++++++++ -->
+	<h2>Artistas</h2>
 	<button class="botoncrear" onclick="inFormCrearart()"><i class="fa fa-user-plus"></i></button>
-	<table>
-	<%
-		sql = "select * from t_art ";
-		st = con.createStatement();
-		rs = st.executeQuery(sql);
-	%>
-		<caption><b>Artistas</b></caption>
-		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Género</th>
-			<th>Avatar</th>
-			<th>Acción</th>
-		</tr>
-		<% while(rs.next()){ %>
-		<tr>
-			<td><%=rs.getString("art_id") %></td>
-			<td><%=rs.getString("art_nom") %></td>
-			<td><%=rs.getString("art_gen") %></td>
-			<td><img src="<%= rs.getString("art_img") %>"></td>
-			<td><button onclick="inFormModiart()"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
-		</tr><%} %>
-	</table>
+	<iframe id="iframeart" src="tablaart.jsp" ></iframe>
+	
+	<!--  +++++++++++++++++++++++++++++++++++  formularios  +++++++++++++++++++++++++++++++++++++ -->
 	
 	<div id="formuser1"><div id="formuser2">
-	<div id="fomrmodiart"><button class="botoncerrar" onclick="outFormModiart()"><i class="fa fa-times-circle"></i></button><%@include file="formmodiart.jsp" %></div>
-	<div id="formcrearart"><button class="botoncerrar" onclick="outFormCrearart()"><i class="fa fa-times-circle"></i></button><%@include file="formcrearart.jsp" %></div>
+	<div id="formcreauser"><button class="botoncerrar" onclick="outFormCrearuser()"><i class="fa fa-times-circle"></i></button><%@include file="formcreauser.jsp" %></div>
 	</div></div>
 	
+	<div id="formuser1"><div id="formuser2">
+	<div id="formcrearart"><button class="botoncerrar" onclick="outFormCrearart()"><i class="fa fa-times-circle"></i></button><%@include file="formcrearart.jsp" %></div>
+	</div></div>
+	</div>
 	</section>
 </body>
 </html>

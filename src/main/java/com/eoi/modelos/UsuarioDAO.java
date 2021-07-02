@@ -24,6 +24,7 @@ public class UsuarioDAO {
 		rs = pst.executeQuery();
 		
 		if (rs.next()) {
+
 				u = new Usuario();
 				u.setNik(nik);
 				u.setPass(pass);
@@ -79,7 +80,7 @@ public class UsuarioDAO {
 
 	public Usuario getUser(String userId) throws SQLException {
 		Usuario u = null;
-		String sql = "select * from departamento where codDepto = ?";
+		String sql = "select * from departamento where user_id = ?";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
 		pst.setString(1, userId);
