@@ -27,11 +27,11 @@ public class Artista {
 	}
 	
 	public String getidart() {
-		return nomart;
+		return idart;
 	}
 
-	public void setidart(String nomArt) {
-		this.nomart = nomArt;
+	public void setidart(String idart) {
+		this.idart = idart;
 	}
 
 	public String getNomArt() {

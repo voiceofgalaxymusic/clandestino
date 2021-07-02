@@ -63,10 +63,10 @@ public class ArtistaDAO {
 		if (rs.next()) {
 
 			a = new Artista();
-			a.setidart(rs.getString("ID"));
-			a.setNomArt(rs.getString("Nombre"));
-			a.setGenero(rs.getString("Genero"));
-			a.setImg(rs.getString("Imagen"));
+			a.setidart(rs.getString("art_id"));
+			a.setNomArt(rs.getString("art_nom"));
+			a.setGenero(rs.getString("art_gen"));
+			a.setImg(rs.getString("art_img"));
 
 		}
 

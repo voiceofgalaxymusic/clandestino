@@ -324,7 +324,9 @@ form input{
 
 /*+++++++++++++++++++++++++ Pagina de Usuario ++++++++++++++++++++++*/
 section{
-	margin: 60px;
+	width: 85vw;
+	margin: auto;
+	margin-top: 50px;
 	padding: 50px;
 	background-color: white;
 }
@@ -362,6 +364,70 @@ section h2, button{
 }
 .bodysection{
 	text-align: center;
+}
+/*++++++++++++++++++++++++++++ página de artista +++++++++++++++++++++++++++*/
+.headart {
+	position: relative;
+	margin-bottom: 50px;
+	width: 100%;
+	height: 550px;
+}
+.headart img{
+	display: inline-block;
+}
+.headart img {
+	max-width: 65vw;
+	max-height: 530px;
+}
+.infoart{
+	display:inline-block;
+	position:absolute;
+	bottom:0px;
+	right:10vw;
+	background-color: rgba(82, 82, 82, 0.3);
+	text-align: right;
+}
+.infoart h1{
+	font-size: 80px;
+}
+.bodyart{
+	text-align: center;
+}
+.discosart {
+	margin: 50px;
+	display: inline-block;
+	position: relative;
+	width: 250px;
+}
+.discosart *{
+	display: block;
+}
+.discosart img{
+	width: 200px;
+	margin: auto;
+}
+.discosart h2:nth-child(3) , .fa-euro-sign{
+	display: inline-block;
+	margin: 0px 5px;
+}
+.discosart .fa-euro-sign{
+	font-size: 25px;
+}
+.botoncarrito{
+	background: none;
+	border: none;
+	position: absolute;
+	left: 90px;
+	cursor: pointer;
+}
+.botoncarrito .fa-shopping-cart{
+	font-size: 50px;
+	display: block;
+}
+.botoncarrito .fa-shopping-cart:hover{
+	transition: 0.5s;
+	font-size: 60px;
+	color: #a8199f;
 }
 
 

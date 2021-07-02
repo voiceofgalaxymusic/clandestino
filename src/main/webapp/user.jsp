@@ -15,26 +15,17 @@
 <!-- +++++++++++++++++++++++++++++++++++++ user ++++++++++++++++++++++++++++++++++++++ -->
 	function inFormCrearuser() {
 	  document.getElementById("formcreauser").style.left = "200px";
-	}function outFormCrearuser() {
+	}
+	function outFormCrearuser() {
 	  document.getElementById("formcreauser").style.left = "-800px";
 	}
 	
-	function inFormModiuser() {
-	  document.getElementById("fomrmodiuser").style.left = "200px";
-	}function outFormModiuser() {
-	  document.getElementById("fomrmodiuser").style.left = "-800px";
-	}
 	<!-- ++++++++++++++++++++++++++++++ artista ++++++++++++++++++++++++++++++++++++++ -->
 	function inFormCrearart() {
 	  document.getElementById("formcrearart").style.left = "200px";
-	}function outFormCrearart() {
-	  document.getElementById("formcrearart").style.left = "-800px";
 	}
-	
-	function inFormModiart() {
-	  document.getElementById("fomrmodiart").style.left = "200px";
-	}function outFormModiart() {
-	  document.getElementById("fomrmodiart").style.left = "-800px";
+	function outFormCrearart() {
+	  document.getElementById("formcrearart").style.left = "-800px";
 	}
 </script>
 <body>

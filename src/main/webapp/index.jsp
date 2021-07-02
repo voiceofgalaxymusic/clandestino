@@ -17,5 +17,18 @@
 <a style="color:white; display:inline-block; font-size: 20px;" href="artist.jsp">Página del Artista</a>
 <a style="color:white; display:inline-block; font-size: 20px;" href="loginprueba.jsp">Página del Login</a></div>
 
+<div class="bodycatal">
+	<% Connection con = Conexion.getInstance().getConnection();
+	String sql = "select * from t_art ";
+	Statement st = con.createStatement();
+	ResultSet rs = st.executeQuery(sql); %>
+	<% while(rs.next()){ %>
+		<%=rs.getString("art_id") %>
+		<%=rs.getString("art_nom") %>
+		<%=rs.getString("art_gen") %>
+		<img src="<%= rs.getString("art_img") %>">
+	<%}%>
+</div>
+	
 </body>
 </html>

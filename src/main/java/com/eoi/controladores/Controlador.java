@@ -29,7 +29,9 @@ public class Controlador extends HttpServlet {
 		String iduser = request.getParameter("iduser");
 		String idart = request.getParameter("idart");
 		String iddisc = request.getParameter("iddisc");
-
+		
+		Artista art = null;
+		
 		UsuarioDAO udao = new UsuarioDAO();
 		ArtistaDAO adao = new ArtistaDAO();
 		DiscoDAO ddao = new DiscoDAO();
@@ -37,6 +39,15 @@ public class Controlador extends HttpServlet {
 		String destPage = "prueba.jsp";
 
 		switch (opcion) {
+		case "art":
+			destPage = "artist.jsp";
+			try {
+				art = adao.getArtista(idart);
+				request.setAttribute("art",art);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			break;
 		case "borrarUser":
 			try {
 				udao.borrarUser(iduser);

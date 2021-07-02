@@ -51,6 +51,7 @@ function inFormModiuser(id) {
 	
 	<div id="formuser1"><div id="formuser2">
 	<div id="fomrmodiuser"><button class="botoncerrar" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button>
+		
 		<div style="position:absolute;padding: 20px;">
 			<%String sql2 = "select * from t_user where user_id='?'";
 			Statement st2 = con.createStatement();
@@ -58,6 +59,7 @@ function inFormModiuser(id) {
 			while(rs2.next()){ %>
 				<img src="<%= rs2.getString("user_img") %>" style="width:200px;">
 			<%} %></div>
+			
 		<form id="formiframeuser" action="Controlador" method="post" style="display: inline-blocK;">
 			<label for="iduser">ID del Usuario</label>
 			<input id="idvalue" type="text" class="input" name="iduser" readonly value="" style="width:50px;margin-right:318px;">
