@@ -13,12 +13,13 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
+
 	<div class="bodysection" style="margin-top:50px;">
 	<form action="Controlador" method="post" style="display:inline-block;background-color:#a8199f; text-align: right;padding: 50px;position:relative;">
 		<h1 style="margin-bottom:50px; color:white;">Regístrese como usuario</h1>
 		<input type="hidden" class="input" name="rollUser" value="client">
-		<label for="nick">Nickname *</label>
-		<input type="text" class="input" name="nick" value="">
+		<label for="nik">Nickname *</label>
+		<input type="text" class="input" name="nik" value="">
 		<label for="pass">Contraseña *</label>
 		<input type="password" class="input" name="pass" value=""><br>
 		<label for="nom">Nombre</label>
@@ -31,10 +32,11 @@
 		<input type="text" class="input" name="imguser" value="" style="width:300px"><br>
 		<input class="botonform" type="submit" value="Crear usuario">
 	</form>
+
 	<form action="Login" method="post" style="display: inline-block;background-color:#a8199f; text-align: right;padding: 50px;position:relative;">
 		<h1 style="margin-bottom: 50px; color:white;">Iniciar sesión</h1>
-		<label for="nick">Nickname</label>
-		<input type="text" class="input" name="nick" value="">*<br>
+		<label for="nik">Nickname</label>
+		<input type="text" class="input" name="nik" value="">*<br>
 		<label for="pass">Contraseña</label>
 		<input type="password" class="input" name="pass" value="">*<br>
 		<input class="botonform" type="submit" value="Login">

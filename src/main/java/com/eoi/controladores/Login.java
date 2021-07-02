@@ -42,26 +42,29 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nick = request.getParameter("nick");
-		String pass = request.getParameter("pass");
+
+		String nik = request.getParameter("user_nik");
+		String pass = request.getParameter("user_pass");
 		
 		UsuarioDAO udao = new UsuarioDAO();
-		Usuario user = null;
+		Usuario user;
 		String pagDest = "index.jsp";
 		
 		try {
-			user = udao.login(nick, pass);
+			user = udao.login(nik, pass);
 			
 			if (user != null) {
 				
 				pagDest = "user.jsp";
 				HttpSession sesion = request.getSession();
-				sesion.setAttribute("nick", user.getNom());
-				sesion.setAttribute("rol", user.getRol());	
+				sesion.setAttribute("user_nik", user.getNom());
+				sesion.setAttribute("user_rol", user.getRol());	
 			} else {
-				
-				String msgerr = "Contraseña y/o Nick incorrecto. Por favor, inténtelo de nuevo.";
+				user = null; 
+				String msgerr = "Contraseña y/o Nickname incorrecto. Por favor, inténtelo de nuevo.";
 				request.setAttribute("msgerr", msgerr);
+				
+				System.out.println(request.getParameter(msgerr));
 			}
 			
 		} catch (SQLException e) {
