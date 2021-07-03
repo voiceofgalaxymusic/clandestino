@@ -15,7 +15,8 @@
 <div style="margin:20px; width: 200px; height: 100px;">
 <a style="color:white; display:inline-block; font-size: 20px;" href="user.jsp">Página del Usuario</a>
 <a style="color:white; display:inline-block; font-size: 20px;" href="artist.jsp">Página del Artista</a>
-<a style="color:white; display:inline-block; font-size: 20px;" href="loginprueba.jsp">Página del Login</a></div>
+<a style="color:white; display:inline-block; font-size: 20px;" href="loginprueba.jsp">Página del Login</a>
+<a style="color:white; display:inline-block; font-size: 20px;" href="/Clandestino/ServletVisitas">Servlet de Visitas</a></div>
 
 <div class="bodycatal">
 	<% Connection con = Conexion.getInstance().getConnection();
