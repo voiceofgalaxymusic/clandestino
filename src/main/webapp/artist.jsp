@@ -46,11 +46,16 @@
 					<img src="<%=rs.getString("disc_img")%>">
 					<h2><%=rs.getString("disc_nom")%></h2>
 					<h2><%=rs.getString("disc_pre")%></h2><i class="fa fa-euro-sign"></i>
+					<form action="ServletCarritoDiscos" method="post">
 					<button class="botoncarrito"><i class="fas fa-shopping-cart"></i></button>
+					<input type="hidden" value='<%=rs.getString("disc_id")%>' name="botoncarrito">
+					<input type="submit" value="botoncarrito">
+					</form>
 				</div>
 				<%
 				}
 				%>
+				
 		</div>
 	</section>
 </body>
