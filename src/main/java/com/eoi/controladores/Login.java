@@ -46,32 +46,32 @@ public class Login extends HttpServlet {
 		String nik = request.getParameter("nik");
 		String pass = request.getParameter("pass");
 		
+		System.out.println("DATOS EN FORM: " + nik + " " + pass);
+		
 		UsuarioDAO udao = new UsuarioDAO();
 		Usuario user;
 		String pagDest = "index.jsp";
 		
-		try {
 			user = udao.login(nik, pass);
+			System.out.println(user);
 			
-			if (user != null) {
+			if (user == null) {
 				
-				pagDest = "user.jsp";
+				pagDest = "loginprueba.jsp";
 				
-				HttpSession sesion = request.getSession();
-				sesion.setAttribute("user_nik", user.getNom());
-				request.setAttribute("user", user);
-				sesion.setAttribute("user_rol", user.getRol());	
-			} else {
-				user = null; 
 				String msgerr = "Contraseña y/o Nickname incorrecto. Por favor, inténtelo de nuevo.";
 				request.setAttribute("msgerr", msgerr);
 				
 				System.out.println(request.getParameter(msgerr));
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+				
+				/*HttpSession sesion = request.getSession();
+				sesion.setAttribute("user_nik", user.getNom());
+				request.setAttribute("user", user);
+				sesion.setAttribute("user_rol", user.getRol());	*/
+			} /*else {
+				pagDest = "user.jsp";
+				
+			}*/
 		
 	
 		RequestDispatcher rd = request.getRequestDispatcher(pagDest);

@@ -12,34 +12,41 @@ public class UsuarioDAO {
 	private PreparedStatement pst;
 	private ResultSet rs;
 
-	public Usuario login(String nik, String pass) throws SQLException {
-		Usuario u=null;
+	public Usuario login(String nik, String pass) {
+		Usuario u;
 		u = new Usuario();
-		con =  Conexion.getInstance().getConnection();
-		String query = "SELECT * FROM t_user WHERE user_nik=? and user_pass=?";
 		
-		pst = con.prepareStatement(query);
-		pst.setString(1, nik);
-		pst.setString(2, pass);
-		rs = pst.executeQuery();
-		
-		if (rs.next()) {
-				
+		System.out.println("DATOS AL PASAR MÉTODO: " + nik + " " + pass);
+
+		try {
+			con = Conexion.getInstance().getConnection();
+			String query = "SELECT * FROM t_user WHERE user_nik=? and user_pass=?";
+			pst = con.prepareStatement(query);
+			pst.setString(1, nik);
+			pst.setString(2, pass);
+			rs = pst.executeQuery();
+			
+			
+			if (rs.next()) {
+
 				u.setNik(rs.getString("user_nik"));
 				u.setPass(rs.getString("user_pass"));
 				u.setNom(rs.getString("user_nom"));
 				u.setRol(rs.getString("user_rol"));
 				u.setCiu(rs.getString("user_ciu"));
 				u.setPai(rs.getString("user_pai"));
-				u.setImg(rs.getString("user_img"));	
-			
+				u.setImg(rs.getString("user_img"));
 			}
-		
-		rs.close();
-		pst.close();
-		con.close();
-		
-	return u;
+			
+			/*rs.close(); pst.close(); con.close();*/
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+		System.out.println("DATOS DE USUARIO DE RS. " + u);
+		return u;
 	}
 
 	public void altaUser(Usuario u) throws SQLException {
@@ -53,7 +60,7 @@ public class UsuarioDAO {
 		pst.setString(5, u.getPai());
 		pst.setString(6, u.getCiu());
 		pst.setString(7, u.getImg());
-	
+
 		pst.executeUpdate();
 	}
 
