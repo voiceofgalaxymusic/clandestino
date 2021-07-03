@@ -45,6 +45,14 @@
 		<div class="lugaruser">
 		<h1><%= rs.getString("user_ciu") %></h1>
 		<h2><%= rs.getString("user_pai") %></h2>
+		<br>
+		<!--  +++++++++++++++++++++++++++++++++++  Botón cerrar Sesion +++++++++++++++++++++++++++++++++++++ -->
+		<!--  HE INTENTADO CREAR EL BOTÓN BONITO PERO NO -->
+		<form action="Logout" method="post">
+		<button class="cerrarsesion"><i class="fas fa-sign-out-alt"></i></button>
+		<input type="submit" value="Salir"> 
+		</form>
+		
 		</div>
 		<%} %>
 	</div>

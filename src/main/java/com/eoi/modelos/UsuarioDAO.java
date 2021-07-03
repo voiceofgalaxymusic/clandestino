@@ -13,28 +13,29 @@ public class UsuarioDAO {
 	private ResultSet rs;
 
 	public Usuario login(String nik, String pass) {
-		Usuario u;
-		u = new Usuario();
-		
 		System.out.println("DATOS AL PASAR MÉTODO: " + nik + " " + pass);
+		Usuario u = null;
+		
 
 		try {
+			
+			String query = "SELECT * FROM t_user WHERE user_nik = ? and user_pass = ?";
 			con = Conexion.getInstance().getConnection();
-			String query = "SELECT * FROM t_user WHERE user_nik=? and user_pass=?";
 			pst = con.prepareStatement(query);
 			pst.setString(1, nik);
 			pst.setString(2, pass);
 			rs = pst.executeQuery();
-			
+			System.out.println(pst);
 			
 			if (rs.next()) {
-
+				u = new Usuario();
+				u.setId(rs.getString("user_id"));
+				u.setRol(rs.getString("user_rol"));
 				u.setNik(rs.getString("user_nik"));
 				u.setPass(rs.getString("user_pass"));
 				u.setNom(rs.getString("user_nom"));
-				u.setRol(rs.getString("user_rol"));
-				u.setCiu(rs.getString("user_ciu"));
 				u.setPai(rs.getString("user_pai"));
+				u.setCiu(rs.getString("user_ciu"));
 				u.setImg(rs.getString("user_img"));
 			}
 			

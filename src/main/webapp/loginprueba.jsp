@@ -40,7 +40,7 @@
 		<label for="pass">Contraseña</label>
 		<input type="password" class="input" name="pass" value="">*<br>
 		<input class="botonform" type="submit" value="Login">
-		<span style="color: red"><%=(request.getAttribute("msgerr") == null) ? "" : request.getAttribute("msgerr")%></span>
+		<span style="color: blue"><%=(request.getAttribute("msgerr") == null) ? "" : request.getAttribute("msgerr")%></span>
 	</form></div>
 </body>
 </html>

@@ -64,14 +64,14 @@ public class Login extends HttpServlet {
 				
 				System.out.println(request.getParameter(msgerr));
 				
-				/*HttpSession sesion = request.getSession();
-				sesion.setAttribute("user_nik", user.getNom());
+				HttpSession sesion = request.getSession();
+				/*sesion.setAttribute("user_nik", user.getNom());
 				request.setAttribute("user", user);
-				sesion.setAttribute("user_rol", user.getRol());	*/
-			} /*else {
+				sesion.setAttribute("user_rol", user.getRol());*/
+			} else {
 				pagDest = "user.jsp";
 				
-			}*/
+			}
 		
 	
 		RequestDispatcher rd = request.getRequestDispatcher(pagDest);

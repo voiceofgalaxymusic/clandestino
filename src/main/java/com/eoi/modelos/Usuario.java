@@ -9,6 +9,7 @@ public class Usuario {
 	private String pai;
 	private String ciu;
 	private String img;
+	
 	public Usuario() {
 		super();
 	}
@@ -83,7 +84,7 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", rol=" + rol + ", nick=" + nik + ", nom=" + nom + ", pass=" + pass + ", pai="
+		return "Usuario [id=" + id + ", rol=" + rol + ", nik=" + nik + ", pass=" + pass + ", nom=" + nom + ", pai="
 				+ pai + ", ciu=" + ciu + ", img=" + img + "]";
 	}
 	
