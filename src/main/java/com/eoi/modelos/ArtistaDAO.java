@@ -24,6 +24,7 @@ public class ArtistaDAO {
 
 		// AL TRABAJAR CON INSERT O UPDATE, TENEMOS QUE UTILIZAR ESE Y NO EXECUTEQUERY
 		pst.executeUpdate();
+		System.out.println("Artista ("+a.getNomArt()+") creado");
 	}
 
 	public void modificarArtista(Artista a) throws SQLException {

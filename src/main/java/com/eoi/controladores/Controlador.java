@@ -40,10 +40,10 @@ public class Controlador extends HttpServlet {
 
 		switch (opcion) {
 		case "art":
-			destPage = "artist.jsp";
 			try {
 				art = adao.getArtista(idart);
 				request.setAttribute("art",art);
+				destPage = "artist.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -51,6 +51,7 @@ public class Controlador extends HttpServlet {
 		case "borrarUser":
 			try {
 				udao.borrarUser(iduser);
+				destPage = "tablauser.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -58,6 +59,7 @@ public class Controlador extends HttpServlet {
 		case "borrarArt":
 			try {
 				adao.borrarArtista(idart);
+				destPage = "tablaart.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -65,6 +67,7 @@ public class Controlador extends HttpServlet {
 		case "borrarDisc":
 			try {
 				ddao.borrarDisc(iddisc);
+				destPage = "tabladisc.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -123,6 +126,7 @@ public class Controlador extends HttpServlet {
 		case "modiUser":
 			try {
 				udao.modificarUser(u2);
+				destPage = "tablauser.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -139,6 +143,7 @@ public class Controlador extends HttpServlet {
 		case "modiArt":
 			try {
 				adao.modificarArtista(a2);
+				destPage = "tablaart.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -154,6 +159,7 @@ public class Controlador extends HttpServlet {
 		case "modiDisc":
 			try {
 				ddao.modificarDisc(d2);
+				destPage = "tabladisc.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

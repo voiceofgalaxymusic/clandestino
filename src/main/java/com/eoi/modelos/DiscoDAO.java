@@ -22,20 +22,23 @@ public class DiscoDAO {
 		pst.setString(5, d.getDisc_pre());
 		
 		pst.executeUpdate();
+		System.out.println("Disco ("+d.getDisc_nom()+") creado");
 	}
 	
 	public void modificarDisc(Disco d) throws SQLException {
 		String sql= "UPDATE t_disc SET disc_nom = ?, disc_idart = ?, disc_img = ?, disc_pre = ? WHERE disc_id = ?";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
-		
-		pst.setString(1, d.disc_id);
-		pst.setString(2, d.getDisc_nom());
-		pst.setString(3, d.getDisc_idart());
-		pst.setString(4, d.getDisc_img());
-		pst.setString(5, d.getDisc_pre());
+
+		pst.setString(1, d.getDisc_nom());
+		pst.setString(2, d.getDisc_idart());
+		pst.setString(3, d.getDisc_img());
+		pst.setString(4, d.getDisc_pre());
+		pst.setString(5, d.getDisc_id());
 		
 		pst.executeUpdate();
+
+		System.out.println("Disco ("+d.getDisc_id()+") modificado");
 	}
 	
 	public void borrarDisc(String disc_id) throws SQLException {
@@ -46,6 +49,7 @@ public class DiscoDAO {
 		pst.setString(1, disc_id);
 		
 		pst.executeUpdate();
+		System.out.println("Disco ("+disc_id+") borrado");
 	}
 	
 	public Disco getDisc(String disc_id) throws SQLException {

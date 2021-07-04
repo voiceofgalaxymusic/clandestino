@@ -12,9 +12,11 @@
 <title>Insert title here</title>
 </head>
 <script>
-	function inFormModiart() {
+	function inFormModiart(id) {
 	  document.getElementById("fomrmodiart").style.left = "0";
-	}function outFormModiart() {
+	  document.getElementById("idvalue").value = id;
+	}
+	function outFormModiart() {
 	  document.getElementById("fomrmodiart").style.left = "-900px";
 	}
 </script>
@@ -36,14 +38,32 @@
 			<td><%=rs.getString("art_nom") %></td>
 			<td><%=rs.getString("art_gen") %></td>
 			<td><div style="background-image:url(<%= rs.getString("art_img") %>)"></div></td>
-			<td><button onclick="inFormModiart()"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
+			<td>
+				<button onclick="inFormModiart(<%=rs.getString("art_id") %>)"><i class="fa fa-edit"></i></button>
+				<form class="formborrar"action="Controlador" method="get">
+					<button><i class="fa fa-trash"></i></button>
+					<input type="hidden" name="idart" value="<%= rs.getString("art_id")%>">
+					<input type="hidden" name="opcion" value="borrarArt">
+				</form>
+			</td>
 		</tr><%} %>
 	</table>
 	
-	<div id="formuser1"><div id="formuser2">
+	<div id="formuser1">
 		<div id="fomrmodiart">
 			<button class="botoncerrar cerr2" onclick="outFormModiart()"><i class="fa fa-times-circle"></i></button>
-			<%@include file="formmodiart.jsp" %>
+			<form id="formiframeart" action="Controlador" method="post" style="display: inline-blocK;">
+				<label for="idart">Id Artista*</label>
+				<input id="idvalue" type="text" class="input" name="idart" readonly value="" ><br>
+				<label for="nomart">Nombre*</label>
+				<input type="text" class="input" name="nomart"  value="" ><br>
+				<label for="geneart">Género</label>
+				<input type="text" class="input" name="geneart"  value="" ><br>
+				<label for="imgart">Imagen</label>
+				<input type="text" class="input" name="imgart"  value="" ><br>
+				<input type="hidden" name="opcion" value="modiArt">
+				<input type="submit" class="botonform2" value="Modificar">
+			</form>
 		</div>
-	</div></div>
+	</div>
 </html>

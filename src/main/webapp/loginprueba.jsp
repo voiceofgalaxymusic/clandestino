@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.eoi.controladores.*"%>
-<%@ page import="com.eoi.modelos.*"%>
+<%@ page import="javax.servlet.*" %>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>

@@ -45,16 +45,19 @@
 			<td><%= rs.getString("user_pai") %></td>
 			<td><%= rs.getString("user_ciu") %></td>
 			<td><div style="background-image:url(<%= rs.getString("user_img") %>)"></div></td>
-			<td><button onclick="inFormModiuser(<%= rs.getString("user_id")%>)"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
+			<td>
+				<button onclick="inFormModiuser(<%= rs.getString("user_id")%>)"><i class="fa fa-edit"></i></button>
+				<form class="formborrar"action="Controlador" method="get">
+					<button><i class="fa fa-trash"></i></button>
+					<input type="hidden" name="iduser" value="<%= rs.getString("user_id")%>">
+					<input type="hidden" name="opcion" value="borrarUser">
+				</form>
+			</td>
 		</tr><%} %>
 	</table>
 	
-	<div id="formuser1"><div id="formuser2">
+	<div id="formuser1">
 	<div id="fomrmodiuser"><button class="botoncerrar cerr2" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button>
-		
-		<div style="position:absolute;padding: 20px;">
-		</div>
-			
 		<form id="formiframeuser" action="Controlador" method="post" style="display: inline-blocK;">
 			<label for="iduser">ID del Usuario</label>
 			<input id="idvalue" type="text" class="input" name="iduser" readonly value="" style="width:50px;margin-right:318px;">
@@ -74,6 +77,6 @@
 			<input type="text" class="input" name="imguser"  value="" ><br>
 			<input type="hidden" name="opcion" value="modiUser">
 			<input type="submit" class="botonform2" value="Modificar">
-		</form></div></div></div>
+		</form></div></div>
 	
 </html>

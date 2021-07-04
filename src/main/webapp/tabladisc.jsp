@@ -41,27 +41,30 @@
 			<td><%= rs.getString("disc_idart") %></td>
 			<td><div style="background-image:url(<%= rs.getString("disc_img") %>)"></div></td>
 			<td><%= rs.getString("disc_pre") %></td>
-			<td><button onclick="inFormModiuser(<%= rs.getString("disc_id")%>)"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
+			<td>
+			<button onclick="inFormModiuser(<%= rs.getString("disc_id")%>)"><i class="fa fa-edit"></i></button>
+				<form class="formborrar"action="Controlador" method="get">
+					<button><i class="fa fa-trash"></i></button>
+					<input type="hidden" name="iddisc" value="<%= rs.getString("disc_id")%>">
+					<input type="hidden" name="opcion" value="borrarDisc">
+				</form>
+			</td>
 		</tr><%} %>
 	</table>
 	
 	<div id="formuser1"><div id="formuser2">
 	<div id="fomrmodiuser"><button class="botoncerrar cerr2" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button>
-		
-		<div style="position:absolute;padding: 20px;">
-		</div>
-			
 		<form id="formiframeuser" action="Controlador" method="post" style="display: inline-blocK;">
 			<label for="iddisc">ID del Disco</label>
 			<input id="idvalue" type="text" class="input" name="iddisc" readonly value="">
 			<label for="nomdisc">Nombre</label>
 			<input type="text" class="input" name="nomdisc"  value="" ><br>
-			<label for="idart">ID Artista</label>
-			<input type="text" class="input" name="idart"  value="">
+			<label for="idartdisc">ID Artista</label>
+			<input type="text" class="input" name="idartdisc"  value="">
 			<label for="imgdisc">URL Cover</label>
 			<input type="text" class="input" name="imgdisc"  value=""><br>
-			<label for="precio">Precio</label>
-			<input type="text" class="input" name="precio"  value="">
+			<label for="predisc">Precio</label>
+			<input type="text" class="input" name="predisc"  value="">
 			<input type="hidden" name="opcion" value="modiDisc">
 			<input type="submit" class="botonform2" value="Modificar">
 		</form></div></div></div>

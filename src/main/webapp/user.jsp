@@ -61,7 +61,7 @@
 		<button class="botoncrear" onclick="inFormCrearuser()"><i class="fa fa-user-plus"></i></button>
 		<iframe id="iframeuser" src="tablauser.jsp" ></iframe>
 		
-	<!--  +++++++++++++++++++++++++++++++++++  tabla de artistas +++++++++++++++++++++++++++++++++++++ -->
+	<!--  +++++++++++++++++++++++++++++++++++  tabla de artistas ++++l+++++++++++++++++++++++++++++++++ -->
 		<h2>Artistas</h2>
 		<button class="botoncrear" onclick="inFormCrearart()"><i class="fa fa-user-plus"></i></button>
 		<iframe id="iframeart" src="tablaart.jsp" ></iframe>

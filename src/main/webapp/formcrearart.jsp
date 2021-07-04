@@ -7,6 +7,6 @@
 		<input type="text" class="input" name="geneart"  value="" >*<br>
 		<label for="imgart">Imagen</label>
 		<input type="text" class="input" name="imgart"  value="" >*<br>
-		<input type="hidden" name="opcion" value="modiArt">
+		<input type="hidden" name="opcion" value="altaArt">
 		<input class="botonform2" type="submit" value="Crear">
 	</form>

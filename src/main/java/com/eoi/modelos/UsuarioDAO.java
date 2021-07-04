@@ -86,8 +86,8 @@ public class UsuarioDAO {
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
 		pst.setString(1, userId);
-
 		pst.executeUpdate();
+		System.out.println("El usuario (ID "+userId+") se ha borrado");
 	}
 
 	public Usuario getUser(String userId) throws SQLException {
