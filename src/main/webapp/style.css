@@ -11,6 +11,9 @@ h1{
 h2{
 	font-size: 30px;
 }
+h3{
+	font-size: 19px;
+}
 a{
 	text-decoration: none;
 }
@@ -30,6 +33,7 @@ header{
 }
 header a{
 	color: white;
+	font-size: 150px;
 }
 body{
 	background-color: #525252;
@@ -45,7 +49,8 @@ body{
 	height: 45px;
 	cursor: pointer;
 	right: 20px;
-	top: 160px;
+	top: 210px;
+	z-index: 1;
 }
 .menu-toogle span {
 	position: absolute;
@@ -83,12 +88,16 @@ nav{
 	bottom: -60px;
 	transition: all 0.5s ease;
 }
+nav ul{
+	margin-right: 80px;
+}
 /*++++++++++ ANIMATION HAMBUR +++++++++*/
 #flag:checked + .menu-toogle span {
 	background: none;
 }
 .menu-toogle span {
 	transition: background 0s .25s;
+	font-size: 15px;
 }
 .menu-toogle span:before {
 	-webkit-transition-property: top, transform;
@@ -134,6 +143,7 @@ nav ul li{
 }
 nav ul li a{
 	color: white;
+	font-size: 25px;
 }
 /*++++++++++++++++++ tablas ++++++++++++++++++++++++++*/
 .botoncrear{
@@ -154,8 +164,8 @@ table, th, td{
     border-bottom: none!important;
 }
 table {
-    margin: 30px auto;
-    border-collapse: collapse;
+	margin: 30px auto;
+	border-collapse: collapse;
 }
 table caption {
 	font-size: 40px;
@@ -163,18 +173,23 @@ table caption {
 	margin-bottom: 20px;
 }
 
-table img{
-	max-height: 50px;
-}
 table th, td{
 	padding: 5px 20px;
 	color: #fff;
+	font-size: 16px;
 }
+
 table td button{
 	background: none;
 	border: none;
 	cursor: pointer;
 	margin-right: 20px;
+}
+table td div{
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+	background-position: center;
 }
 table tr .fa-edit:hover{
 	color: #a8199f;
@@ -216,7 +231,7 @@ table tr .fa-trash{
 	width: 900px;
 	height: 300px;
 	display: block;
-	margin: auto;
+	margin: 0px auto 100px auto;
 }
 /*++++++++++++ formularios +++++++++++++*/
 #form {
@@ -224,17 +239,23 @@ table tr .fa-trash{
 	margin: auto;
 	padding: 30px 40px;
 	text-align: center;
-	background-color: #7ec5bb;
-	border-radius: 20px;
-	border-right: solid 30px #4adec8;
-	border-left: solid 10px #4adec8;
-	border-top: solid 10px #4adec8;
-	border-bottom: solid 30px #4adec8;
+	background-color: #a8199f;
 	color: white;
 	font-family: 'Barlow Semi Condensed', sans-serif;
+	position: absolute;
+	left: calc(50vw - 200px);
+	top: calc(50vh - 215px);
+}
+.backform {
+	width: 100vw;
+	position: absolute;
+	height: 100vh;
+	background-color: rgba(255,255,255,0.5);
+	left: 0px;
+	z-index: -1;
 }
 #formiframeuser{
-	width: 90vw;
+	width: calc(100vw - 80px);
 	height: 240px;
 	margin: auto;
 	padding: 50px 40px;
@@ -244,7 +265,7 @@ table tr .fa-trash{
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
 #formiframeart{
-	width: 800px;
+	width: calc(100vw - 80px);
 	height: 240px;
 	margin: auto;
 	padding: 50px 40px;
@@ -269,13 +290,23 @@ table tr .fa-trash{
 	color: white;
 	height: 20px;
 }
-.botoncerrar{
+.cerr1{
 	position: absolute;
-	right: 20px;
-	top: 10px;
 	background: none;
 	border: none;
 	cursor: pointer;
+	left: calc(50vw - 200px);
+	top: calc(50vh - 215px);
+	z-index: 1;
+	font-size: 30px;
+}
+.cerr2{
+	position: absolute;
+	background: none;
+	border: none;
+	cursor: pointer;
+	left: calc(100vw - 50px);
+	z-index: 1;
 }
 .botonform{
 	border: none;
@@ -287,6 +318,19 @@ table tr .fa-trash{
 	cursor: pointer;
 	position: absolute;
 	left: 200px;
+	bottom: -50px;
+}
+.botonform2{
+	background-color: #525252;
+	border: none;
+	font-size: 20px;
+	padding: 5px 10px;
+	color: #fff;
+	cursor: pointer;
+}
+.botonform2:hover{
+	background-color: #fff;
+	color: #525252;
 }
 .botonform:hover{
 	background-color: #525252;
@@ -301,9 +345,9 @@ table tr .fa-trash{
 .botoncerrar i{
 	font-size: 30px;
 }
-#formcreauser, #fomrmodiuser, #fomrmodiart, #formcrearart{
+#formcreauser, #formcrearart, #formcreardisc, #fomrmodiuser{
 	position: absolute;
-	left: -1300px;
+	left: -110vw;
 	top: 500px;
 	transition: 1s;
 }
@@ -321,7 +365,12 @@ form input{
 	vertical-align: top;
 	margin-top: 30px;
 }
+/*++++++++++++++++++++++++++++++ logon +++++++++++++++++++++++++++++*/
 
+.msgerr{
+	color:white;
+	font-size: 20px;
+}
 /*+++++++++++++++++++++++++ Pagina de Usuario ++++++++++++++++++++++*/
 section{
 	width: 85vw;
@@ -340,14 +389,17 @@ section h2, button{
 	position: relative;
 	margin-bottom: 50px;
 }
-.headuser img, .nameuser, .lugaruser{
+.headuser .imguser, .nameuser, .lugaruser{
 	display: inline-block;
 }
 .headuser .nameuser, .lugaruser{
 	position: absolute;
 }
-.headuser img{
+.headuser .imguser{
 	width: 200px;
+	height: 200px;
+	background-size: cover;
+	background-position: center;
 }
 .nameuser{
 	margin-left: 50px;
@@ -364,6 +416,24 @@ section h2, button{
 }
 .bodysection{
 	text-align: center;
+}
+.logout{
+	text-align: center;
+	margin-top: 30px;
+}
+.botonlogout{
+	border: none;
+	padding: 20px;
+	background-color: #525252;
+	color: #fff;
+	font-size: 30px;
+	cursor: pointer;
+}
+.botonlogout:hover{
+	background-color: #a8199f;
+}
+.botonlogout i{
+	margin-left: 10px;
 }
 /*++++++++++++++++++++++++++++ página de artista +++++++++++++++++++++++++++*/
 .headart {
@@ -383,6 +453,7 @@ section h2, button{
 	display:inline-block;
 	position:absolute;
 	bottom:0px;
+	padding: 0px 20px;
 	right:10vw;
 	background-color: rgba(82, 82, 82, 0.3);
 	text-align: right;
@@ -430,7 +501,51 @@ section h2, button{
 	color: #a8199f;
 }
 
-
+/*+++++++++++++++++++++++++++++++++ Imdex ++++++++++++++++++++++++++++*/
+.catal{
+	width: 33vw;
+	/*margin: auto;*/
+	margin-left: 50px;
+	margin-top: 50px;
+	display: inline-block;
+	position: absolute;
+	font-size: 0px;
+}
+.catalogos{
+	height: 250px;
+	background-size: cover;
+	background-position: center;
+	width: 16vw;
+	display: inline-block;
+}
+.catalogos div {
+	position: relative;
+	height: 250px;
+	background-image: linear-gradient(to top, #dadada, rgba(255,255,255,0) 50%);
+	transition: 0.5s;
+}
+.catalogos div *{
+	position: absolute;
+	color: #a8199f;
+	bottom: 0px;
+	margin-left: 10px;
+}
+.catalogos div h2 {
+	bottom: 35px;
+	line-height: 30px;
+}
+.catalogos div .fa{
+	left: 30px;
+	font-size: 19px;
+}
+.catalogos div:hover{
+	background-color: rgba(255,255,255,0.5);
+	
+	transition: 0.5s;
+}
+.cataldisc{
+	left:35vw;
+}
 
 
 

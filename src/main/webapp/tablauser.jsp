@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.eoi.controladores.Conexion"%>
+<%@ page import="com.eoi.controladores.*"%>
 <%@ page import="com.eoi.modelos.*"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <script>
-function inFormModiuser(id) {
+	function inFormModiuser(id) {
 	  document.getElementById("fomrmodiuser").style.left = "0px";
 	  document.getElementById("idvalue").value = id;
 	}
@@ -44,27 +44,22 @@ function inFormModiuser(id) {
 			<td><%= rs.getString("user_nom") %></td>
 			<td><%= rs.getString("user_pai") %></td>
 			<td><%= rs.getString("user_ciu") %></td>
-			<td><img src="<%= rs.getString("user_img") %>"></td>
+			<td><div style="background-image:url(<%= rs.getString("user_img") %>)"></div></td>
 			<td><button onclick="inFormModiuser(<%= rs.getString("user_id")%>)"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
 		</tr><%} %>
 	</table>
 	
 	<div id="formuser1"><div id="formuser2">
-	<div id="fomrmodiuser"><button class="botoncerrar" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button>
+	<div id="fomrmodiuser"><button class="botoncerrar cerr2" onclick="outFormModiuser()"><i class="fa fa-times-circle"></i></button>
 		
 		<div style="position:absolute;padding: 20px;">
-			<%String sql2 = "select * from t_user where user_id='?'";
-			Statement st2 = con.createStatement();
-			ResultSet rs2 = st2.executeQuery(sql2); 
-			while(rs2.next()){ %>
-				<img src="<%= rs2.getString("user_img") %>" style="width:200px;">
-			<%} %></div>
+		</div>
 			
 		<form id="formiframeuser" action="Controlador" method="post" style="display: inline-blocK;">
 			<label for="iduser">ID del Usuario</label>
 			<input id="idvalue" type="text" class="input" name="iduser" readonly value="" style="width:50px;margin-right:318px;">
 			<label for="rollUser">Roll*</label>
-			<input id="rollvalue" type="text" class="input" name="rollUser" readonly value="" ><br>
+			<input id="rollvalue" type="text" class="input" name="rollUser"  value="" ><br>
 			<label for="nick">Nick*</label>
 			<input type="text" class="input" name="nick"  value="" style="margin-right:250px;">
 			<label for="pass">Password*</label>
@@ -78,7 +73,7 @@ function inFormModiuser(id) {
 			<label for="imguser">URL Avatar</label>
 			<input type="text" class="input" name="imguser"  value="" ><br>
 			<input type="hidden" name="opcion" value="modiUser">
-			<input type="submit" value="Modificar">
+			<input type="submit" class="botonform2" value="Modificar">
 		</form></div></div></div>
 	
 </html>

@@ -10,5 +10,5 @@
 		<label for="imgart">Imagen</label>
 		<input type="text" class="input" name="imgart"  value="" ><br>
 		<input type="hidden" name="opcion" value="modiArt">
-		<input type="submit" value="Modificar">
+		<input type="submit" class="botonform2" value="Modificar">
 	</form>

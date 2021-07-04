@@ -35,12 +35,15 @@
 			<td><%=rs.getString("art_id") %></td>
 			<td><%=rs.getString("art_nom") %></td>
 			<td><%=rs.getString("art_gen") %></td>
-			<td><img src="<%= rs.getString("art_img") %>"></td>
+			<td><div style="background-image:url(<%= rs.getString("art_img") %>)"></div></td>
 			<td><button onclick="inFormModiart()"><i class="fa fa-edit"></i></button><button><i class="fa fa-trash"></i></button></td>
 		</tr><%} %>
 	</table>
 	
 	<div id="formuser1"><div id="formuser2">
-	<div id="fomrmodiart"><button class="botoncerrar" onclick="outFormModiart()"><i class="fa fa-times-circle"></i></button><%@include file="formmodiart.jsp" %></div>
+		<div id="fomrmodiart">
+			<button class="botoncerrar cerr2" onclick="outFormModiart()"><i class="fa fa-times-circle"></i></button>
+			<%@include file="formmodiart.jsp" %>
+		</div>
 	</div></div>
 </html>

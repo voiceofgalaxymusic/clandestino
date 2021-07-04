@@ -70,6 +70,7 @@ public class Login extends HttpServlet {
 				sesion.setAttribute("user_rol", user.getRol());*/
 			} else {
 				pagDest = "user.jsp";
+				request.setAttribute("user", user);
 				
 			}
 		

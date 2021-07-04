@@ -39,8 +39,9 @@
 		<input type="text" class="input" name="nik" value="">*<br>
 		<label for="pass">Contraseña</label>
 		<input type="password" class="input" name="pass" value="">*<br>
+		<span class="msgerr"><%=(request.getAttribute("msgerr") == null) ? "" : request.getAttribute("msgerr")%></span>
 		<input class="botonform" type="submit" value="Login">
-		<span style="color: blue"><%=(request.getAttribute("msgerr") == null) ? "" : request.getAttribute("msgerr")%></span>
+		
 	</form></div>
 </body>
 </html>

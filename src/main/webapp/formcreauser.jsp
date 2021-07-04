@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <form id="form" action="Controlador" method="post" style="display: inline-blocK;">
-		<h1>Crear nuevo usuario</h1>
 		<label for="rollUser">Roll</label>
 		<input type="text" class="input" name="rollUser"  value="" >*<br>
 		<label for="nick">Nick</label>
@@ -17,5 +16,5 @@
 		<label for="imguser">URL Avatar</label>
 		<input type="text" class="input" name="imguser"  value="" >*<br>
 		<input type="hidden" name="opcion" value="altaUser">
-		<input type="submit" value="Crear">
+		<input class="botonform2" type="submit" value="Crear">
 	</form>

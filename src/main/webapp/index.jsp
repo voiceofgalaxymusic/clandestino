@@ -18,17 +18,30 @@
 <a style="color:white; display:inline-block; font-size: 20px;" href="loginprueba.jsp">Página del Login</a>
 <a style="color:white; display:inline-block; font-size: 20px;" href="/Clandestino/ServletVisitas">Servlet de Visitas</a></div>
 
-<div class="bodycatal">
+<div class="catal">
 	<% Connection con = Conexion.getInstance().getConnection();
 	String sql = "select * from t_art ";
 	Statement st = con.createStatement();
 	ResultSet rs = st.executeQuery(sql); %>
 	<% while(rs.next()){ %>
-		<%=rs.getString("art_id") %>
-		<%=rs.getString("art_nom") %>
-		<%=rs.getString("art_gen") %>
-		<img src="<%= rs.getString("art_img") %>">
-		<a href="Controlador?opcion=art&idart=<%=rs.getString("art_id")%>">Aquí</a>
+		<a class="catalogos" href="Controlador?opcion=art&idart=<%=rs.getString("art_id")%>" style="background-image: url(<%= rs.getString("art_img") %>);">
+			<div>
+			<h2><%=rs.getString("art_nom") %></h2>
+			<h3><%=rs.getString("art_gen") %></h3>
+			</div>
+		</a>
+	<%}%>
+</div>
+<div class="catal cataldisc">
+	<%sql = "select * from t_disc";
+	rs = st.executeQuery(sql);%>
+	<%while (rs.next()) {%>
+	<a class="catalogos" href="Controlador?opcion=art&idart=<%=rs.getString("disc_idart")%>" style="background-image: url(<%=rs.getString("disc_img")%>);">
+		<div>
+		<h2><%=rs.getString("disc_nom")%></h2>
+		<h3><%=rs.getString("disc_pre")%></h3><i class="fa fa-euro-sign"></i>
+		</div>
+	</a>
 	<%}%>
 </div>
 	
