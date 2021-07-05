@@ -22,15 +22,17 @@
 		<input type="text" class="input" name="nik" value="">
 		<label for="pass">Contraseña *</label>
 		<input type="password" class="input" name="pass" value=""><br>
-		<label for="nom">Nombre</label>
+		<label for="nom">Nombre *</label>
 		<input type="text" class="input" name="nomUser" value="" style="width:300px"><br>
-		<label for="pai">País</label>
+		<label for="pai">País *</label>
 		<input type="text" class="input" name="pais" value="">
-		<label for="ciu">Ciudad</label>
+		<label for="ciu">Ciudad *</label>
 		<input type="text" class="input" name="ciudad" value=""><br>
-		<label for="urlava">URL Avatar</label>
-		<input type="text" class="input" name="imguser" value="" style="width:300px"><br>
+		<label for="imguser">URL Avatar *</label>
+		<input type="text" class="input" name="imguser"  value="" style="width:300px"><br>
+		<input type="hidden" name="opcion" value="altaUser">
 		<input class="botonform" type="submit" value="Crear usuario">
+		<input type="reset" value="Borrar">
 	</form>
 
 	<form action="Login" method="post" style="display: inline-block;background-color:#a8199f; text-align: right;padding: 50px;position:relative;">

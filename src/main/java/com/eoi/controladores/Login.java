@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 		String pagDest = "index.jsp";
 		
 			user = udao.login(nik, pass);
-			System.out.println(user);
+			System.out.println("USUARIO A VERIFICAR LOGIN" + user);
 			
 			if (user == null) {
 				
@@ -64,14 +64,19 @@ public class Login extends HttpServlet {
 				
 				System.out.println(request.getParameter(msgerr));
 				
-				HttpSession sesion = request.getSession();
-				/*sesion.setAttribute("user_nik", user.getNom());
-				request.setAttribute("user", user);
-				sesion.setAttribute("user_rol", user.getRol());*/
+				
 			} else {
 				pagDest = "user.jsp";
-				request.setAttribute("user", user);
 				
+				HttpSession sesion = request.getSession();
+				
+				//PREGUNTAR JESUS, SI ESTÁ UTILIZANDO ESTO?
+				// PUES CREO QUE PARA MANTENER SESIÓN ABIERTA, DEBEMOS UTILIZAR:
+				sesion.setAttribute("nik", nik);
+				sesion.setAttribute("pass", pass);
+				//ADEMÁS SE PODRÍAN UTILIZAR PARA COMPLETAR LA PÁGINA DE USUARIO CON EL NOM... CREO RECORDAR.
+				request.setAttribute("user", user);
+				System.out.println(response.getWriter());
 			}
 		
 	

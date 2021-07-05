@@ -89,15 +89,15 @@ public class Controlador extends HttpServlet {
 		// DATOS DEL USUARIO
 		String iduser = request.getParameter("iduser");
 		String rollUser = request.getParameter("rollUser");
-		String nick = request.getParameter("nick");
+		String nik = request.getParameter("nik");
 		String pass = request.getParameter("pass");
 		String nomUser = request.getParameter("nomUser");
 		String pais = request.getParameter("pais");
 		String ciudad = request.getParameter("ciudad");
 		String imgUser = request.getParameter("imguser");
 
-		Usuario u = new Usuario(rollUser, nick, nomUser, pass, pais, ciudad, imgUser);
-		Usuario u2 = new Usuario(iduser, rollUser, nick, nomUser, pass, pais, ciudad, imgUser);
+		Usuario u = new Usuario(rollUser, nik, nomUser, pass, pais, ciudad, imgUser);
+		Usuario u2 = new Usuario(iduser, rollUser, nik, nomUser, pass, pais, ciudad, imgUser);
 		UsuarioDAO udao = new UsuarioDAO();
 
 		// DATOS DEL ARTISTA
@@ -133,13 +133,19 @@ public class Controlador extends HttpServlet {
 			break;
 		case "altaUser":
 			try {
+				System.out.println("Este es el USUARIO que le pasa al método " + u);
+				
 				udao.altaUser(u);
+				
+				destPage = "user.jsp";
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			request.setAttribute("user", u);
 			break;
+			
 		case "modiArt":
 			try {
 				adao.modificarArtista(a2);

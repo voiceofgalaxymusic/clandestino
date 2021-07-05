@@ -13,7 +13,7 @@ public class UsuarioDAO {
 	private ResultSet rs;
 
 	public Usuario login(String nik, String pass) {
-		System.out.println("DATOS AL PASAR MÉTODO: " + nik + " " + pass);
+		System.out.println("DATOS AL PASAR MÉTODO LOGIN: " + nik + " " + pass);
 		Usuario u = null;
 		
 
@@ -51,18 +51,24 @@ public class UsuarioDAO {
 	}
 
 	public void altaUser(Usuario u) throws SQLException {
-		String sql = "insert into t_user(user_rol , user_nik , user_pass,  user_nom , user_pai , user_ciu , user_img  ) values (?,?,?,?,?,?,?)";
+		
+		System.out.println("DATOS QUE RECIBE EL MÉTODO altaUser" + u);
+		
+		String sql = "insert into t_user (user_id, user_rol, user_nik, user_pass, user_nom, user_pai, user_ciu, user_img) values (?,?,?,?,?,?,?,?)";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
-		pst.setString(1, u.getRol());
-		pst.setString(2, u.getNik());
-		pst.setString(3, u.getPass());
-		pst.setString(4, u.getNom());
-		pst.setString(5, u.getPai());
-		pst.setString(6, u.getCiu());
-		pst.setString(7, u.getImg());
+		pst.setString(1, u.getId());
+		pst.setString(2, u.getRol());
+		pst.setString(3, u.getNik());
+		pst.setString(4, u.getPass());
+		pst.setString(5, u.getNom());
+		pst.setString(6, u.getPai());
+		pst.setString(7, u.getCiu());
+		pst.setString(8, u.getImg());
 
 		pst.executeUpdate();
+		
+		System.out.println("USUARIO INCLUIDO EN BBDD: " + u);
 	}
 
 	public void modificarUser(Usuario u) throws SQLException {
