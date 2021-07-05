@@ -19,17 +19,23 @@ public class ServletVisitas extends HttpServlet {
 			throws ServletException, IOException {
 		// Variable contador
 		int contador = 0;
-		HttpSession sesion = null;
-		// Comprobar si existe la cookie del contador
-		Cookie[] cookies = request.getCookies();
-		// Comprobar si existen cookies
-		if (cookies != null && sesion.isNew()) {
-			// Recorre el array de cookies
-			for (Cookie c : cookies) {
-				// Valida si la cookie tiene el nombre de contadorVisitas
-				if (c.getName().equals("contadorVisitas")) {
-					// Si la encuentra, asigna el valor a contadorVisitas
-					contador = Integer.parseInt(c.getValue());
+		response.setContentType("text/html;charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		HttpSession sesion = request.getSession();
+		PrintWriter out = response.getWriter();
+
+		if (sesion.isNew()) {
+			// Comprobar si existe la cookie del contador
+			Cookie[] cookies = request.getCookies();
+			// Comprobar si existen cookies
+			if (cookies != null) {
+				// Recorre el array de cookies
+				for (Cookie c : cookies) {
+					// Valida si la cookie tiene el nombre de contadorVisitas
+					if (c.getName().equals("contadorVisitas")) {
+						// Si la encuentra, asigna el valor a contadorVisitas
+						contador = Integer.parseInt(c.getValue());
+					}
 				}
 			}
 		}
@@ -41,10 +47,11 @@ public class ServletVisitas extends HttpServlet {
 			Cookie c = new Cookie("contadorVisitas", Integer.toString(contador));
 			response.addCookie(c);
 			// Mandar el mensaje al navegador
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("Contador de visitas de cada cliente: " + contador);
+
 		}
+		response.setContentType("text/html;charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		out.println("Contador de visitas de cada cliente: " + contador);
 	}
 
 }

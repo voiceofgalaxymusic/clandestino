@@ -550,6 +550,24 @@ section h2, button{
 	left:35vw;
 }
 
+.quienessomos h2{
+	color: #fff;
+	padding: 1em;
+	text-align: center;
+}
 
+.imagencentro {
+	text-align: center;
+}
 
+#bienvenida {
+	color: #FFC5ED;
+	font-size: 22px;
+}
 
+#somosClandestino {
+	color: #fff;
+	font-size: 19px;
+	font-family: Verdana, sans-serif;
+	padding: 2em;	
+}

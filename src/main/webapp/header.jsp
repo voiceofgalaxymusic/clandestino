@@ -9,9 +9,8 @@
 		<ul>
 			<li><a href="user.jsp">Usuario</a>
 			<li><a href="#">Artistas</a>
-			<li><a href="#">Géneros</a>
 			<li><a href="#">Noticias</a>
-			<li><a href="#">Quienes somos</a>
+			<li><a href="QuienesSomos.html">Quienes somos</a>
 		</ul>
 	</nav>
 </header>
