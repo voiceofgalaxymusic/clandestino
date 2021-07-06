@@ -82,7 +82,7 @@ public class Login extends HttpServlet {
 				sesion.setAttribute("img", user.getImg());
 				
 				//ADEMÁS SE PODRÍAN UTILIZAR PARA COMPLETAR LA PÁGINA DE USUARIO CON EL NOM... CREO RECORDAR.
-				
+				sesion.setAttribute("login", "on");
 			}
 		
 	

@@ -36,7 +36,7 @@ public class Logout extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/loginprueba.jsp");
 			requestDispatcher.forward(request, response);
 		}
-		
+		session.setAttribute("login", "off");
 		System.out.println("USUARIO HA CERRADO SESION");
 	}
 

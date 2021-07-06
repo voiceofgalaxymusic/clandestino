@@ -23,9 +23,9 @@ public class Controlador extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//CON EL METODO DOGET UTILIZAMOS PARA ELIMINAR USUARIOS, ARTISTAS O DISCOS
-		
+
+		// CON EL METODO DOGET UTILIZAMOS PARA ELIMINAR USUARIOS, ARTISTAS O DISCOS
+
 		String opcion = request.getParameter("opcion");
 		String iduser = request.getParameter("iduser");
 		String idart = request.getParameter("idart");
@@ -34,28 +34,33 @@ public class Controlador extends HttpServlet {
 		Artista art = null;
 		Usuario user = null;
 		Disco disc = null;
-		
+
 		UsuarioDAO udao = new UsuarioDAO();
 		ArtistaDAO adao = new ArtistaDAO();
 		DiscoDAO ddao = new DiscoDAO();
 		CompraDAO cdao = new CompraDAO();
-		
+
 		String destPage = "prueba.jsp";
 
 		switch (opcion) {
 		case "sesion":
 			HttpSession sesion = request.getSession();
-			if(sesion.isNew()) {
+			if (sesion.getAttribute("login") == null) {
 				destPage = "loginprueba.jsp";
-			}else {
-				destPage = "user.jsp";
+
+			} else {
+				if (sesion.getAttribute("login").equals("on")) {
+					destPage = "user.jsp";
+				} else {
+					destPage = "loginprueba.jsp";
+				}
 			}
 			break;
 		case "formmodiuser":
 			destPage = "formmodiuser.jsp";
 			try {
 				user = udao.getUser(iduser);
-				request.setAttribute("user",user);
+				request.setAttribute("user", user);
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -64,7 +69,7 @@ public class Controlador extends HttpServlet {
 			destPage = "formmodiart.jsp";
 			try {
 				art = adao.getArtista(idart);
-				request.setAttribute("art",art);
+				request.setAttribute("art", art);
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -73,17 +78,17 @@ public class Controlador extends HttpServlet {
 			destPage = "formmodidisc.jsp";
 			try {
 				disc = ddao.getDisc(iddisc);
-				request.setAttribute("disc",disc);
+				request.setAttribute("disc", disc);
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-			
+
 			break;
 		case "art":
 			destPage = "artist.jsp";
 			try {
 				art = adao.getArtista(idart);
-				request.setAttribute("art",art);
+				request.setAttribute("art", art);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -121,16 +126,16 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		}
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
 		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//CON EL MÉTODO DOPOST LO UTILIZAMOS PARA COMPLETAR LOS DATOS DE FORMULARIOS
-		
+
+		// CON EL MÉTODO DOPOST LO UTILIZAMOS PARA COMPLETAR LOS DATOS DE FORMULARIOS
+
 		// SERÍA LA MISMA VARIABLE PARA TODOS LOS FORMS
 		String opcion = request.getParameter("opcion");
 
@@ -187,7 +192,7 @@ public class Controlador extends HttpServlet {
 			}
 			request.setAttribute("user", u);
 			break;
-			
+
 		case "modiArt":
 			try {
 				adao.modificarArtista(a2);
