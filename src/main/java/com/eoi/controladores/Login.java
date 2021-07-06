@@ -69,14 +69,19 @@ public class Login extends HttpServlet {
 				pagDest = "user.jsp";
 				
 				HttpSession sesion = request.getSession();
-				
+			
 				//PREGUNTAR JESUS, SI ESTÁ UTILIZANDO ESTO?
 				// PUES CREO QUE PARA MANTENER SESIÓN ABIERTA, DEBEMOS UTILIZAR:
-				sesion.setAttribute("nik", nik);
-				sesion.setAttribute("pass", pass);
+				sesion.setAttribute("id", user.getId());
+				sesion.setAttribute("rol", user.getRol());
+				sesion.setAttribute("nik", user.getNik());
+				sesion.setAttribute("nom", user.getNom());
+				sesion.setAttribute("pass", user.getPass());
+				sesion.setAttribute("pai", user.getPai());
+				sesion.setAttribute("ciu", user.getCiu());
+				sesion.setAttribute("img", user.getImg());
+				
 				//ADEMÁS SE PODRÍAN UTILIZAR PARA COMPLETAR LA PÁGINA DE USUARIO CON EL NOM... CREO RECORDAR.
-				request.setAttribute("user", user);
-				//System.out.println(response.getWriter());
 				
 			}
 		

@@ -48,23 +48,17 @@
 	ResultSet rs;%>
 	
 	<%HttpSession sesion = request.getSession();
-	String nik = "" + sesion.getAttribute("nik");
-	String psql = "select * from t_user where user_nik = ?";
-	PreparedStatement pst = con.prepareStatement(psql);
-	pst.setString(1, nik);
-	rs = pst.executeQuery();
 	Usuario user = new Usuario();
+	user.setId((String)sesion.getAttribute("id"));
+	user.setRol((String)sesion.getAttribute("rol"));
+	user.setNik((String)sesion.getAttribute("nik"));
+	user.setNom((String)sesion.getAttribute("nom"));
+	user.setPass((String)sesion.getAttribute("pass"));
+	user.setPai((String)sesion.getAttribute("pai"));
+	user.setCiu((String)sesion.getAttribute("ciu"));
+	user.setImg((String)sesion.getAttribute("img"));
 	
-	 if (rs.next()) {
-		user.setId(rs.getString("user_id"));
-		user.setRol(rs.getString("user_rol"));
-		user.setNik(rs.getString("user_nik"));
-		user.setPass(rs.getString("user_pass"));
-		user.setNom(rs.getString("user_nom"));
-		user.setPai(rs.getString("user_pai"));
-		user.setCiu(rs.getString("user_ciu"));
-		user.setImg(rs.getString("user_img"));
-	}%>
+	%>
 	
 		<div class="imguser" style="background-image:url(<%= user.getImg() %>)"></div>
 		<div class="nameuser">

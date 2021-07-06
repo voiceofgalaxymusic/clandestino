@@ -45,9 +45,7 @@ public class Controlador extends HttpServlet {
 		switch (opcion) {
 		case "sesion":
 			HttpSession sesion = request.getSession();
-			boolean nik = sesion.getAttribute("nik") != null;
-			System.out.println(nik);
-			if(nik == false) {
+			if(sesion.isNew()) {
 				destPage = "loginprueba.jsp";
 			}else {
 				destPage = "user.jsp";
