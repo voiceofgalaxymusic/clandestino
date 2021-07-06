@@ -49,7 +49,7 @@
 					<form action="ServletCarritoDiscos" method="post">
 					<button class="botoncarrito"><i class="fas fa-shopping-cart"></i></button>
 					<input type="hidden" value='<%=rs.getString("disc_id")%>' name="botoncarrito">
-					<input type="submit" value="botoncarrito">
+					<input type="text" value="" name="cantidad">
 					</form>
 				</div>
 				<%

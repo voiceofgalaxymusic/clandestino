@@ -18,41 +18,52 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/ServletCarritoDiscos")
 public class ServletCarritoDiscos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public ServletCarritoDiscos() {
-        super();
-    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ServletCarritoDiscos() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		//Recuperamos la sesión del cliente
+		// Recuperamos la sesión del cliente
 		HttpSession sesion = request.getSession();
-		//Creación de la lista de artículos
-		List<String>discosList = (List<String>) sesion.getAttribute("discosList");
-		//Verificar si la lista existe y la crea
-		if(discosList == null) {
+		String cantidad = null;
+		// Creación de la lista de artículos
+		List<String> discosList = (List<String>) sesion.getAttribute("discosList");
+		List<String> discosCant = (List<String>) sesion.getAttribute("discosCant");
+		// Verificar si la lista existe y la crea
+		if (discosList == null) {
 			discosList = new ArrayList<>();
+			discosCant = new ArrayList<>();
 			sesion.setAttribute("discosList", discosList);
+			sesion.setAttribute("discosCant", discosCant);
 		}
-		
+
 		String discoNuevo = null;
+		String discoCant = null;
 		discoNuevo = request.getParameter("botoncarrito");
-		if(discosList != null) {
+		discoCant = request.getParameter("cantidad");
+		if (discosList != null) {
 			discosList.add(discoNuevo);
+			discosCant.add(discoCant);
 		}
-		
+
 		PrintWriter out = response.getWriter();
 		out.print("<h1>Lista de Discos en el carrito<h1>");
 		out.print("<br>");
-		//Imprimir todos los discos de la lista
-		for (String discos: discosList) {
-			out.print("<li>"+ discos + "</li>");
-		}
-		
-		//Link para regresar a la página del artista
-		 out.print("<br>");
+		// Imprimir todos los discos de la lista
+		for (String discos : discosList) {
+			out.print("<li>" + "discos id:" + discos + "</li>");
 
-		    out.print("<a href='index.jsp'>Regresar a la página del artista</a>");
+		}
+		for (String cant : discosCant) {
+			out.print("<li>" + "cantidad: " + cant + "</li>");
+		}
+		// Link para regresar a la página del artista
+		out.print("<br>");
+
+		out.print("<a href='index.jsp'>Regresar a la página del artista</a>");
 	}
 //<input type="hidden" value='<%=rs.getString("disc_id")%>'>
 }
