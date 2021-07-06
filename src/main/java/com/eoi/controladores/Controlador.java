@@ -217,7 +217,7 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		}
-
+		destPage = "user.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(destPage);
 		rd.forward(request, response);
 	}
