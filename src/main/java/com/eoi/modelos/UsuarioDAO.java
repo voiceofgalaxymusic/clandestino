@@ -25,7 +25,6 @@ public class UsuarioDAO {
 			pst.setString(1, nik);
 			pst.setString(2, pass);
 			rs = pst.executeQuery();
-			System.out.println(pst);
 			
 			if (rs.next()) {
 				u = new Usuario();
@@ -45,8 +44,6 @@ public class UsuarioDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 
-		System.out.println("DATOS DE USUARIO DE RS. " + u);
 		return u;
 	}
 
@@ -98,13 +95,14 @@ public class UsuarioDAO {
 
 	public Usuario getUser(String userId) throws SQLException {
 		Usuario u = null;
-		String sql = "select * from departamento where user_id = ?";
+		String sql = "select * from t_user where user_id = ?";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
 		pst.setString(1, userId);
 		rs = pst.executeQuery();
 		if (rs.next()) {
 			u = new Usuario();
+			u.setId(userId);
 			u.setRol(rs.getString("user_rol"));
 			u.setNik(rs.getString("user_nik"));
 			u.setNom(rs.getString("user_nom"));

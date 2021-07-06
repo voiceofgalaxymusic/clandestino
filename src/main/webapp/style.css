@@ -216,22 +216,20 @@ table tr .fa-edit{
 	color: #fff;
 	font-size: 25px;
 }
-table tr .fa-trash{
+table tr .fa-trash-alt{
 	color: #ff0000;;
 	font-size: 25px;
 }
-/*   +++++++++++++++++++++++++++++++++++ iframe de las tablas   +++++++++++++++++++++++++++++++++++*/
-#iframeuser {
-	width: 70vw;
-	height: 300px;
-	margin: 0px auto 100px auto;
-	display: block
+table a{
+	margin-right: 10px;
 }
-#iframeart {
-	width: 900px;
-	height: 300px;
-	display: block;
+/*   +++++++++++++++++++++++++++++++++++ tablas   +++++++++++++++++++++++++++++++++++*/
+.tablas{
+	height: 500px;
+	overflow: auto;
 	margin: 0px auto 100px auto;
+	width: 70vw;
+	background-color: #525252;
 }
 /*++++++++++++ formularios +++++++++++++*/
 #form {
@@ -345,7 +343,7 @@ table tr .fa-trash{
 .botoncerrar i{
 	font-size: 30px;
 }
-#formcreauser, #formcrearart, #formcreardisc, #fomrmodiuser, #fomrmodiart, #fomrmodidisc{
+#formcreauser, #formcrearart, #formcreardisc{
 	position: absolute;
 	left: -110vw;
 	top: 500px;
@@ -368,7 +366,7 @@ form input{
 .formborrar{
 	display: inline-block;
 }
-/*++++++++++++++++++++++++++++++ logon +++++++++++++++++++++++++++++*/
+/*++++++++++++++++++++++++++++++ login +++++++++++++++++++++++++++++*/
 
 .msgerr{
 	color:white;
@@ -507,7 +505,6 @@ section h2, button{
 /*+++++++++++++++++++++++++++++++++ Imdex ++++++++++++++++++++++++++++*/
 .catal{
 	width: 33vw;
-	/*margin: auto;*/
 	margin-left: 50px;
 	margin-top: 50px;
 	display: inline-block;

@@ -42,7 +42,30 @@
 <%@include file="header.jsp" %>
 	<section>
 	<div class="headuser">
-	<% Usuario user = (Usuario) request.getAttribute("user"); %>
+	<%Connection con = Conexion.getInstance().getConnection();
+	String sql;
+	Statement st;
+	ResultSet rs;%>
+	
+	<%HttpSession sesion = request.getSession();
+	String nik = "" + sesion.getAttribute("nik");
+	String psql = "select * from t_user where user_nik = ?";
+	PreparedStatement pst = con.prepareStatement(psql);
+	pst.setString(1, nik);
+	rs = pst.executeQuery();
+	Usuario user = new Usuario();
+	
+	 if (rs.next()) {
+		user.setId(rs.getString("user_id"));
+		user.setRol(rs.getString("user_rol"));
+		user.setNik(rs.getString("user_nik"));
+		user.setPass(rs.getString("user_pass"));
+		user.setNom(rs.getString("user_nom"));
+		user.setPai(rs.getString("user_pai"));
+		user.setCiu(rs.getString("user_ciu"));
+		user.setImg(rs.getString("user_img"));
+	}%>
+	
 		<div class="imguser" style="background-image:url(<%= user.getImg() %>)"></div>
 		<div class="nameuser">
 		
@@ -54,22 +77,130 @@
 		<h2><%= user.getPai() %></h2>
 		</div>
 	</div>
-	<%if(user.getRol().equals("admin")){ %>
+	<% sql = "select * from t_user";
+	 st = con.createStatement();
+	 rs = st.executeQuery(sql);
+	 if(user.getRol().equals("admin")){ %>
 	<div class="bodysection">
 	<!--  +++++++++++++++++++++++++++++++++++  tabla de usuarios +++++++++++++++++++++++++++++++++++++ -->
 		<h2>Usuarios</h2>
+		
 		<button class="botoncrear" onclick="inFormCrearuser()"><i class="fa fa-user-plus"></i></button>
-		<iframe id="iframeuser" src="tablauser.jsp" ></iframe>
+		<div class="tablas">
+		<table>
+		<tr>
+			<th>ID</th><th>Roll</th><th>Nick</th><th>Nombre</th><th>Pais</th><th>Ciudad</th><th>Avatar</th><th>Acción</th>
+		</tr>
+		<% while(rs.next()){ %>
+		<tr>
+			<td><%= rs.getString("user_id") %></td><td><%= rs.getString("user_rol") %></td><td><%= rs.getString("user_nik") %></td>
+			<td><%= rs.getString("user_nom") %></td><td><%= rs.getString("user_pai") %></td>
+			<td><%= rs.getString("user_ciu") %></td>
+			<td><div style="background-image:url(<%= rs.getString("user_img") %>)"></div></td>
+			<td>
+				<a href="Controlador?opcion=formmodiuser&iduser=<%=rs.getString("user_id")%>" ><i class="fa fa-edit"></i></a>
+				<form class="formborrar"action="Controlador" method="get">
+					<button><i class="fas fa-trash-alt"></i></button>
+					<input type="hidden" name="iduser" value="<%= rs.getString("user_id")%>">
+					<input type="hidden" name="opcion" value="borrarUser">
+				</form>
+			</td>
+		</tr>
+		<%}	%>
+	</table>
+	</div>
 		
 	<!--  +++++++++++++++++++++++++++++++++++  tabla de artistas ++++l+++++++++++++++++++++++++++++++++ -->
 		<h2>Artistas</h2>
 		<button class="botoncrear" onclick="inFormCrearart()"><i class="fa fa-user-plus"></i></button>
-		<iframe id="iframeart" src="tablaart.jsp" ></iframe>
+		<div class="tablas">
+		<table>
+		<%  sql = "select * from t_art ";
+			st = con.createStatement();
+			rs = st.executeQuery(sql); %>
+		<tr>
+			<th>ID</th><th>Nombre</th><th>Género</th><th>Avatar</th><th>Acción</th>
+		</tr>
+		<% while(rs.next()){ %>
+		<tr>
+			<td><%=rs.getString("art_id") %></td><td><%=rs.getString("art_nom") %></td>
+			<td><%=rs.getString("art_gen") %></td>
+			<td><div style="background-image:url(<%= rs.getString("art_img") %>)"></div></td>
+			<td>
+				<a href="Controlador?opcion=formmodiart&idart=<%=rs.getString("art_id")%>" ><i class="fa fa-edit"></i></a>
+				<form class="formborrar"action="Controlador" method="get">
+					<button><i class="fas fa-trash-alt"></i></button>
+					<input type="hidden" name="idart" value="<%= rs.getString("art_id")%>">
+					<input type="hidden" name="opcion" value="borrarArt">
+				</form>
+			</td>
+		</tr><%}%>
+	</table></div>
 		
 	<!--  +++++++++++++++++++++++++++++++++++  tabla de discos +++++++++++++++++++++++++++++++++++++ -->
 		<h2>Discos</h2>
 		<button class="botoncrear" onclick="inFormCreardisc()"><i class="fa fa-user-plus"></i></button>
-		<iframe id="iframeart" src="tabladisc.jsp" ></iframe>
+		<div class="tablas">
+		<table>
+		<%   sql = "select * from t_disc";
+			 st = con.createStatement();
+			 rs = st.executeQuery(sql);%>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>ID de Artista</th>
+			<th>Cover</th>
+			<th>Precio</th>
+			<th>Acción</th>
+		</tr>
+		<% while(rs.next()){ %>
+		<tr>
+			<td><%= rs.getString("disc_id") %></td>
+			<td><%= rs.getString("disc_nom") %></td>
+			<td><%= rs.getString("disc_idart") %></td>
+			<td><div style="background-image:url(<%= rs.getString("disc_img") %>)"></div></td>
+			<td><%= rs.getString("disc_pre") %></td>
+			<td>
+				<a href="Controlador?opcion=formmodidisc&iddisc=<%=rs.getString("disc_id")%>" ><i class="fa fa-edit"></i></a>
+				<form class="formborrar"action="Controlador" method="get">
+					<button><i class="fas fa-trash-alt"></i></button>
+					<input type="hidden" name="iddisc" value="<%= rs.getString("disc_id")%>">
+					<input type="hidden" name="opcion" value="borrarDisc">
+				</form>
+			</td>
+		</tr>
+		<%}	%>
+	</table></div>
+	
+	<!--  +++++++++++++++++++++++++++++++++++  compras  +++++++++++++++++++++++++++++++++++++ -->
+	<div class="tablas">
+		<table>
+		<%   sql = "select * from t_compra";
+			 st = con.createStatement();
+			 rs = st.executeQuery(sql);%>
+		<tr>
+			<th>ID de Compra</th>
+			<th>ID del Cliente</th>
+			<th>ID del Disco</th>
+			<th>Cantidad</th>
+			<th>Acción</th>
+		</tr>
+		<% while(rs.next()){ %>
+		<tr>
+			<td><%= rs.getString("comp_id ") %></td>
+			<td><%= rs.getString("comp_idclien ") %></td>
+			<td><%= rs.getString("comp_iddisc ") %></td>
+			<td><%= rs.getString("comp_cant  ") %></td>
+			<td>
+				<form class="formborrar"action="Controlador" method="get">
+					<button><i class="fas fa-trash-alt"></i></button>
+					<input type="hidden" name="iddisc" value="<%= rs.getString("comp_id")%>">
+					<input type="hidden" name="opcion" value="borrarDisc">
+				</form>
+			</td>
+		</tr>
+		<%}	%>
+	</table></div>
 	</div>
 	<!--  +++++++++++++++++++++++++++++++++++  formularios  +++++++++++++++++++++++++++++++++++++ -->
 	
@@ -93,12 +224,10 @@
 		<button class="botonlogout">Logout <i class="fa fa-sign-out-alt"></i></button>
 	</form>
 	
-	<%} else{%>
-	<% Connection con = Conexion.getInstance().getConnection();
-	String sql = "select * from t_compra  where comp_idclien="+user.getId();
-	Statement st = con.createStatement();
-	ResultSet rs = st.executeQuery(sql); 
-	rs = st.executeQuery(sql);%>
+	<%} else {%>
+	<%  sql = "select * from t_compra where comp_idclien="+user.getId();
+	 st = con.createStatement();
+	 rs = st.executeQuery(sql); %>
 	
 	<div class="disccomp">
 	<%while (rs.next()) {%>
@@ -115,6 +244,9 @@
 		<button class="botonlogout">Logout <i class="fa fa-sign-out-alt"></i></button>
 	</form>
 	
+	<%rs.close();
+	st.close();
+	con.close();%>
 	<%}%>
 	</section>
 </body>

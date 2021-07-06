@@ -76,7 +76,8 @@ public class Login extends HttpServlet {
 				sesion.setAttribute("pass", pass);
 				//ADEMÁS SE PODRÍAN UTILIZAR PARA COMPLETAR LA PÁGINA DE USUARIO CON EL NOM... CREO RECORDAR.
 				request.setAttribute("user", user);
-				System.out.println(response.getWriter());
+				//System.out.println(response.getWriter());
+				
 			}
 		
 	

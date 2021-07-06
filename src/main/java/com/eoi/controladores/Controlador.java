@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.eoi.modelos.*;
 
@@ -29,45 +30,94 @@ public class Controlador extends HttpServlet {
 		String iduser = request.getParameter("iduser");
 		String idart = request.getParameter("idart");
 		String iddisc = request.getParameter("iddisc");
-		
+		String idcomp = request.getParameter("idcomp");
 		Artista art = null;
+		Usuario user = null;
+		Disco disc = null;
 		
 		UsuarioDAO udao = new UsuarioDAO();
 		ArtistaDAO adao = new ArtistaDAO();
 		DiscoDAO ddao = new DiscoDAO();
+		CompraDAO cdao = new CompraDAO();
 		
 		String destPage = "prueba.jsp";
 
 		switch (opcion) {
-		case "art":
+		case "sesion":
+			HttpSession sesion = request.getSession();
+			boolean nik = sesion.getAttribute("nik") != null;
+			System.out.println(nik);
+			if(nik == false) {
+				destPage = "loginprueba.jsp";
+			}else {
+				destPage = "user.jsp";
+			}
+			break;
+		case "formmodiuser":
+			destPage = "formmodiuser.jsp";
+			try {
+				user = udao.getUser(iduser);
+				request.setAttribute("user",user);
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			break;
+		case "formmodiart":
+			destPage = "formmodiart.jsp";
 			try {
 				art = adao.getArtista(idart);
 				request.setAttribute("art",art);
-				destPage = "artist.jsp";
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			break;
+		case "formmodidisc":
+			destPage = "formmodidisc.jsp";
+			try {
+				disc = ddao.getDisc(iddisc);
+				request.setAttribute("disc",disc);
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			
+			break;
+		case "art":
+			destPage = "artist.jsp";
+			try {
+				art = adao.getArtista(idart);
+				request.setAttribute("art",art);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			break;
 		case "borrarUser":
+			destPage = "user.jsp";
 			try {
 				udao.borrarUser(iduser);
-				destPage = "tablauser.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			break;
 		case "borrarArt":
+			destPage = "user.jsp";
 			try {
 				adao.borrarArtista(idart);
-				destPage = "tablaart.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			break;
 		case "borrarDisc":
+			destPage = "user.jsp";
 			try {
 				ddao.borrarDisc(iddisc);
-				destPage = "tabladisc.jsp";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			break;
+		case "borrarComp":
+			destPage = "user.jsp";
+			try {
+				cdao.borrarCompra(idcomp);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -126,7 +176,6 @@ public class Controlador extends HttpServlet {
 		case "modiUser":
 			try {
 				udao.modificarUser(u2);
-				destPage = "tablauser.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -134,13 +183,8 @@ public class Controlador extends HttpServlet {
 		case "altaUser":
 			try {
 				System.out.println("Este es el USUARIO que le pasa al método " + u);
-				
 				udao.altaUser(u);
-				
-				destPage = "user.jsp";
-				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			request.setAttribute("user", u);
@@ -149,7 +193,6 @@ public class Controlador extends HttpServlet {
 		case "modiArt":
 			try {
 				adao.modificarArtista(a2);
-				destPage = "tablaart.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -158,14 +201,12 @@ public class Controlador extends HttpServlet {
 			try {
 				adao.altaArtista(a);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			break;
 		case "modiDisc":
 			try {
 				ddao.modificarDisc(d2);
-				destPage = "tabladisc.jsp";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -174,7 +215,6 @@ public class Controlador extends HttpServlet {
 			try {
 				ddao.altaDisc(d);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			break;
