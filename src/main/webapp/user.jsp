@@ -316,6 +316,8 @@
 		ResultSet rsc= null;
 		%>
 
+		<a href=""><i class="fas fa-compact-disc"></i></a>
+		
 		<div class="disccomp">
 		<h1>Tus Compras</h1>
 			<%while (rs.next()) {

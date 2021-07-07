@@ -53,10 +53,10 @@
 					</form>
 				</div>
 				<%
+				}
 				rs.close();
 				pst.close();
 				con.close();
-				}
 				%>
 				
 		</div>
