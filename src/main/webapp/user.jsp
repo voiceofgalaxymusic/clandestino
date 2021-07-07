@@ -232,6 +232,7 @@
 			</div>
 
 			<!--  +++++++++++++++++++++++++++++++++++  compras  +++++++++++++++++++++++++++++++++++++ -->
+			<h2>Compras</h2>
 			<div class="tablas">
 				<table class="tablacrear">
 					<%
