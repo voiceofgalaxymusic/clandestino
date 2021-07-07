@@ -91,7 +91,7 @@
 				<i class="fa fa-user-plus"></i>
 			</button>
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<tr>
 						<th>ID</th>
 						<th>Roll</th>
@@ -138,7 +138,7 @@
 				<i class="fa fa-user-plus"></i>
 			</button>
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<%
 					sql = "select * from t_art ";
 					st = con.createStatement();
@@ -184,7 +184,7 @@
 				<i class="fa fa-user-plus"></i>
 			</button>
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<%
 					sql = "select * from t_disc";
 					st = con.createStatement();
@@ -228,7 +228,7 @@
 
 			<!--  +++++++++++++++++++++++++++++++++++  compras  +++++++++++++++++++++++++++++++++++++ -->
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<%
 					sql = "select * from t_compra";
 					st = con.createStatement();
@@ -296,12 +296,6 @@
 			</div>
 		</div>
 
-		<form action="Logout" method="post" class="logout">
-			<button class="botonlogout">
-				Logout <i class="fa fa-sign-out-alt"></i>
-			</button>
-		</form>
-
 		<%
 		} else {
 		%>
@@ -349,15 +343,15 @@
 					while(rs.next()){
 						preDisc = Double.parseDouble(rs.getString("disc_pre"));
 						totalCompra = totalCompra + (preDisc * Double.parseDouble(discCant));
-						%><div class="discoDeseo">
+						%><div class="discosart">
 						<img src="<%=rs.getString("disc_img")%>">
-						<h1><%= rs.getString("disc_nom") %></h1>
-						<h1><%= rs.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h1>
+						<h3><%= rs.getString("disc_nom") %></h3>
+						<h3><%= rs.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h3>
+						<h3><%= discCant %></h3>
 						</div><%
-						%> <h1><%= discCant %></h1><%
 					}
 				}
-				%> <h1><%= totalCompra %></h1><%
+				%> <h2>Precio total: <%= totalCompra %></h2><%
 			}else{
 				//Falta añadir imagen de carrito vacío
 				

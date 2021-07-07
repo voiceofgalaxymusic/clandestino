@@ -14,18 +14,29 @@
 </head>
 <body>
 <% Artista art = (Artista) request.getAttribute("art"); %>
-	<form id="formiframeuser" action="Controlador" method="post">
-		<h1>Modificar Artista</h1>
-		<label for="idart">Id Artista*</label>
-		<input id="idvalue" type="text" class="input" name="idart" readonly value="<%= art.getidart() %>" ><br>
-		<label for="nomart">Nombre*</label>
-		<input type="text" class="input" name="nomart"  value="<%= art.getNomArt() %>" ><br>
-		<label for="geneart">Género</label>
-		<input type="text" class="input" name="geneart"  value="<%= art.getGenero() %>" ><br>
-		<label for="imgart">Imagen</label>
-		<input type="text" class="input" name="imgart"  value="<%= art.getImg() %>" ><br>
-		<input type="hidden" name="opcion" value="modiArt">
-		<input type="submit" class="botonform2" value="Modificar">
+	<form class="formmodi formmodiart" action="Controlador" method="post">
+	<input type="hidden" name="iduser" value="<%= art.getidart() %>">
+	<h1>Modificar Artista</h1>
+		<div class="tablaform1">
+		<div class="imgform" style="background-image: url(<%= art.getImg() %>)" ></div>
+		<div>
+			<h2>Id Artista: <%= art.getidart() %></h2>
+			<table class="tablaform2">
+				<tr>
+					<td>Nombre</td>
+					<td><input type="text" class="input" name="nomart"  value="<%= art.getNomArt() %>" ></td>
+					<td>Género</td>
+					<td><input type="text" class="input" name="geneart"  value="<%= art.getGenero() %>"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="urlavatar">
+		<label for="imguser">URL Avatar</label>
+		<input type="text" class="imginput" name="imguser"  value="<%= art.getImg() %>" >
+	</div>
+	<input type="hidden" name="opcion" value="modiArt">
+	<input class="botmodi" type="submit" class="botonform2" value="Modificar">
 	</form>
 </body>
 </html>

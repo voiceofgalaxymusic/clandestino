@@ -48,8 +48,10 @@ public class ServletCarritoDiscos extends HttpServlet {
 			discosList.add(discoNuevo);
 			discosCant.add(discoCant);
 		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
+		dispatcher.forward(request, response);
 
-		PrintWriter out = response.getWriter();
+		/*PrintWriter out = response.getWriter();
 		out.print("<h1>Lista de Discos en el carrito<h1>");
 		out.print("<br>");
 		// Imprimir todos los discos de la lista
@@ -63,7 +65,7 @@ public class ServletCarritoDiscos extends HttpServlet {
 		// Link para regresar a la página del artista
 		out.print("<br>");
 
-		out.print("<a href='index.jsp'>Regresar a la página del artista</a>");
+		out.print("<a href='index.jsp'>Regresar a la página del artista</a>");*/
 	}
 //<input type="hidden" value='<%=rs.getString("disc_id")%>'>
 }

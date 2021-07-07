@@ -177,6 +177,8 @@ public class Controlador extends HttpServlet {
 		String destPage = "user.jsp";
 		switch (opcion) {
 		case "modiUser":
+			System.out.println(u2.getNik());
+			System.out.println(iduser);
 			try {
 				udao.modificarUser(u2);
 			} catch (SQLException e) {

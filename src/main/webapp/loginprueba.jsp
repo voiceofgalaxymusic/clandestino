@@ -15,34 +15,33 @@
 <%@include file="header.jsp" %>
 
 	<div class="bodysection" style="margin-top:50px;">
-	<form action="Controlador" method="post" style="display:inline-block;background-color:#a8199f; text-align: right;padding: 50px;position:relative;">
+	<form class="formlogin" action="Controlador" method="post">
 		<h1 style="margin-bottom:50px; color:white;">Regístrese como usuario</h1>
-		<input type="hidden" class="input" name="rollUser" value="client">
-		<label for="nik">Nickname *</label>
-		<input type="text" class="input" name="nik" value="">
-		<label for="pass">Contraseña *</label>
-		<input type="password" class="input" name="pass" value=""><br>
-		<label for="nom">Nombre *</label>
-		<input type="text" class="input" name="nomUser" value="" style="width:300px"><br>
-		<label for="pai">País *</label>
-		<input type="text" class="input" name="pais" value="">
-		<label for="ciu">Ciudad *</label>
-		<input type="text" class="input" name="ciudad" value=""><br>
-		<label for="imguser">URL Avatar *</label>
-		<input type="text" class="input" name="imguser"  value="" style="width:300px"><br>
+		<input type="hidden" name="rollUser" value="client">
+		<h2>Nickname *</h2>
+		<input type="text"  name="nik" value="">
+		<h2>Contraseña *</h2>
+		<input type="password" name="pass" value=""><br>
+		<h2>Contraseña *</h2>
+		<input type="text" name="nomUser" value="" style="width:300px"><br>
+		<h2>País</h2>
+		<input type="text"  name="pais" value="">
+		<h2>Ciudad</h2>
+		<input type="text"  name="ciudad" value=""><br>
+		<h2>URL Avatar</h2>
+		<input type="text" name="imguser"  value="" style="width:300px"><br>
 		<input type="hidden" name="opcion" value="altaUser">
-		<input class="botonform" type="submit" value="Crear usuario">
-		<input type="reset" value="Borrar">
+		<input class="botonlogin" type="submit" value="Crear usuario">
 	</form>
 
-	<form action="Login" method="post" style="display: inline-block;background-color:#a8199f; text-align: right;padding: 50px;position:relative;">
+	<form class="formlogin" action="Login" method="post">
 		<h1 style="margin-bottom: 50px; color:white;">Iniciar sesión</h1>
-		<label for="nik">Nickname</label>
-		<input type="text" class="input" name="nik" value="">*<br>
-		<label for="pass">Contraseña</label>
-		<input type="password" class="input" name="pass" value="">*<br>
+		<h2>Nickname</h2>
+		<input type="text" name="nik" value=""><br>
+		<h2>Contraseña</h2>
+		<input type="password"  name="pass" value=""><br>
 		<span class="msgerr"><%=(request.getAttribute("msgerr") == null) ? "" : request.getAttribute("msgerr")%></span>
-		<input class="botonform" type="submit" value="Login">
+		<input class="botonlogin" type="submit" value="Login">
 		
 	</form></div>
 </body>

@@ -14,19 +14,33 @@
 </head>
 <body>
 <% Disco disc = (Disco) request.getAttribute("disc"); %>
-	<form id="formiframeuser" action="Controlador" method="post">
-		<label for="iddisc">ID del Disco</label>
-		<input id="idvalue" type="text" class="input" name="iddisc" readonly value="<%= disc.getDisc_id() %>">
-		<label for="nomdisc">Nombre</label>
-		<input type="text" class="input" name="nomdisc"  value="<%= disc.getDisc_nom() %>" ><br>
-		<label for="idartdisc">ID Artista</label>
-		<input type="text" class="input" name="idartdisc"  value="<%= disc.getDisc_idart() %>">
+	<form class="formmodi formmodidisc" action="Controlador" method="post">
+	<input type="hidden" name="iddisc" value="<%= disc.getDisc_id() %>">
+	<h1>Modificar Disco</h1>
+	<div class="tablaform1">
+		<div class="imgform" style="background-image: url(<%= disc.getDisc_img() %>)" ></div>
+		<div>
+			<h2>ID Disco: <%= disc.getDisc_id() %></h2>
+			<table class="tablaform2">
+				<tr>
+					<td>Nombre</td>
+					<td><input type="text" name="nomdisc"  value="<%= disc.getDisc_nom() %>"></td>
+					<td>ID del Artista</td>
+					<td><input type="text" class="input" name="idartdisc"  value="<%= disc.getDisc_idart() %>"></td>
+				</tr>
+				<tr>
+					<td>Precio</td>
+					<td><input type="text" class="input" name="predisc"  value="<%= disc.getDisc_pre() %>"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="urlavatar">
 		<label for="imgdisc">URL Cover</label>
-		<input type="text" class="input" name="imgdisc"  value="<%= disc.getDisc_img() %>"><br>
-		<label for="predisc">Precio</label>
-		<input type="text" class="input" name="predisc"  value="<%= disc.getDisc_pre() %>">
-		<input type="hidden" name="opcion" value="modiDisc">
-		<input type="submit" class="botonform2" value="Modificar">
+		<input type="text" class="imginput" name="imgdisc"  value="<%= disc.getDisc_img() %>">
+	</div>
+	<input type="hidden" name="opcion" value="modiDisc">
+	<input class="botmodi" type="submit" class="botonform2" value="Modificar">
 	</form>
 </body>
 </html>

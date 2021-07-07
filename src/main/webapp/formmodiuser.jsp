@@ -14,26 +14,42 @@
 </head>
 <body>
 	<% Usuario user = (Usuario) request.getAttribute("user"); %>
-	<form id="formiframeuser" action="Controlador" method="post">
-		<h1>Modificar Usuario</h1>
-		<label for="iduser">ID del Usuario</label>
-		<input id="idvalue" type="text" class="input" name="iduser" readonly value="<%= user.getId() %>" >
-		<label for="rollUser">Roll*</label>
-		<input id="rollvalue" type="text" class="input" name="rollUser"  value="<%= user.getRol() %>" ><br>
-		<label for="nick">Nick*</label>
-		<input type="text" class="input" name="nick"  value="<%= user.getNik() %>">
-		<label for="pass">Password*</label>
-		<input type="text" class="input" name="pass"  value="<%= user.getPass() %>"><br>
-		<label for="nombre">Nombre</label>
-		<input type="text" class="input" name="nomUser"  value="<%= user.getNom() %>">
-		<label for="pais">Pais</label>
-		<input type="text" class="input" name="pais"  value="<%= user.getPai() %>">
-		<label for="ciudad">Ciudad</label>
-		<input type="text" class="input" name="ciudad"  value="<%= user.getCiu() %>" ><br>
+	<form class="formmodi formmodiuser" action="Controlador" method="post">
+	<input type="hidden" name="iduser" value="<%= user.getId() %>">
+	<h1>Modificar Usuario</h1> 
+	<div class="tablaform1">
+		<div class="imgform" style="background-image: url(<%= user.getImg() %>)" ></div>
+		<div>
+			<h2>ID Usuario: <%= user.getId() %></h2>
+			<table class="tablaform2">
+				<tr>
+					<td>Roll</td>
+					<td><input type="text" name="rollUser"  value="<%= user.getRol() %>" ></td>
+					<td>Nombre</td>
+					<td><input type="text" name="nomUser"  value="<%= user.getNom() %>"></td>
+				</tr>
+				<tr>
+					<td>Nickname</td>
+					<td><input type="text"  name="nik"  value="<%= user.getNik() %>"></td>
+					<td>Password</td>
+					<td><input type="text" name="pass"  value="<%= user.getPass() %>"></td>
+				</tr>
+				<tr>
+					<td>Pais</td>
+					<td><input type="text" name="pais"  value="<%= user.getPai() %>"></td>
+					<td>Ciudad</td>
+					<td><input type="text" name="ciudad"  value="<%= user.getCiu() %>" ></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="urlavatar">
 		<label for="imguser">URL Avatar</label>
-		<input type="text" class="input" name="imguser"  value="<%= user.getImg() %>" ><br>
-		<input type="hidden" name="opcion" value="modiUser">
-		<input type="submit" class="botonform2" value="Modificar">
+		<input type="text" class="imginput" name="imguser"  value="<%= user.getImg() %>" >
+	</div>
+	<input type="hidden" name="opcion" value="modiUser">
+	<input class="botmodi" type="submit" class="botonform2" value="Modificar">
 	</form>
+
 </body>
 </html>
