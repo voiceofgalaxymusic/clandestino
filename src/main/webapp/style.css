@@ -1,28 +1,35 @@
-*{
+* {
 	margin: 0px;
 	padding: 0px;
 	text-decoration: none;
+	list-style: none;
 }
-h1, h2, h3{
-	font-family: 'Bree Serif', serif;}
-h1{
+
+h1, h2, h3 {
+	font-family: 'Bree Serif', serif;
+}
+
+h1 {
 	font-size: 50px;
 }
-h2{
+
+h2 {
 	font-size: 30px;
 }
-h3{
+
+h3 {
 	font-size: 19px;
 }
-a{
+
+a {
 	text-decoration: none;
 }
 /*+++++++++++++++++++++++ header y nav ++++++++++++++++++++++++++*/
-
-header{
+header {
 	background-image: linear-gradient(to right, #dadada, #525252);
 	overflow: hidden;
 }
+
 .logo {
 	font-size: 150px;
 	font-family: 'Stardos Stencil', cursive;
@@ -31,17 +38,20 @@ header{
 	padding-top: 20px;
 	transform: rotate(2deg);
 }
-header a{
+
+header a {
 	color: white;
 	font-size: 150px;
 }
-body{
+
+body {
 	background-color: #525252;
 }
 /*++++++++menu hambuergesa+++++*/
 #flag {
 	display: none;
 }
+
 .menu-toogle {
 	position: absolute;
 	display: block;
@@ -52,6 +62,7 @@ body{
 	top: 210px;
 	z-index: 1;
 }
+
 .menu-toogle span {
 	position: absolute;
 	top: 0;
@@ -63,8 +74,8 @@ body{
 	margin: auto;
 	background: #fff;
 }
-.menu-toogle span:before,
-.menu-toogle span:after {
+
+.menu-toogle span:before, .menu-toogle span:after {
 	position: absolute;
 	width: inherit;
 	height: inherit;
@@ -72,60 +83,70 @@ body{
 	background: #fff;
 	left: 0;
 }
+
 .menu-toogle span:before {
 	top: -0.7em;
 }
+
 .menu-toogle span:after {
 	bottom: -0.7em;
 }
 /*+++++++++++++++ NAV ++++++++++++++++++*/
-#flag:checked ~ nav{
+#flag:checked ~ nav {
 	bottom: 0px;
 }
-nav{
+
+nav {
 	height: 60px;
 	position: relative;
 	bottom: -60px;
 	transition: all 0.5s ease;
 }
-nav ul{
+
+nav ul {
 	margin-right: 80px;
 }
 /*++++++++++ ANIMATION HAMBUR +++++++++*/
-#flag:checked + .menu-toogle span {
+#flag:checked+.menu-toogle span {
 	background: none;
 }
+
 .menu-toogle span {
 	transition: background 0s .25s;
 	font-size: 15px;
 }
+
 .menu-toogle span:before {
 	-webkit-transition-property: top, transform;
 	transition-property: top, transform;
 }
+
 .menu-toogle span:after {
 	-webkit-transition-property: bottom, transform;
 	transition-property: bottom, transform;
 }
-#flag:checked + .menu-toogle span:before {
+
+#flag:checked+.menu-toogle span:before {
 	top: 0;
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
-#flag:checked + .menu-toogle span:after {
+
+#flag:checked+.menu-toogle span:after {
 	bottom: 0;
 	-webkit-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 }
-#flag:checked + .menu-toogle span:before,
-#flag:checked + .menu-toogle span:after {
+
+#flag:checked+.menu-toogle span:before, #flag:checked+.menu-toogle span:after
+	{
 	-webkit-transition-delay: 0s, .25s;
 	transition-delay: 0s, .25s;
 }
-.menu-toogle span:before,
-.menu-toogle span:after {
+
+.menu-toogle span:before, .menu-toogle span:after {
 	-webkit-transition-delay: .25s, 0s;
 	-webkit-transition-duration: .25s, .25s;
 	transition-delay: .25s, 0s;
@@ -136,17 +157,19 @@ nav {
 	text-align: right;
 	background-color: #a8199f;
 }
-nav ul li{
+
+nav ul li {
 	display: inline-block;
 	margin: 15px 20px;
 	font-size: 25px;
 }
-nav ul li a{
+
+nav ul li a {
 	color: white;
 	font-size: 25px;
 }
 /*++++++++++++++++++ tablas ++++++++++++++++++++++++++*/
-.botoncrear{
+.botoncrear {
 	background: none;
 	border: none;
 	font-size: 30px;
@@ -154,77 +177,90 @@ nav ul li a{
 	position: absolute;
 	right: 200px;
 }
-.botoncrear:hover{
-	color: #a8199f;	
+
+.botoncrear:hover {
+	color: #a8199f;
 }
-table, th, td{
-    border-left: solid 2px #fff!important;
-    border-right: solid 2px #fff!important;
-    border-top: none!important;
-    border-bottom: none!important;
+
+table, th, td {
+	border-left: solid 2px #fff !important;
+	border-right: solid 2px #fff !important;
+	border-top: none !important;
+	border-bottom: none !important;
 }
+
 table {
 	margin: 30px auto;
 	border-collapse: collapse;
 }
+
 table caption {
 	font-size: 40px;
 	font-family: 'Bree Serif', serif;
 	margin-bottom: 20px;
 }
 
-table th, td{
+table th, td {
 	padding: 5px 20px;
 	color: #fff;
 	font-size: 16px;
 }
 
-table td button{
+table td button {
 	background: none;
 	border: none;
 	cursor: pointer;
 	margin-right: 20px;
 }
-table td div{
+
+table td div {
 	width: 50px;
 	height: 50px;
 	background-size: cover;
 	background-position: center;
 }
-table tr .fa-edit:hover{
+
+table tr .fa-edit:hover {
 	color: #a8199f;
 }
-table th{
-    background-color: #a8199f;
+
+table th {
+	background-color: #a8199f;
 	font-size: 20px;
 	color: #fff;
 }
-table tr:nth-child(even) td{
-    background-color: #525252;
+
+table tr:nth-child(even) td {
+	background-color: #525252;
 }
-table tr:nth-child(odd) td{
-    background-color: #a8199f;;
+
+table tr:nth-child(odd) td {
+	background-color: #a8199f;;
 }
-table tr:nth-child(even) .fa-edit:hover{
+
+table tr:nth-child(even) .fa-edit:hover {
 	color: #a8199f;
 }
-table tr:nth-child(odd) .fa-edit:hover{
+
+table tr:nth-child(odd) .fa-edit:hover {
 	color: #525252;
 }
 
-table tr .fa-edit{
+table tr .fa-edit {
 	color: #fff;
 	font-size: 25px;
 }
-table tr .fa-trash-alt{
+
+table tr .fa-trash-alt {
 	color: #ff0000;;
 	font-size: 25px;
 }
-table a{
+
+table a {
 	margin-right: 10px;
 }
 /*   +++++++++++++++++++++++++++++++++++ tablas   +++++++++++++++++++++++++++++++++++*/
-.tablas{
+.tablas {
 	height: 500px;
 	overflow: auto;
 	margin: 0px auto 100px auto;
@@ -244,15 +280,17 @@ table a{
 	left: calc(50vw - 200px);
 	top: calc(50vh - 215px);
 }
+
 .backform {
 	width: 100vw;
 	position: absolute;
 	height: 100vh;
-	background-color: rgba(255,255,255,0.5);
+	background-color: rgba(255, 255, 255, 0.5);
 	left: 0px;
 	z-index: -1;
 }
-#formiframeuser{
+
+#formiframeuser {
 	width: calc(100vw - 80px);
 	height: 240px;
 	margin: auto;
@@ -262,7 +300,8 @@ table a{
 	color: white;
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
-#formiframeart{
+
+#formiframeart {
 	width: calc(100vw - 80px);
 	height: 240px;
 	margin: auto;
@@ -272,13 +311,16 @@ table a{
 	color: white;
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
+
 #formuser1 {
 	position: fixed;
 	top: -500px;
 }
-#formuser2{
+
+#formuser2 {
 	position: relative;
 }
+
 .input {
 	background-color: #525252;
 	border-top: none;
@@ -288,7 +330,8 @@ table a{
 	color: white;
 	height: 20px;
 }
-.cerr1{
+
+.cerr1 {
 	position: absolute;
 	background: none;
 	border: none;
@@ -298,7 +341,8 @@ table a{
 	z-index: 1;
 	font-size: 30px;
 }
-.cerr2{
+
+.cerr2 {
 	position: absolute;
 	background: none;
 	border: none;
@@ -306,7 +350,8 @@ table a{
 	left: calc(100vw - 50px);
 	z-index: 1;
 }
-.botonform{
+
+.botonform {
 	border: none;
 	font-size: 30px;
 	padding: 20px;
@@ -318,7 +363,8 @@ table a{
 	left: 200px;
 	bottom: -50px;
 }
-.botonform2{
+
+.botonform2 {
 	background-color: #525252;
 	border: none;
 	font-size: 20px;
@@ -326,103 +372,125 @@ table a{
 	color: #fff;
 	cursor: pointer;
 }
-.botonform2:hover{
+
+.botonform2:hover {
 	background-color: #fff;
 	color: #525252;
 }
-.botonform:hover{
+
+.botonform:hover {
 	background-color: #525252;
 	color: #fff;
-	transition:0.3s;
+	transition: 0.3s;
 	padding: 30px;
 	transform: rotate(-5deg);
 }
-.botoncerrar:hover{
+
+.botoncerrar:hover {
 	color: white;
 }
-.botoncerrar i{
+
+.botoncerrar i {
 	font-size: 30px;
 }
-#formcreauser, #formcrearart, #formcreardisc{
+
+#formcreauser, #formcrearart, #formcreardisc {
 	position: absolute;
 	left: -110vw;
 	top: 500px;
 	transition: 1s;
 }
-form label{
+
+form label {
 	font-size: 30px;
 }
-form input{
+
+form input {
 	margin-bottom: 10px;
 }
-.input1{
+
+.input1 {
 	margin-left: 63px;
 }
-.imgYboton *{
+
+.imgYboton * {
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 30px;
 }
-.formborrar{
+
+.formborrar {
 	display: inline-block;
 }
 /*++++++++++++++++++++++++++++++ login +++++++++++++++++++++++++++++*/
-
-.msgerr{
-	color:white;
+.msgerr {
+	color: white;
 	font-size: 20px;
 }
 /*+++++++++++++++++++++++++ Pagina de Usuario ++++++++++++++++++++++*/
-section{
+section {
 	width: 85vw;
 	margin: auto;
 	margin-top: 50px;
 	padding: 50px;
 	background-color: white;
 }
-section h2{
+
+section h2 {
 	text-align: center;
 }
-section h2, button{
+
+section h2, button {
 	display: inline-block;
 }
-.headuser{
+
+.headuser {
 	position: relative;
 	margin-bottom: 50px;
 }
-.headuser .imguser, .nameuser, .lugaruser{
+
+.headuser .imguser, .nameuser, .lugaruser {
 	display: inline-block;
 }
-.headuser .nameuser, .lugaruser{
+
+.headuser .nameuser, .lugaruser {
 	position: absolute;
 }
-.headuser .imguser{
+
+.headuser .imguser {
 	width: 200px;
 	height: 200px;
 	background-size: cover;
 	background-position: center;
 }
-.nameuser{
+
+.nameuser {
 	margin-left: 50px;
 }
-.nameuser h1:nth-child(1){
+
+.nameuser h1:nth-child(1) {
 	font-size: 60px;
 }
-.lugaruser{
+
+.lugaruser {
 	right: 0px;
 	text-align: right;
 }
-.lugaruser h1:nth-child(1){
+
+.lugaruser h1:nth-child(1) {
 	font-size: 60px;
 }
-.bodysection{
+
+.bodysection {
 	text-align: center;
 }
-.logout{
+
+.logout {
 	text-align: center;
 	margin-top: 30px;
 }
-.botonlogout{
+
+.botonlogout {
 	border: none;
 	padding: 20px;
 	background-color: #525252;
@@ -430,10 +498,12 @@ section h2, button{
 	font-size: 30px;
 	cursor: pointer;
 }
-.botonlogout:hover{
+
+.botonlogout:hover {
 	background-color: #a8199f;
 }
-.botonlogout i{
+
+.botonlogout i {
 	margin-left: 10px;
 }
 /*++++++++++++++++++++++++++++ página de artista +++++++++++++++++++++++++++*/
@@ -443,111 +513,136 @@ section h2, button{
 	width: 100%;
 	height: 550px;
 }
-.headart img{
+
+.headart img {
 	display: inline-block;
 }
+
 .headart img {
 	max-width: 65vw;
 	max-height: 530px;
 }
-.infoart{
-	display:inline-block;
-	position:absolute;
-	bottom:0px;
+
+.infoart {
+	display: inline-block;
+	position: absolute;
+	bottom: 0px;
 	padding: 0px 20px;
-	right:10vw;
+	right: 10vw;
 	background-color: rgba(82, 82, 82, 0.3);
 	text-align: right;
 }
-.infoart h1{
+
+.infoart h1 {
 	font-size: 80px;
 }
-.bodyart{
+
+.bodyart {
 	text-align: center;
 }
+
 .discosart {
 	margin: 50px;
 	display: inline-block;
 	position: relative;
 	width: 250px;
 }
-.discosart *{
+
+.discosart * {
 	display: block;
 }
-.discosart img{
+
+.discosart img {
 	width: 200px;
 	margin: auto;
 }
-.discosart h2:nth-child(3) , .fa-euro-sign{
+
+.discosart h2:nth-child(3), .fa-euro-sign {
 	display: inline-block;
 	margin: 0px 5px;
 }
-.discosart .fa-euro-sign{
+
+.discosart .fa-euro-sign {
 	font-size: 25px;
 }
-.botoncarrito{
+
+.botoncarrito {
 	background: none;
 	border: none;
 	position: absolute;
 	left: 90px;
 	cursor: pointer;
 }
-.botoncarrito .fa-shopping-cart{
+
+.botoncarrito .fa-shopping-cart {
 	font-size: 50px;
 	display: block;
 }
-.botoncarrito .fa-shopping-cart:hover{
+
+.botoncarrito .fa-shopping-cart:hover {
 	transition: 0.5s;
 	font-size: 60px;
 	color: #a8199f;
 }
 
 /*+++++++++++++++++++++++++++++++++ Imdex ++++++++++++++++++++++++++++*/
-.catal{
-	width: 33vw;
+.catalogo {
+	height: 1500px;
+	position: relative;
+}
+
+.catal {
+	width: 45vw;
 	margin-left: 50px;
 	margin-top: 50px;
 	display: inline-block;
 	position: absolute;
 	font-size: 0px;
 }
-.catalogos{
+
+.catalogos {
 	height: 250px;
 	background-size: cover;
 	background-position: center;
-	width: 16vw;
+	width: 20vw;
 	display: inline-block;
 }
+
 .catalogos div {
 	position: relative;
 	height: 250px;
-	background-image: linear-gradient(to top, #dadada, rgba(255,255,255,0) 50%);
+	background-image: linear-gradient(to top, #dadada, rgba(255, 255, 255, 0)
+		50%);
 	transition: 0.5s;
 }
-.catalogos div *{
+
+.catalogos div * {
 	position: absolute;
 	color: #a8199f;
 	bottom: 0px;
 	margin-left: 10px;
 }
+
 .catalogos div h2 {
 	bottom: 35px;
 	line-height: 30px;
 }
-.catalogos div .fa{
+
+.catalogos div .fa {
 	left: 30px;
 	font-size: 19px;
 }
-.catalogos div:hover{
-	background-color: rgba(255,255,255,0.5);
-	
+
+.catalogos div:hover {
+	background-color: rgba(255, 255, 255, 0.5);
 	transition: 0.5s;
 }
-.cataldisc{
-	left:35vw;
+
+.cataldisc {
+	left: 50vw;
 }
 
-.quienessomos h2{
+.quienessomos h2 {
 	color: #fff;
 	padding: 1em;
 	text-align: center;
@@ -566,5 +661,19 @@ section h2, button{
 	color: #fff;
 	font-size: 19px;
 	font-family: Verdana, sans-serif;
-	padding: 2em;	
+	padding: 2em;
+}
+
+/*+++++++++++++++++++++++++++++++++ Footer ++++++++++++++++++++++++++++*/
+.footer {
+	
+	bottom: 0;
+	width: 100%;
+	height: 200px; 
+	background-image: linear-gradient(to right, #dadada, #525252);
+	color: #A8199F;
+	font-size: 20px;
+	font-family: Bree Serif, serif;
+	padding: 1em;
+	text-align: center;
 }

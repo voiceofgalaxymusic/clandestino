@@ -24,7 +24,10 @@ public class ArtistaDAO {
 
 		// AL TRABAJAR CON INSERT O UPDATE, TENEMOS QUE UTILIZAR ESE Y NO EXECUTEQUERY
 		pst.executeUpdate();
-		System.out.println("Artista ("+a.getNomArt()+") creado");
+		System.out.println("Artista (" + a.getNomArt() + ") creado");
+
+		pst.close();
+		con.close();
 	}
 
 	public void modificarArtista(Artista a) throws SQLException {
@@ -38,17 +41,23 @@ public class ArtistaDAO {
 		pst.setString(4, a.getidart());
 
 		pst.executeUpdate();
+		
+		pst.close();
+		con.close();
 	}
 
 	public void borrarArtista(String idart) throws SQLException {
-		
+
 		String query = "DELETE FROM t_art WHERE art_id=?";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(query);
 		pst.setString(1, idart);
-		
+
 		pst.executeUpdate();
 		
+		pst.close();
+		con.close();
+
 	}
 
 	public Artista getArtista(String idart) throws SQLException {
@@ -70,6 +79,9 @@ public class ArtistaDAO {
 			a.setImg(rs.getString("art_img"));
 
 		}
+		rs.close();
+		pst.close();
+		con.close();
 
 		return a;
 
