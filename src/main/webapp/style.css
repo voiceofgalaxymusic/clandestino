@@ -255,6 +255,7 @@ nav ul li:hover{
 	text-align: right;
 	padding: 50px;
 	position:relative;
+	border-radius: 15px;
 }
 .formlogin h2{
 	margin: auto;
@@ -376,6 +377,7 @@ nav ul li:hover{
 	position: absolute;
 	left: calc(50vw - 200px);
 	top: calc(50vh - 215px);
+	border-radius: 15px;
 }
 .backform {
 	width: 100vw;
@@ -384,6 +386,7 @@ nav ul li:hover{
 	background-color: rgba(255,255,255,0.5);
 	left: 0px;
 	z-index: -1;
+	filter: blur(400px);
 }
 #formuser1 {
 	position: fixed;
@@ -402,13 +405,13 @@ nav ul li:hover{
 	height: 20px;
 	margin-bottom: 10px;
 }
-.cerr1{
+.cerr1 {
 	position: absolute;
 	background: none;
 	border: none;
 	cursor: pointer;
 	left: calc(50vw - 200px);
-	top: calc(50vh - 215px);
+	top: calc(50vh - 219px);
 	z-index: 1;
 	font-size: 30px;
 }
@@ -486,16 +489,12 @@ form label{
 /*+++++++++++++++++++++++++ Pagina de Usuario ++++++++++++++++++++++*/
 section{
 	width: 85vw;
-	margin: auto;
-	margin-top: 50px;
+	margin: 50px auto;
 	padding: 50px;
 	background-color: white;
 }
 section h2{
 	text-align: center;
-}
-section h2, button{
-	display: inline-block;
 }
 .headuser{
 	position: relative;
@@ -551,10 +550,81 @@ section h2, button{
 .botonlogout i{
 	margin-left: 10px;
 }
-.carrito{
+.carrito, .disccomp {
 	text-align: center;
+	min-height: 200px;
+	max-height: 600px;
+	overflow: auto;
+	margin-bottom: 50px;
 }
-/*++++++++++++++++++++++++++++ página de artista +++++++++++++++++++++++++++*/
+
+.discoscomp {
+	margin: 30px auto;
+	display: inline-block;
+	width: 250px;
+	color: #000;
+}
+.discoscomp *{
+	display: block;
+}
+.discoscomp img{
+	width: 200px;
+	margin: auto;
+}
+.discoscomp .fa-euro-sign{
+	font-size: 15px;
+}
+.imgcarrito {
+	background-image: url(https://ih1.redbubble.net/image.1026630873.2447/flat,750x,075,f-pad,750x1000,f8f8f8.jpg);
+	background-size: 150px;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 100px;
+	margin: auto;
+}
+#carritoventana {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: rgba(255,255,255,0.8);
+	z-index: 1;
+	padding: 0px calc(50vw - 400px) calc(50vh - 100px);
+	width: 800px;
+}
+.botonventcarrito {
+	background-color: #525252;
+	width: 200px;
+	display: block;
+	margin: auto;
+	cursor: pointer;
+}
+.botonventcarrito:hover{
+	background-color: #a8199f;
+}
+.formcarritoboton {
+	background-color: #a8199f;
+	padding: 100px 0px;
+	border-radius: 15px;
+}
+.discoscaritoventana {
+	display: inline-block;
+	width: 200px;
+}
+.discoscaritoventana img{
+	width: 50px;
+}
+.outventanacarrito {
+	position: absolute;
+	background: none;
+	border: none;
+	cursor: pointer;
+	left: calc(50vw - 400px);
+	top: -5px;
+	font-size: 30px;
+}
+/*++++++++++++++++++++++++++++ página del artista +++++++++++++++++++++++++++*/
 .headart {
 	position: relative;
 	margin-bottom: 50px;

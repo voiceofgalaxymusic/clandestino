@@ -28,7 +28,6 @@
 			st.close();
 			con.close();%>
 	</div>
-		
 	<%@include file="footer.jsp" %>
 </body>
 </html>

@@ -10,7 +10,7 @@
 			<li><a href="Controlador?opcion=sesion">Usuario</a>
 			<li><a href="artistas.jsp">Artistas</a>
 			<li><a href="discos.jsp">Discos</a>
-			<li><a href="https://www.wakeandlisten.com/bandas-artistas-grupos-emergentes-espana/">Noticias</a>
+			<li><a href="https://www.wakeandlisten.com/bandas-artistas-grupos-emergentes-espana/" target="_blank">Noticias</a>
 			<li><a href="QuienesSomos.html">Quienes somos</a>
 		</ul>
 	</nav>
