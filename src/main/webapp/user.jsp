@@ -76,6 +76,12 @@
 				<h1><%=user.getCiu()%></h1>
 				<h2><%=user.getPai()%></h2>
 			</div>
+			
+		<form action="Logout" method="post" class="logout">
+			<button class="botonlogout">
+				Logout <i class="fa fa-sign-out-alt"></i>
+			</button>
+		</form>
 		</div>
 		<%
 		sql = "select * from t_user";
@@ -91,7 +97,7 @@
 				<i class="fa fa-user-plus"></i>
 			</button>
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<tr>
 						<th>ID</th>
 						<th>Roll</th>
@@ -138,7 +144,7 @@
 				<i class="fa fa-user-plus"></i>
 			</button>
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<%
 					sql = "select * from t_art ";
 					st = con.createStatement();
@@ -184,7 +190,7 @@
 				<i class="fa fa-user-plus"></i>
 			</button>
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<%
 					sql = "select * from t_disc";
 					st = con.createStatement();
@@ -205,8 +211,7 @@
 						<td><%=rs.getString("disc_id")%></td>
 						<td><%=rs.getString("disc_nom")%></td>
 						<td><%=rs.getString("disc_idart")%></td>
-						<td><div
-								style="background-image:url(<%=rs.getString("disc_img")%>)"></div></td>
+						<td><div style="background-image:url(<%=rs.getString("disc_img")%>)"></div></td>
 						<td><%=rs.getString("disc_pre")%></td>
 						<td><a
 							href="Controlador?opcion=formmodidisc&iddisc=<%=rs.getString("disc_id")%>"><i
@@ -228,7 +233,7 @@
 
 			<!--  +++++++++++++++++++++++++++++++++++  compras  +++++++++++++++++++++++++++++++++++++ -->
 			<div class="tablas">
-				<table>
+				<table class="tablacrear">
 					<%
 					sql = "select * from t_compra";
 					st = con.createStatement();
@@ -245,10 +250,10 @@
 					while (rs.next()) {
 					%>
 					<tr>
-						<td><%=rs.getString("comp_id ")%></td>
-						<td><%=rs.getString("comp_idclien ")%></td>
-						<td><%=rs.getString("comp_iddisc ")%></td>
-						<td><%=rs.getString("comp_cant  ")%></td>
+						<td><%=rs.getString("comp_id")%></td>
+						<td><%=rs.getString("comp_idclien")%></td>
+						<td><%=rs.getString("comp_iddisc")%></td>
+						<td><%=rs.getString("comp_cant")%></td>
 						<td>
 							<form class="formborrar" action="Controlador" method="get">
 								<button>
@@ -296,39 +301,38 @@
 			</div>
 		</div>
 
-		<form action="Logout" method="post" class="logout">
-			<button class="botonlogout">
-				Logout <i class="fa fa-sign-out-alt"></i>
-			</button>
-		</form>
-
 		<%
 		} else {
 		%>
+		
+		
+		<!-- +++++++++++++++++++++++++++++++++++ CLIENTE +++++++++++++++++++++++++++++++++++++++++++++++++ -->
 		<%
-		sql = "select * from t_compra where comp_idclien=" + user.getId();
-		st = con.createStatement();
-		rs = st.executeQuery(sql);
+		sql = "select * from t_compra where comp_idclien=?";
+		PreparedStatement pst = con.prepareStatement(sql);
+		pst.setString(1,user.getId());
+		rs = pst.executeQuery();
+		ResultSet rsc= null;
 		%>
 
 		<div class="disccomp">
-			<%
-			while (rs.next()) {
-			%>
-			<a class="catalogos"
-				href="Controlador?opcion=art&idart=<%=rs.getString("disc_idart")%>"
-				style="background-image: url(<%=rs.getString("disc_img")%>);">
-				<div>
-					<h2><%=rs.getString("disc_nom")%></h2>
-					<h3><%=rs.getString("disc_pre")%></h3>
-					<i class="fa fa-euro-sign"></i>
-				</div>
-			</a>
-			<%
-			}
-			%>
+		<h1>Tus Compras</h1>
+			<%while (rs.next()) {
+				sql = "SELECT * FROM t_disc WHERE disc_id = ?";
+				pst = con.prepareStatement(sql);
+				pst.setString(1, rs.getString("comp_iddisc"));
+				rsc = pst.executeQuery();
+				while(rsc.next()){%>
+					<div class="discosart">
+						<img src="<%=rsc.getString("disc_img")%>">
+						<h3><%=rsc.getString("disc_nom")%></h3>
+						<h3><%=rsc.getString("disc_pre")%><i class="fa fa-euro-sign"></i></h3>
+						<h3>Cantidad: <%=rs.getString("comp_cant")%></h3>
+					</div>
+				<%}}%>
 		</div>
 		<div class="carrito">
+			<h1>Lista de la compra</h1>
 			<%
 			List<String> discosList = null;
 			List<String> discosCant = null;
@@ -343,41 +347,37 @@
 					idDisc = discosList.get(i);
 					discCant = discosCant.get(i);
 					sql = "SELECT * FROM t_disc WHERE disc_id = ?";
-					PreparedStatement pst = con.prepareStatement(sql);
+					pst = con.prepareStatement(sql);
 					pst.setString(1, idDisc);
-					rs = pst.executeQuery();
-					while(rs.next()){
-						preDisc = Double.parseDouble(rs.getString("disc_pre"));
+					rsc = pst.executeQuery();
+					while(rsc.next()){
+						preDisc = Double.parseDouble(rsc.getString("disc_pre"));
 						totalCompra = totalCompra + (preDisc * Double.parseDouble(discCant));
-						%><div class="discoDeseo">
-						<img src="<%=rs.getString("disc_img")%>">
-						<h1><%= rs.getString("disc_nom") %></h1>
-						<h1><%= rs.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h1>
+						%><div class="discosart">
+						<img src="<%=rsc.getString("disc_img")%>">
+						<h3><%= rsc.getString("disc_nom") %></h3>
+						<h3><%= rsc.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h3>
+						<h3><%= discCant %></h3>
 						</div><%
-						%> <h1><%= discCant %></h1><%
 					}
 				}
-				%> <h1><%= totalCompra %></h1><%
+				%> <h2>Precio total: <%= totalCompra %></h2>
+					<form action="Controlador" method="post">
+						<input type="hidden" name="iduser" value="<%= user.getId()%>">
+						<input type="hidden" name="opcion" value="comp">
+						<button><h2>Comprar</h2></button>
+					</form>
+				<%
 			}else{
 				//Falta añadir imagen de carrito vacío
-				
+				%> <h1>No hay nada</h1> <%
 			}
-			
-			
-			
 			}
 			%>
 
 		</div>
 
 
-
-
-		<form action="Logout" method="post" class="logout">
-			<button class="botonlogout">
-				Logout <i class="fa fa-sign-out-alt"></i>
-			</button>
-		</form>
 
 		<%
 		rs.close();

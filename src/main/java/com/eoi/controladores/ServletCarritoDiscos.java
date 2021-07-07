@@ -28,7 +28,6 @@ public class ServletCarritoDiscos extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		// Recuperamos la sesión del cliente
 		HttpSession sesion = request.getSession();
-		String cantidad = null;
 		// Creación de la lista de artículos
 		List<String> discosList = (List<String>) sesion.getAttribute("discosList");
 		List<String> discosCant = (List<String>) sesion.getAttribute("discosCant");
@@ -48,22 +47,9 @@ public class ServletCarritoDiscos extends HttpServlet {
 			discosList.add(discoNuevo);
 			discosCant.add(discoCant);
 		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
+		dispatcher.forward(request, response);
 
-		PrintWriter out = response.getWriter();
-		out.print("<h1>Lista de Discos en el carrito<h1>");
-		out.print("<br>");
-		// Imprimir todos los discos de la lista
-		for (String discos : discosList) {
-			out.print("<li>" + "discos id:" + discos + "</li>");
-
-		}
-		for (String cant : discosCant) {
-			out.print("<li>" + "cantidad: " + cant + "</li>");
-		}
-		// Link para regresar a la página del artista
-		out.print("<br>");
-
-		out.print("<a href='index.jsp'>Regresar a la página del artista</a>");
 	}
-//<input type="hidden" value='<%=rs.getString("disc_id")%>'>
+
 }
