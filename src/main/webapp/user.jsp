@@ -83,6 +83,7 @@
 			</button>
 		</form>
 		</div>
+		<a href="/Clandestino/ServletVisitas">Servlet de Visitas</a>
 		<%
 		sql = "select * from t_user";
 		st = con.createStatement();

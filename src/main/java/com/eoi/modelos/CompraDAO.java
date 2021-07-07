@@ -31,15 +31,12 @@ public class CompraDAO {
 	}
 	
 	public void borrarCompra(String compId) throws SQLException {
-		String sql= "DELETE FROM t_compra WHERE comp_id = ?";
+		String sql= "DELETE FROM t_compra WHERE comp_id=?";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
-		
 		pst.setString(1, compId);
-		
 		pst.executeUpdate();
 		System.out.println("Compra ("+compId+") borrado");
-		
 		pst.close();
 		con.close();
 	}

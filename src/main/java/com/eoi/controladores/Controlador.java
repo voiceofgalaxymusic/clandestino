@@ -47,7 +47,6 @@ public class Controlador extends HttpServlet {
 			HttpSession sesion = request.getSession();
 			if (sesion.getAttribute("login") == null) {
 				destPage = "loginprueba.jsp";
-
 			} else {
 				if (sesion.getAttribute("login").equals("on")) {
 					destPage = "user.jsp";
