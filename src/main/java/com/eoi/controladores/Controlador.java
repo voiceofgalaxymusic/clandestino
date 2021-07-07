@@ -55,6 +55,15 @@ public class Controlador extends HttpServlet {
 				}
 			}
 			break;
+		case "formmodiuserclient":
+			destPage = "formmodiuserclient.jsp";
+			try {
+				user = udao.getUser(iduser);
+				request.setAttribute("user", user);
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			break;
 		case "formmodiuser":
 			destPage = "formmodiuser.jsp";
 			try {

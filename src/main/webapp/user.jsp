@@ -127,8 +127,7 @@
 						<td><%=rs.getString("user_ciu")%></td>
 						<td><div
 								style="background-image:url(<%=rs.getString("user_img")%>)"></div></td>
-						<td><a
-							href="Controlador?opcion=formmodiuser&iduser=<%=rs.getString("user_id")%>"><i
+						<td><a href="Controlador?opcion=formmodiuser&iduser=<%=rs.getString("user_id")%>"><i
 								class="fa fa-edit"></i></a>
 							<form class="formborrar" action="Controlador" method="get">
 								<button>
@@ -319,6 +318,7 @@
 
 		<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
 		<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
+		<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a>
 		
 		<div class="disccomp">
 		<h1>Tus Compras</h1>
