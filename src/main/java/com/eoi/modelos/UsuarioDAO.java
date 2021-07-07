@@ -38,7 +38,9 @@ public class UsuarioDAO {
 				u.setImg(rs.getString("user_img"));
 			}
 			
-			/*rs.close(); pst.close(); con.close();*/
+			rs.close();
+			pst.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -66,6 +68,9 @@ public class UsuarioDAO {
 		pst.executeUpdate();
 		
 		System.out.println("USUARIO INCLUIDO EN BBDD: " + u);
+		
+		pst.close();
+		con.close();
 	}
 
 	public void modificarUser(Usuario u) throws SQLException {
@@ -82,6 +87,8 @@ public class UsuarioDAO {
 		pst.setString(8, u.getId());
 
 		pst.executeUpdate();
+		pst.close();
+		con.close();
 	}
 
 	public void borrarUser(String userId) throws SQLException {
@@ -91,6 +98,8 @@ public class UsuarioDAO {
 		pst.setString(1, userId);
 		pst.executeUpdate();
 		System.out.println("El usuario (ID "+userId+") se ha borrado");
+		pst.close();
+		con.close();
 	}
 
 	public Usuario getUser(String userId) throws SQLException {
@@ -111,6 +120,9 @@ public class UsuarioDAO {
 			u.setCiu(rs.getString("user_ciu"));
 			u.setImg(rs.getString("user_img"));
 		}
+		rs.close();
+		pst.close();
+		con.close();
 		return u;
 	}
 }

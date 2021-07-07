@@ -174,8 +174,22 @@ public class Controlador extends HttpServlet {
 		Disco d2 = new Disco(idDisc, nomDisc, idArtDisc, imgDisc, preDisc);
 		DiscoDAO ddao = new DiscoDAO();
 
+		// DATOS COMPRA
+		CompraDAO cdao = new CompraDAO();
+		Compra c = new Compra();
+		
 		String destPage = "user.jsp";
 		switch (opcion) {
+		case "comp":
+				System.out.println(iduser);
+				destPage = "index.jsp";
+			try {
+				cdao.altaCompra(iduser, request, response);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			break;
 		case "modiUser":
 			System.out.println(u2.getNik());
 			System.out.println(iduser);
@@ -228,5 +242,5 @@ public class Controlador extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(destPage);
 		rd.forward(request, response);
 	}
-//COMENTARIO 
+
 }

@@ -22,11 +22,11 @@
 		<input type="text"  name="nik" value="">
 		<h2>Contraseña *</h2>
 		<input type="password" name="pass" value=""><br>
-		<h2>Contraseña *</h2>
+		<h2>Nombre *</h2>
 		<input type="text" name="nomUser" value="" style="width:300px"><br>
-		<h2>País</h2>
+		<h2>País *</h2>
 		<input type="text"  name="pais" value="">
-		<h2>Ciudad</h2>
+		<h2>Ciudad *</h2>
 		<input type="text"  name="ciudad" value=""><br>
 		<h2>URL Avatar</h2>
 		<input type="text" name="imguser"  value="" style="width:300px"><br>
