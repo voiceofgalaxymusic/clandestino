@@ -23,6 +23,8 @@ public class DiscoDAO {
 		
 		pst.executeUpdate();
 		System.out.println("Disco ("+d.getDisc_nom()+") creado");
+		pst.close();
+		con.close();
 	}
 	
 	public void modificarDisc(Disco d) throws SQLException {
@@ -39,6 +41,8 @@ public class DiscoDAO {
 		pst.executeUpdate();
 
 		System.out.println("Disco ("+d.getDisc_id()+") modificado");
+		pst.close();
+		con.close();
 	}
 	
 	public void borrarDisc(String disc_id) throws SQLException {
@@ -50,6 +54,8 @@ public class DiscoDAO {
 		
 		pst.executeUpdate();
 		System.out.println("Disco ("+disc_id+") borrado");
+		pst.close();
+		con.close();
 	}
 	
 	public Disco getDisc(String disc_id) throws SQLException {
@@ -68,6 +74,9 @@ public class DiscoDAO {
 			d.setDisc_img(rs.getString("disc_img"));
 			d.setDisc_pre(rs.getString("disc_pre"));
 		}
+		rs.close();
+		pst.close();
+		con.close();
 		return d;
 	}
 }
