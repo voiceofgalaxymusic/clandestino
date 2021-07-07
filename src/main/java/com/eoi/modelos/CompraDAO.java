@@ -26,12 +26,10 @@ public class CompraDAO {
 			c.setIddisc(rs.getString("comp_iddisc"));
 			c.setCant(rs.getString("comp_cant"));
 		}
-		rs.close();
-		pst.close();
-		con.close();
 		return c;
 		
 	}
+	
 	public void borrarCompra(String compId) throws SQLException {
 		String sql= "DELETE FROM t_compra WHERE comp_id = ?";
 		con = Conexion.getInstance().getConnection();

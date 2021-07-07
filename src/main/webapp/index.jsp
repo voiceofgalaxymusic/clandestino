@@ -15,7 +15,7 @@
 	<div style="margin:20px; width: 200px; height: 100px;">
 		<a style="color:white; display:inline-block; font-size: 20px;" href="/Clandestino/ServletVisitas">Servlet de Visitas</a>
 	</div>
-	
+	<div class="catalogo">
 	<div class="catal">
 		<% Connection con = Conexion.getInstance().getConnection();
 		String sql = "select * from t_art ";
@@ -33,7 +33,10 @@
 	<div class="catal cataldisc">
 		<%sql = "select * from t_disc";
 		rs = st.executeQuery(sql);
-		while (rs.next()) {%>
+		for (int i = 0; i<10; i++) {
+			rs.next();
+		%>
+		
 		<a class="catalogos" href="Controlador?opcion=art&idart=<%=rs.getString("disc_idart")%>" style="background-image: url(<%=rs.getString("disc_img")%>);">
 			<div>
 			<h2><%=rs.getString("disc_nom")%></h2>
@@ -45,5 +48,7 @@
 	<% rs.close();
 	st.close();
 	con.close();%>
+	</div>
+	<%@include file="footer.jsp" %>
 </body>
 </html>
