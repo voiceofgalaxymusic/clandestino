@@ -787,15 +787,13 @@ section h2 {
 }
 /*+++++++++++++++++++++++++++++++++ Index ++++++++++++++++++++++++++++*/
 .catalogo {
-	height: 1500px;
-	position: relative;
+	margin-bottom: 100px;
 }
 .catal {
 	width: 40vw;
 	margin-left: 70px;
 	margin-top: 50px;
 	display: inline-block;
-	position: absolute;
 	font-size: 0px;
 }
 .catalogos{
