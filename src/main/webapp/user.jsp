@@ -84,7 +84,7 @@
 				<h2><%=user.getPai()%></h2>
 			</div>
 			
-		<form action="Logout" method="post" class="logout">
+		<form action="Logout" method="get" class="logout">
 			<button class="botonlogout">
 				Logout <i class="fa fa-sign-out-alt"></i>
 			</button>

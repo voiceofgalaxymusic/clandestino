@@ -951,24 +951,36 @@ section h2 {
 }
 /*++++++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++++++*/
 .footer {
-	bottom: 0;
-	width: 100%;
-	height: 250px;
 	background-image: linear-gradient(to right, #dadada, #525252);
-	color: #A8199F;
-	font-size: 20px;
+	font-size: 15px;
+	font-family: Bree Serif, serif;
+	text-align: center;
+	column-count:3;
+	column-gap: 5em;
+	column-rule: 2px solid #a8199f;
+	column-width: 140px;
+	text-align: -webkit-center;
+	/*text-align: -webkit-match-parent;*/
+    padding: 10px 0;
+    grid-column: 1/3;
+	
+}
+
+.footer a{
+	color: #fff;
+}
+
+footer a :hover{
+	color: #a8199f ;
+}
+
+footer p {
+	color: #fff;
+	font-size: 19px;
 	font-family: Bree Serif, serif;
 	text-align: center;
 }
 
-.footList {
-	text-align: left;
-	vertical-align: baseline;
-	
-}
 
-.footContact {
-	text-align: right;
-	width: 200px; 
-	height: 200px;
-}
+
+
