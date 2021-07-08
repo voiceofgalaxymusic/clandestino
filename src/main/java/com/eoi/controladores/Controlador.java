@@ -180,7 +180,6 @@ public class Controlador extends HttpServlet {
 
 		// DATOS COMPRA
 		CompraDAO cdao = new CompraDAO();
-		Compra c = new Compra();
 		
 		String destPage = "user.jsp";
 		switch (opcion) {
@@ -201,10 +200,40 @@ public class Controlador extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		case "altaUserAdmin":
+			System.out.println(u.toString());
+			System.out.println("A");
+			try {
+				if(udao.altaUser(u) == true) {
+					
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			break;
 		case "altaUser":
 			System.out.println(u.toString());
 			try {
-				udao.altaUser(u);
+				if(udao.altaUser(u) == true) {
+					destPage = "loginprueba.jsp";
+				}else {
+					HttpSession sesion = request.getSession();
+
+					// PREGUNTAR JESUS, SI ESTÁ UTILIZANDO ESTO?
+					// PUES CREO QUE PARA MANTENER SESIÓN ABIERTA, DEBEMOS UTILIZAR:
+					sesion.setAttribute("id", u.getId());
+					sesion.setAttribute("rol", u.getRol());
+					sesion.setAttribute("nik", u.getNik());
+					sesion.setAttribute("nom", u.getNom());
+					sesion.setAttribute("pass", u.getPass());
+					sesion.setAttribute("pai", u.getPai());
+					sesion.setAttribute("ciu", u.getCiu());
+					sesion.setAttribute("img", u.getImg());
+
+					// ADEMÁS SE PODRÍAN UTILIZAR PARA COMPLETAR LA PÁGINA DE USUARIO CON EL NOM...
+					// CREO RECORDAR.
+					sesion.setAttribute("login", "on");
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

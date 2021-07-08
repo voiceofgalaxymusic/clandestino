@@ -277,7 +277,7 @@ nav ul li:hover{
 	background-color: #fff;
 	color: #a8199f;
 }
-#log{
+#regis{
 	display: none;
 }
 .formlogin{
@@ -324,6 +324,11 @@ nav ul li:hover{
 	transform: rotate(-5deg);
 }
 @media screen and (max-width: 1400px){
+}
+
+.msgerr {
+	color: white;
+	font-size: 20px;
 }
 /* ++++++++++++++++++++++++++ formularios de modificar ++++++++++++++++++++++++*/
 .tablaform1 {
@@ -504,11 +509,6 @@ form label {
 }
 .formborrar {
 	display: inline-block;
-}
-/*++++++++++++++++++++++++++++++ login +++++++++++++++++++++++++++++*/
-.msgerr {
-	color: white;
-	font-size: 20px;
 }
 /*+++++++++++++++++++++++++ Pagina de Usuario ++++++++++++++++++++++*/
 section {
@@ -720,12 +720,23 @@ section h2 {
 .discosart form * {
 	display: inline-block;
 }
-.discosart form input:nth-child(4) {
+.discosart form input:nth-child(3) {
 	width: 40px;
 	margin-left: 20px;
 }
 .discosart .fa-euro-sign {
 	font-size: 25px;
+}
+.discosart form a {
+	padding: 10px;
+	margin-top: 10px;
+	background-color: #525252;
+	color: #fff;
+	font-family: 'Bree Serif', serif;
+	font-size: 19px;
+}
+.discosart form a:hover{
+	background-color: #a8199f;
 }
 .botoncarrito {
 	background: none;

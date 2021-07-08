@@ -22,6 +22,6 @@
 		<input type="text" class="input" name="ciudad"  value="" >*<br>
 		<label for="imguser">URL Avatar</label>
 		<input type="text" class="input" name="imguser"  value="" >*<br>
-		<input type="hidden" name="opcion" value="altaUser">
+		<input type="hidden" name="opcion" value="altaUserAdmin">
 		<input class="botonform2" type="submit" value="Crear">
 	</form>

@@ -28,14 +28,14 @@ function RegisOff() {
 	<button class="botonregis" onclick="RegisOn()"><h2>Registrarte</h2></button>
 	<button class="botonregis" onclick="RegisOff()"><h2>Logearte</h2></button>
 	<form id="regis" class="formlogin" action="Controlador" method="post">
-		<h1 style="margin-bottom:50px; color:white;">Regístrese como usuario</h1>
+		<h1 style="color:white;">Regístrese como usuario</h1>
 		<input type="hidden" name="rollUser" value="client">
 		<h2>Nickname *</h2>
-		<input type="text"  name="nik" value="">
+		<input type="text"  name="nik" required value="">
 		<h2>Contraseña *</h2>
-		<input type="password" name="pass" value=""><br>
+		<input type="password" name="pass" required value=""><br>
 		<h2>Nombre *</h2>
-		<input type="text" name="nomUser" value="" style="width:300px"><br>
+		<input type="text" name="nomUser" required value="" style="width:300px"><br>
 		<h2>País *</h2>
 		<input type="text"  name="pais" value="">
 		<h2>Ciudad *</h2>

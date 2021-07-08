@@ -55,25 +55,42 @@ public class UsuarioDAO {
 		return u;
 	}
 
-	public void altaUser(Usuario u) throws SQLException {
-		String sql = "insert into t_user (user_id, user_rol, user_nik, user_pass, user_nom, user_pai, user_ciu, user_img) values (?,?,?,?,?,?,?,?)";
+public boolean altaUser(Usuario u) throws SQLException {
+		String sql = "select user_nik from t_user";
 		con = Conexion.getInstance().getConnection();
-		pst = con.prepareStatement(sql);
-		pst.setString(1, u.getId());
-		pst.setString(2, u.getRol());
-		pst.setString(3, u.getNik());
-		pst.setString(4, u.getPass());
-		pst.setString(5, u.getNom());
-		pst.setString(6, u.getPai());
-		pst.setString(7, u.getCiu());
-		pst.setString(8, u.getImg());
-
-		pst.executeUpdate();
+		st = con.createStatement();
+		rs = st.executeQuery(sql);
+		boolean nikexiste = false;
+		while(rs.next()) {
+			if(u.getNik().equals(rs.getString("user_nik"))) {
+				nikexiste = true;
+			}
+		}
+		if(nikexiste == true) {
+			System.out.println("El nick ya existe");
+		}else{
+			String sqls = "insert into t_user (user_id, user_rol, user_nik, user_pass, user_nom, user_pai, user_ciu, user_img) values (?,?,?,?,?,?,?,?)";
+			con = Conexion.getInstance().getConnection();
+			pst = con.prepareStatement(sqls);
+			pst.setString(1, u.getId());
+			pst.setString(2, u.getRol());
+			pst.setString(3, u.getNik());
+			pst.setString(4, u.getPass());
+			pst.setString(5, u.getNom());
+			pst.setString(6, u.getPai());
+			pst.setString(7, u.getCiu());
+			pst.setString(8, u.getImg());
 	
-		System.out.println("USUARIO INCLUIDO EN BBDD: " + u);
+			pst.executeUpdate();
 		
-		pst.close();
-		con.close();
+			System.out.println("USUARIO INCLUIDO EN BBDD: " + u);
+			
+			pst.close();
+			con.close();
+				
+		}
+			
+		return nikexiste;
 	}
 
 	public void modificarUser(Usuario u) throws SQLException {

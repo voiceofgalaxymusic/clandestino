@@ -428,7 +428,7 @@ function inFormCrearuser() {
 						<img src="<%=rsc.getString("disc_img")%>">
 						<h3><%= rsc.getString("disc_nom") %></h3>
 						<h3><%= rsc.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h3>
-						<h3><%= discCant %></h3>
+						<h3>Cantidad: <%= discCant %></h3>
 						</a><%
 					}
 				}
@@ -454,7 +454,7 @@ function inFormCrearuser() {
 								<img src="<%=rsc.getString("disc_img")%>">
 								<h3><%= rsc.getString("disc_nom") %></h3>
 								<h3><%= rsc.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h3>
-								<h3><%= discCant %></h3>
+								<h3>Cantidad: <%= discCant %></h3>
 								</div><%
 							}
 						} %>

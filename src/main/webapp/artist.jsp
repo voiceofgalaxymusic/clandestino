@@ -3,6 +3,7 @@
 <%@ page import="com.eoi.controladores.*"%>
 <%@ page import="com.eoi.modelos.*"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,9 +49,14 @@
 					<h2><%=rs.getString("disc_nom")%></h2>
 					<h2><%=rs.getString("disc_pre")%></h2><i class="fa fa-euro-sign"></i>
 					<form action="ServletCarritoDiscos" method="post">
-					<button class="botoncarrito"><i class="fas fa-shopping-cart"></i></button>
 					<input type="hidden" value='<%=rs.getString("disc_id")%>' name="botoncarrito">
 					<h3>Cantidada: </h3><input type=number value="1" name="cantidad">
+					<% HttpSession sesion = request.getSession();
+					if (sesion.getAttribute("login") == null) {%>
+					<a href="loginprueba.jsp" > Inicia sesión para comprar</a>
+					<% } else {%>
+					<button class="botoncarrito"><i class="fas fa-shopping-cart"></i></button>
+					<% }%>
 					</form>
 				</div>
 				<%}
