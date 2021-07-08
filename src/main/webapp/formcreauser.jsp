@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="style.css">
+<link href="https://pagecdn.io/lib/easyfonts/fonts.css" rel="stylesheet"> 
+<title>Clandestino</title>
+<link rel="shortcut icon" href="http://arigar.com/wp-content/uploads/2017/06/favicon-music.png">
+</head>
 <form id="form" action="Controlador" method="post" style="display: inline-blocK;">
 		<label for="rollUser">Roll</label>
 		<input type="text" class="input" name="rollUser"  value="" >*<br>

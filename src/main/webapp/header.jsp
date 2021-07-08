@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="style.css">
+<link href="https://pagecdn.io/lib/easyfonts/fonts.css" rel="stylesheet"> 
+<link rel="shortcut icon" href="http://arigar.com/wp-content/uploads/2017/06/favicon-music.png">
+</head>
 <header>
 	<div class="logo" ><a href="index.jsp">Clandestino</a></div>
 	<input type="checkbox" class="checkbox" id="flag"/>

@@ -13,6 +13,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://pagecdn.io/lib/easyfonts/fonts.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://arigar.com/wp-content/uploads/2017/06/favicon-music.png">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <title>Usuario</title>
 </head>
@@ -378,10 +379,10 @@ function inFormCrearuser() {
 		rs = pst.executeQuery();
 		ResultSet rsc= null;
 		%>
-
-		<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
-		<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
-		<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a>
+		<div id="botonesart">
+			<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
+			<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
+			<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a></div>
 		
 		<div class="disccomp">
 		<h1>Tus Compras</h1>
