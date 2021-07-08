@@ -316,10 +316,10 @@
 		rs = pst.executeQuery();
 		ResultSet rsc= null;
 		%>
-
-		<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
-		<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
-		<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a>
+		<div id="botonesart">
+			<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
+			<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
+			<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a></div>
 		
 		<div class="disccomp">
 		<h1>Tus Compras</h1>

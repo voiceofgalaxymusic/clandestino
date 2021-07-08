@@ -712,6 +712,20 @@ section h2 {
 	top: -5px;
 	font-size: 30px;
 }
+
+#botonesart {
+	font-size: 50px;
+	cursor: pointer;
+}
+
+#botonesart i{
+	color: #525252;
+}
+
+#botonesart :hover {
+	color: #a8199f;
+}
+
 /*++++++++++++++++++++++++++++ página del artista +++++++++++++++++++++++++++*/
 .headart {
 	position: relative;
@@ -855,7 +869,7 @@ section h2 {
 	left:50vw;
 }
 
-/*+++++++++++++++++++++++++++++++++ Imdex ++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++ Index ++++++++++++++++++++++++++++*/
 .catalogo {
 
 	height: 1500px;
@@ -928,27 +942,6 @@ section h2 {
 	left: 50vw;
 }
 
-.quienessomos h2 {
-	color: #fff;
-	padding: 1em;
-	text-align: center;
-}
-
-.imagencentro {
-	text-align: center;
-}
-
-#bienvenida {
-	color: #FFC5ED;
-	font-size: 22px;
-}
-
-#somosClandestino {
-	color: #fff;
-	font-size: 19px;
-	font-family: Verdana, sans-serif;
-	padding: 2em;
-}
 /*++++++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++++++*/
 .footer {
 	bottom: 0;
@@ -971,4 +964,40 @@ section h2 {
 	text-align: right;
 	width: 200px; 
 	height: 200px;
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++ Página Quiénes Somos +++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.quienessomos h2 {
+	color: #fff;
+	padding: 1em;
+	text-align: center;
+}
+
+.imagencentro {
+	text-align: center;
+}
+
+#bienvenida {
+	color: #FFC5ED;
+	font-size: 22px;
+}
+
+#somosClandestino {
+	color: #fff;
+	font-size: 19px;
+	font-family: Verdana, sans-serif;
+	padding: 2em;
+}
+
+#somosClandestino {
+	background-color: #575757;
+	border-radius: 15px;
+	margin: 1.5em;
+}
+
+.quienessomos {
+	background-color: #575757;
+	border-radius: 15px;
+	margin: 1.5em;
 }
