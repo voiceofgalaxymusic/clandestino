@@ -4,49 +4,41 @@
 	text-decoration: none;
 	list-style: none;
 }
-
-h1, h2, h3 {
+h1, h2, h3{
 	font-family: 'Bree Serif', serif;
 }
-
-h1 {
+h1{
 	font-size: 50px;
 }
-
-h2 {
+h2{
 	font-size: 30px;
 }
-
-h3 {
+h3{
 	font-size: 19px;
 }
-
-a {
+a{
 	text-decoration: none;
 }
-
-body {
+body{
 	background-size: 800px;
 	background-image: url("https://img.wallpapersafari.com/desktop/1024/576/62/28/89hAtx.jpg"), url("https://media.tarkett-image.com/large/TH_25094225_25187225_001.jpg");
 	background-blend-mode: luminosity;
 	background-attachment: fixed;
 }
-body::before {
+body::before{
 	content: '';
 	background-color: rgba(156, 156, 156,0.8);
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-
 }
 /*+++++++++++++++++++++++ header y nav ++++++++++++++++++++++++++*/
-header {
+header{
 	background-image: linear-gradient(to right, #dadada, #525252);
 	overflow: hidden;
 }
-
-.logo {
+.logo{
 	font-size: 150px;
 	font-family: 'Stardos Stencil', cursive;
 	height: 180px;
@@ -54,17 +46,15 @@ header {
 	padding-top: 20px;
 	transform: rotate(2deg);
 }
-
-header a {
+header a{
 	color: white;
 	font-size: 150px;
 }
 /*++++++++menu hambuergesa+++++*/
-#flag {
+#flag{
 	display: none;
 }
-
-.menu-toogle {
+.menu-toogle{
 	position: absolute;
 	display: block;
 	width: 45px;
@@ -74,8 +64,7 @@ header a {
 	top: 210px;
 	z-index: 1;
 }
-
-.menu-toogle span {
+.menu-toogle span{
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -86,8 +75,7 @@ header a {
 	margin: auto;
 	background: #fff;
 }
-
-.menu-toogle span:before, .menu-toogle span:after {
+.menu-toogle span:before, .menu-toogle span:after{
 	position: absolute;
 	width: inherit;
 	height: inherit;
@@ -95,89 +83,74 @@ header a {
 	background: #fff;
 	left: 0;
 }
-
-.menu-toogle span:before {
+.menu-toogle span:before{
 	top: -0.7em;
 }
-
-.menu-toogle span:after {
+.menu-toogle span:after{
 	bottom: -0.7em;
 }
 /*+++++++++++++++ NAV ++++++++++++++++++*/
-#flag:checked ~ nav {
+#flag:checked ~ nav{
 	bottom: 0px;
 }
-
 nav{
-
 	position: relative;
 	bottom: -60px;
 	transition: all 0.5s ease;
 }
-
-nav ul {
+nav ul{
 	margin-right: 80px;
 }
 /*++++++++++ ANIMATION HAMBUR +++++++++*/
-#flag:checked+.menu-toogle span {
+#flag:checked+.menu-toogle span{
 	background: none;
 }
-
-.menu-toogle span {
+.menu-toogle span{
 	transition: background 0s .25s;
 	font-size: 15px;
 }
-
-.menu-toogle span:before {
+.menu-toogle span:before{
 	-webkit-transition-property: top, transform;
 	transition-property: top, transform;
 }
-
-.menu-toogle span:after {
+.menu-toogle span:after{
 	-webkit-transition-property: bottom, transform;
 	transition-property: bottom, transform;
 }
-
-#flag:checked+.menu-toogle span:before {
+#flag:checked+.menu-toogle span:before{
 	top: 0;
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
-
-#flag:checked+.menu-toogle span:after {
+#flag:checked+.menu-toogle span:after{
 	bottom: 0;
 	-webkit-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 }
-
-#flag:checked+.menu-toogle span:before, #flag:checked+.menu-toogle span:after
-	{
+#flag:checked+.menu-toogle span:before, #flag:checked+.menu-toogle span:after{
 	-webkit-transition-delay: 0s, .25s;
 	transition-delay: 0s, .25s;
 }
-
-.menu-toogle span:before, .menu-toogle span:after {
+.menu-toogle span:before, .menu-toogle span:after{
 	-webkit-transition-delay: .25s, 0s;
 	-webkit-transition-duration: .25s, .25s;
 	transition-delay: .25s, 0s;
 	transition-duration: .25s, .25s;
 }
 /*++++++++++++++++++++ Nav +++++++++++++++++++++++++*/
-nav {
+nav{
 	text-align: right;
 	background-color: #a8199f;
 }
-
-nav ul li {
+nav ul li{
 	display: inline-block;
 	padding: 15px 20px;
 	font-size: 25px;
 	transition: 0.1s;
 }
-
-nav ul li a {
+nav ul li a{
 	color: white;
 	font-size: 25px;
 }
@@ -185,8 +158,30 @@ nav ul li:hover{
 	background-color: #525252;
 	transition: 0.3s;
 }
+/*   +++++++++++++++++++++++++++++++++++ desplegar tablas   +++++++++++++++++++++++++++++++++++*/
+#tabuser, #tabart, #tabdisc, #tabcomp{
+	height: 0px;
+	border-top: 3px solid #000;
+	}
+#botondesplegar{
+	display: inline-block;
+	transition: 1s;
+}
+.botonplegar{
+	display: none;
+	transition: 1s;
+	width: 26px;
+	height: 36px;
+}
+.tablas{
+	overflow: auto;
+	margin: 0px auto 100px auto;
+	width: 70vw;
+	background-color: #525252;
+	transition: 1s;
+}
 /*++++++++++++++++++ tablas ++++++++++++++++++++++++++*/
-.botoncrear {
+.botoncrear, .botondesplegar,  .botonplegar{
 	background: none;
 	border: none;
 	font-size: 30px;
@@ -194,113 +189,107 @@ nav ul li:hover{
 	position: absolute;
 	right: 15vw;
 }
-
-.botoncrear:hover {
+.botondesplegar, .botonplegar{
+	right: 20vw;
+}
+.botoncrear:hover , botondesplegar:hover{
 	color: #a8199f;
 }
-
-.tablacrear th, .tablacrear td {
+.tablacrear th, .tablacrear td{
 	border-left: solid 2px #fff;
 	border-right: solid 2px #fff;
 	border-top: none !important;
 	border-bottom: none !important;
 }
-
-.tablacrear {
+.tablacrear{
 	margin: 30px auto;
 	border-collapse: collapse;
 }
-
-.tablacrear caption {
+.tablacrear caption{
 	font-size: 40px;
 	font-family: 'Bree Serif', serif;
 	margin-bottom: 20px;
 }
-
-.tablacrear th, .tablacrear td {
+.tablacrear th, .tablacrear td{
 	padding: 5px 20px;
 	color: #fff;
 	font-size: 16px;
 }
-
-.tablacrear td button {
+.tablacrear td button{
 	background: none;
 	border: none;
 	cursor: pointer;
 	margin-right: 20px;
 }
-
-.tablacrear td div {
+.tablacrear td div{
 	width: 50px;
 	height: 50px;
 	background-size: cover;
 	background-position: center;
 }
-
-.tablacrear tr .fa-edit:hover {
+.tablacrear tr .fa-edit:hover{
 	color: #a8199f;
 }
-
-.tablacrear th {
+.tablacrear th{
 	background-color: #a8199f;
 	font-size: 20px;
 	color: #fff;
 }
-
-.tablacrear tr:nth-child(even) td {
+.tablacrear tr:nth-child(even) td{
 	background-color: #525252;
 }
-
-.tablacrear tr:nth-child(odd) td {
+.tablacrear tr:nth-child(odd) td{
 	background-color: #a8199f;;
 }
-
-.tablacrear tr:nth-child(even) .fa-edit:hover {
+.tablacrear tr:nth-child(even) .fa-edit:hover{
 	color: #a8199f;
 }
-
-.tablacrear tr:nth-child(odd) .fa-edit:hover {
+.tablacrear tr:nth-child(odd) .fa-edit:hover{
 	color: #525252;
 }
-
-.tablacrear tr .fa-edit {
+.tablacrear tr .fa-edit{
 	color: #fff;
 	font-size: 25px;
 }
-
-.tablacrear tr .fa-trash-alt {
+.tablacrear tr .fa-trash-alt{
 	color: #ff0000;;
 	font-size: 25px;
 }
-
-.tablacrear a {
+.tablacrear a{
 	margin-right: 10px;
 }
-/*   +++++++++++++++++++++++++++++++++++ tablas   +++++++++++++++++++++++++++++++++++*/
-.tablas {
-	height: 500px;
-	overflow: auto;
-	margin: 0px auto 100px auto;
-	width: 70vw;
-	background-color: #525252;
-}
-
 /* ++++++++++++++++++++++++++ formularios Login +++++++++++++++++ ++++++++++++++++++++++++*/
-.formlogin {
-	display: inline-block;
+.bodylog{
 	background-color: #a8199f;
-	text-align: right;
-	padding: 50px;
-	position:relative;
 	border-radius: 15px;
+	margin:50px 20vw;
+	text-align: center;
+	padding-top: 20px;
 }
-
-.formlogin h2 {
+.botonregis{
+	background-color: #525252;
+	border: none;
+	padding: 10px;
+	margin: 5px;
+	color: #fff;
+}
+.botonregis:hover{
+	background-color: #fff;
+	color: #a8199f;
+}
+#log{
+	display: none;
+}
+.formlogin{
+	text-align: right;
+	padding: 0px 50px 50px 0px;
+	position:relative;
+}
+.formlogin h2{
 	margin: auto;
 	display: inline-block;
 }
-
-.formlogin input {
+.formlogin input{
 	background-color: #525252;
 	border: none;
 	height: 35px;
@@ -310,8 +299,7 @@ nav ul li:hover{
 	color: #fff;
 	margin: 10px 0px;
 }
-
-.formlogin .botonlogin {
+.formlogin .botonlogin{
 	background-color: #fff;
 	border: none;
 	font-size: 30px;
@@ -327,8 +315,7 @@ nav ul li:hover{
 	bottom: -50px;
 	transition: 0.3s;
 }
-
-.formlogin .botonlogin:hover {
+.formlogin .botonlogin:hover{
 	background-color: #a8199f;
 	border: solid 2px #fff;
 	color: #fff;
@@ -336,54 +323,41 @@ nav ul li:hover{
 	padding: 30px;
 	transform: rotate(-5deg);
 }
-
-@media screen and (max-width: 1400px) {
-	.formlogin {
-		margin: 50px auto;
-	}
+@media screen and (max-width: 1400px){
 }
 /* ++++++++++++++++++++++++++ formularios de modificar ++++++++++++++++++++++++*/
 .tablaform1 {
 	margin: 50px 15vw 0px 15vw;
 }
-
 .tablaform1 div:nth-child(2) {
 	display: inline-block;
 }
-
 .tablaform2 {
 	border-collapse: collapse;
 	display: inline-block;
 }
-
 .tablaform2 tr td {
 	background: none;
 	padding: 5px;
 	font-family: 'Bree Serif', serif;
 }
-
 .tablaform2 tr td:nth-child(odd) {
 	text-align: right;
 }
-
 .urlavatar {
 	margin: 0px 15vw 50px;
 }
-
 .urlavatar label {
 	font-family: 'Bree Serif', serif;
 }
-
 .formmodi {
 	background-color: #a8199f;
 	font-size: 30px;
 	padding: 50px 0px;
 }
-
 .formmodi h1 {
 	text-align: center;
 }
-
 .tablaform2 input, .urlavatar input {
 	background-color: #525252;
 	border: none;
@@ -393,7 +367,6 @@ nav ul li:hover{
 	border-bottom: 2px white solid;
 	color: #fff;
 }
-
 .imgform {
 	display: inline-block;
 	width: 250px;
@@ -401,11 +374,9 @@ nav ul li:hover{
 	background-size: cover;
 	margin: auto;
 }
-
 .imginput {
 	width: 847px;
 }
-
 .botmodi {
 	margin-left: 50vw;
 	background-color: #525252;
@@ -415,7 +386,6 @@ nav ul li:hover{
 	cursor: pointer;
 	padding: 10px;
 }
-
 .botmodi:hover {
 	background-color: #fff;
 	color: #525252;
@@ -434,7 +404,6 @@ nav ul li:hover{
 	top: calc(50vh - 215px);
 	border-radius: 15px;
 }
-
 .backform {
 	width: 100vw;
 	position: absolute;
@@ -444,16 +413,13 @@ nav ul li:hover{
 	z-index: -1;
 	filter: blur(400px);
 }
-
 #formuser1 {
 	position: fixed;
 	top: -500px;
 }
-
 #formuser2 {
 	position: relative;
 }
-
 #form .input {
 	background-color: #525252;
 	border-top: none;
@@ -464,7 +430,6 @@ nav ul li:hover{
 	height: 20px;
 	margin-bottom: 10px;
 }
-
 .cerr1 {
 	position: absolute;
 	background: none;
@@ -475,7 +440,6 @@ nav ul li:hover{
 	z-index: 1;
 	font-size: 30px;
 }
-
 .cerr2 {
 	position: absolute;
 	background: none;
@@ -484,7 +448,6 @@ nav ul li:hover{
 	left: calc(100vw - 50px);
 	z-index: 1;
 }
-
 .botonform {
 	border: none;
 	font-size: 30px;
@@ -497,7 +460,6 @@ nav ul li:hover{
 	left: 200px;
 	bottom: -50px;
 }
-
 .botonform2 {
 	background-color: #525252;
 	border: none;
@@ -506,12 +468,10 @@ nav ul li:hover{
 	color: #fff;
 	cursor: pointer;
 }
-
 .botonform2:hover {
 	background-color: #fff;
 	color: #525252;
 }
-
 .botonform:hover {
 	background-color: #525252;
 	color: #fff;
@@ -519,36 +479,29 @@ nav ul li:hover{
 	padding: 30px;
 	transform: rotate(-5deg);
 }
-
 .botoncerrar:hover {
 	color: white;
 }
-
 .botoncerrar i {
 	font-size: 30px;
 }
-
 #formcreauser, #formcrearart, #formcreardisc {
 	position: absolute;
 	left: -110vw;
 	top: 500px;
 	transition: 1s;
 }
-
 form label {
 	font-size: 30px;
 }
-
 .input1 {
 	margin-left: 63px;
 }
-
 .imgYboton * {
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 30px;
 }
-
 .formborrar {
 	display: inline-block;
 }
@@ -564,53 +517,41 @@ section {
 	padding: 50px;
 	background-color: white;
 }
-
 section h2 {
 	text-align: center;
 }
-
 .headuser{
-
 	position: relative;
 	margin-bottom: 50px;
 }
-
 .headuser .imguser, .nameuser, .lugaruser {
 	display: inline-block;
 }
-
 .headuser .nameuser, .lugaruser {
 	position: absolute;
 }
-
 .headuser .imguser {
 	width: 200px;
 	height: 200px;
 	background-size: cover;
 	background-position: center;
 }
-
 .nameuser {
 	margin-left: 50px;
 }
-
 .nameuser h1:nth-child(1) {
 	font-size: 60px;
 }
-
 .lugaruser {
 	right: 0px;
 	text-align: right;
 }
-
 .lugaruser h1:nth-child(1) {
 	font-size: 60px;
 }
-
 .bodysection {
 	text-align: center;
 }
-
 .logout {
 	text-align: right;
 	display: inline-block;
@@ -619,7 +560,6 @@ section h2 {
 	right: 0px;
 	bottom: 10px;
 }
-
 .botonlogout {
 	border: none;
 	padding: 10px;
@@ -628,24 +568,19 @@ section h2 {
 	font-size: 30px;
 	cursor: pointer;
 }
-
 .botonlogout:hover {
 	background-color: #a8199f;
 }
-
 .botonlogout i {
 	margin-left: 10px;
 }
-
 .carrito, .disccomp {
-
 	text-align: center;
 	min-height: 200px;
 	max-height: 600px;
 	overflow: auto;
 	margin-bottom: 50px;
 }
-
 .discoscomp {
 	margin: 30px auto;
 	display: inline-block;
@@ -733,16 +668,13 @@ section h2 {
 	width: 100%;
 	height: 550px;
 }
-
 .headart img {
 	display: inline-block;
 }
-
 .headart img {
 	max-width: 65vw;
 	max-height: 530px;
 }
-
 .infoart {
 	display: inline-block;
 	position: absolute;
@@ -752,15 +684,12 @@ section h2 {
 	background-color: rgba(200, 200, 200, 0.5);
 	text-align: right;
 }
-
 .infoart h1 {
 	font-size: 80px;
 }
-
 .bodyart {
 	text-align: center;
 }
-
 .discosart {
 	margin: 50px;
 	display: inline-block;
@@ -768,45 +697,36 @@ section h2 {
 	width: 250px;
 	height: 480px;
 }
-
 .discosart * {
 	display: block;
 }
-
 .discosart img {
 	width: 200px;
 	margin: auto;
 }
-
 .discosart h2:nth-child(2) {
 	height: 140px;
 }
-
 .discosart h2:nth-child(3), .fa-euro-sign {
 	display: inline-block;
 	margin: 0px 5px;
 }
-
 .discosart form {
 	height: 100px;
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
 }
-
 .discosart form * {
 	display: inline-block;
 }
-
 .discosart form input:nth-child(4) {
 	width: 40px;
 	margin-left: 20px;
 }
-
 .discosart .fa-euro-sign {
 	font-size: 25px;
 }
-
 .botoncarrito {
 	background: none;
 	border: none;
@@ -815,18 +735,15 @@ section h2 {
 	cursor: pointer;
 	bottom: 0px;
 }
-
 .botoncarrito .fa-shopping-cart {
 	font-size: 50px;
 	display: block;
 }
-
 .botoncarrito .fa-shopping-cart:hover {
 	transition: 0.5s;
 	font-size: 60px;
 	color: #a8199f;
 }
-
 /*+++++++++++++++++++++++++++++++++ artistas  ++++++++++++++++++++++++++++*/
 .artdisc {
 	width: 90vw;
@@ -868,76 +785,47 @@ section h2 {
 .artdisca{
 	left:50vw;
 }
-
 /*+++++++++++++++++++++++++++++++++ Index ++++++++++++++++++++++++++++*/
 .catalogo {
-
-	height: 1500px;
-	position: relative;
+	margin-bottom: 100px;
 }
-
-.catal {
-	width: 45vw;
-	margin-left: 50px;
-    height: 1900px;
-    position: relative;
-}
-
 .catal {
 	width: 40vw;
 	margin-left: 70px;
 	margin-top: 50px;
 	display: inline-block;
-	position: absolute;
 	font-size: 0px;
 }
-
-
-.catalogos {
-	height: 250px;
-}
 .catalogos{
-
 	background-size: cover;
 	background-position: center;
 	width: 50%;
 	display: inline-block;
 }
-
 .catalogos div {
 	position: relative;
-
-	height: 250px;
-	background-image: linear-gradient(to top, #dadada, rgba(255, 255, 255, 0)
-		50%);
 	height: 350px;
 	background-image: linear-gradient(to top, #dadada, rgba(255,255,255,0) 50%);
-
 	transition: 0.5s;
 }
-
 .catalogos div * {
 	position: absolute;
 	color: #a8199f;
 	bottom: 0px;
 	margin-left: 10px;
 }
-
 .catalogos div h2 {
 	bottom: 35px;
 	line-height: 30px;
 }
-
 .catalogos div .fa {
 	left: 30px;
 	font-size: 19px;
 }
-
 .catalogos div:hover {
 	background-color: rgba(255, 255, 255, 0.5);
 	transition: 0.5s;
 }
-
 .cataldisc {
 	left: 50vw;
 }
@@ -968,21 +856,19 @@ section h2 {
 
 /*+++++++++++++++++++++++++++++++++++++++++++++ Página Quiénes Somos +++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+
 .quienessomos h2 {
 	color: #fff;
 	padding: 1em;
 	text-align: center;
 }
-
 .imagencentro {
 	text-align: center;
 }
-
 #bienvenida {
 	color: #FFC5ED;
 	font-size: 22px;
 }
-
 #somosClandestino {
 	color: #fff;
 	font-size: 19px;
@@ -990,14 +876,35 @@ section h2 {
 	padding: 2em;
 }
 
-#somosClandestino {
-	background-color: #575757;
-	border-radius: 15px;
-	margin: 1.5em;
+/*++++++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++++++*/
+.footer {
+	background-image: linear-gradient(to right, #dadada, #525252);
+	font-size: 15px;
+	font-family: Bree Serif, serif;
+	text-align: center;
+	column-count:3;
+	column-gap: 5em;
+	column-rule: 2px solid #a8199f;
+	column-width: 140px;
+	text-align: -webkit-center;
+	/*text-align: -webkit-match-parent;*/
+    padding: 10px 0;
+    grid-column: 1/3;
+	
 }
 
-.quienessomos {
-	background-color: #575757;
-	border-radius: 15px;
-	margin: 1.5em;
+.footer a{
+	color: #fff;
 }
+
+footer a :hover{
+	color: #a8199f ;
+}
+
+footer p {
+	color: #fff;
+	font-size: 19px;
+	font-family: Bree Serif, serif;
+	text-align: center;
+}
+

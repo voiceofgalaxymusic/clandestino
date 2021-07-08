@@ -9,13 +9,13 @@
 </head>
 <form id="form" action="Controlador" method="post" style="display: inline-blocK;">
 		<label for="nomdisc">Nombre</label>
-		<input type="text" class="input" name="nomdisc"  value="" >*<br>
+		<input type="text" class="input" name="nomdisc" required value="" >*<br>
 		<label for="idartdisc">Id Artista</label>
-		<input type="text" class="input" name="idartdisc"  value="" >*<br>
+		<input type="text" class="input" name="idartdisc" required value="" >*<br>
 		<label for="imgdisc">Cover</label>
-		<input type="text" class="input" name="imgdisc"  value="" >*<br>
+		<input type="text" class="input" name="imgdisc" required value="" >*<br>
 		<label for="predisc">Precio</label>
-		<input type="text" class="input" name="predisc"  value="" >*<br>
+		<input type="text" class="input" name="predisc" required value="" >*<br>
 		<input type="hidden" name="opcion" value="altaDisc">
 		<input class="botonform2" type="submit" value="Crear">
 	</form>

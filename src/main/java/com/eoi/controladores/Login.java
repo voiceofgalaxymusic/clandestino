@@ -54,7 +54,6 @@ public class Login extends HttpServlet {
 		UsuarioDAO udao = new UsuarioDAO();
 		Usuario user;
 		String pagDest = "index.jsp";
-
 		user = udao.login(nik, pass);
 		System.out.println("USUARIO A VERIFICAR LOGIN" + user);
 
@@ -120,5 +119,4 @@ public class Login extends HttpServlet {
 		rd.forward(request, response);
 
 	}
-
 }

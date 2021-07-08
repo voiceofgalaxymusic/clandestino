@@ -36,9 +36,9 @@ public class CompraDAO {
 		pst = con.prepareStatement(sql);
 		pst.setString(1, compId);
 		pst.executeUpdate();
-		System.out.println("Compra ("+compId+") borrado");
 		pst.close();
 		con.close();
+		System.out.println("Compra ("+compId+") borrado");
 	}
 	
 	public void altaCompra(String iduser, HttpServletRequest request, HttpServletResponse response) throws SQLException {

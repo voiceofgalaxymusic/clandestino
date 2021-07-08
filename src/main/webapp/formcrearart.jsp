@@ -9,11 +9,11 @@
 </head>
 <form id="form" action="Controlador" method="post" style="display: inline-blocK;">
 		<label for="nomart">Nombre</label>
-		<input type="text" class="input" name="nomart"  value="" >*<br>
+		<input type="text" class="input" name="nomart" required  value="" >*<br>
 		<label for="geneart">Género</label>
-		<input type="text" class="input" name="geneart"  value="" >*<br>
+		<input type="text" class="input" name="geneart" required value="" >*<br>
 		<label for="imgart">Imagen</label>
-		<input type="text" class="input" name="imgart"  value="" >*<br>
+		<input type="text" class="input" name="imgart" required  value="" >*<br>
 		<input type="hidden" name="opcion" value="altaArt">
 		<input class="botonform2" type="submit" value="Crear">
 	</form>
