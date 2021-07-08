@@ -386,5 +386,6 @@
 		con.close();
 		%>
 	</section>
+	<%@include file="footer.jsp" %>
 </body>
 </html>
