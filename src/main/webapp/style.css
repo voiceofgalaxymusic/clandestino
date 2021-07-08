@@ -862,18 +862,33 @@ section h2 {
 	padding: 1em;
 	text-align: center;
 }
+
+.quienessomos {
+	background-color: #525252;
+	border-radius: 15px;
+	margin: 1.5em;
+}
+
 .imagencentro {
 	text-align: center;
 }
+
 #bienvenida {
 	color: #FFC5ED;
 	font-size: 22px;
 }
+
 #somosClandestino {
 	color: #fff;
 	font-size: 19px;
 	font-family: Verdana, sans-serif;
 	padding: 2em;
+}
+
+#somosClandestino {
+	background-color: #525252;
+	margin: 1.5em;
+	border-radius: 15px;
 }
 
 /*++++++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++++++*/
