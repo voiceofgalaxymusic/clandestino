@@ -40,7 +40,7 @@ public class Controlador extends HttpServlet {
 		DiscoDAO ddao = new DiscoDAO();
 		CompraDAO cdao = new CompraDAO();
 
-		String destPage = "prueba.jsp";
+		String destPage = "user.jsp";
 
 		switch (opcion) {
 		case "sesion":
@@ -90,7 +90,6 @@ public class Controlador extends HttpServlet {
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-
 			break;
 		case "art":
 			destPage = "artist.jsp";
@@ -102,7 +101,6 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		case "borrarUser":
-			destPage = "user.jsp";
 			try {
 				udao.borrarUser(iduser);
 			} catch (SQLException e) {
@@ -110,7 +108,6 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		case "borrarArt":
-			destPage = "user.jsp";
 			try {
 				adao.borrarArtista(idart);
 			} catch (SQLException e) {
@@ -118,7 +115,6 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		case "borrarDisc":
-			destPage = "user.jsp";
 			try {
 				ddao.borrarDisc(iddisc);
 			} catch (SQLException e) {
@@ -126,7 +122,7 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		case "borrarComp":
-			destPage = "user.jsp";
+			System.out.println("id compra: "+idcomp);
 			try {
 				cdao.borrarCompra(idcomp);
 			} catch (SQLException e) {
@@ -190,11 +186,9 @@ public class Controlador extends HttpServlet {
 		switch (opcion) {
 		case "comp":
 				System.out.println(iduser);
-				destPage = "index.jsp";
 			try {
 				cdao.altaCompra(iduser, request, response);
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			break;
@@ -208,15 +202,13 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		case "altaUser":
+			System.out.println(u.toString());
 			try {
-				System.out.println("Este es el USUARIO que le pasa al método " + u);
 				udao.altaUser(u);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			request.setAttribute("user", u);
 			break;
-
 		case "modiArt":
 			try {
 				adao.modificarArtista(a2);
@@ -246,9 +238,7 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		}
-		destPage = "user.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(destPage);
 		rd.forward(request, response);
 	}
-
 }
