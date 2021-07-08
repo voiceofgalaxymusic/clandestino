@@ -873,13 +873,22 @@ section h2 {
 	padding: 1em;
 	text-align: center;
 }
+
+.quienessomos {
+	background-color: #525252;
+	border-radius: 15px;
+	margin: 1.5em;
+}
+
 .imagencentro {
 	text-align: center;
 }
+
 #bienvenida {
 	color: #FFC5ED;
 	font-size: 22px;
 }
+
 #somosClandestino {
 	color: #fff;
 	font-size: 19px;
@@ -887,33 +896,40 @@ section h2 {
 	padding: 2em;
 }
 
+#somosClandestino {
+	background-color: #525252;
+	margin: 1.5em;
+	border-radius: 15px;
+}
+
 /*++++++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++++++*/
 .footer {
 	background-image: linear-gradient(to right, #dadada, #525252);
 	font-size: 15px;
 	font-family: Bree Serif, serif;
+	height: 60px;
 	text-align: center;
 	column-count:3;
-	column-gap: 5em;
+	column-gap: 0;
+	column-width: 30vw;
 	column-rule: 2px solid #a8199f;
 	column-width: 140px;
 	text-align: -webkit-center;
-	/*text-align: -webkit-match-parent;*/
     padding: 10px 0;
     grid-column: 1/3;
-	
 }
 
 .footer a{
 	color: #fff;
 }
 
-footer a :hover{
+footer li :hover{
 	color: #a8199f ;
 }
 
 footer p {
-	color: #fff;
+	display:block;
+	color: #2f2f2f;
 	font-size: 19px;
 	font-family: Bree Serif, serif;
 	text-align: center;
