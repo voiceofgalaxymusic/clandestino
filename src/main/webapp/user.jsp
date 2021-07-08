@@ -132,12 +132,10 @@ function inFormCrearuser() {
 			</button>
 		</form>
 		</div>
-		<%
-		sql = "select * from t_user";
+		<% sql = "select * from t_user";
 		st = con.createStatement();
 		rs = st.executeQuery(sql);
-		if (user.getRol().equals("admin")) {
-		%>
+		if (user.getRol().equals("admin")) {%>
 		<div class="bodysection">
 			<!--  +++++++++++++++++++++++++++++++++++  tabla de usuarios +++++++++++++++++++++++++++++++++++++ -->
 			<h2>Usuarios
@@ -175,15 +173,14 @@ function inFormCrearuser() {
 						<td><%=rs.getString("user_ciu")%></td>
 						<td><div
 								style="background-image:url(<%=rs.getString("user_img")%>)"></div></td>
-						<td><a href="Controlador?opcion=formmodiuser&iduser=<%=rs.getString("user_id")%>"><i
-								class="fa fa-edit"></i></a>
+						<td>
+							<a href="Controlador?opcion=formmodiuser&iduser=<%=rs.getString("user_id")%>"><i class="fa fa-edit"></i></a>
 							<form class="formborrar" action="Controlador" method="get">
 								<button>
 									<i class="fas fa-trash-alt"></i>
 								</button>
-								<input type="hidden" name="iduser"
-									value="<%=rs.getString("user_id")%>"> <input
-									type="hidden" name="opcion" value="borrarUser">
+								<input type="hidden" name="iduser" value="<%=rs.getString("user_id")%>">
+								<input type="hidden" name="opcion" value="borrarUser">
 							</form></td>
 					</tr>
 					<%
@@ -225,17 +222,14 @@ function inFormCrearuser() {
 						<td><%=rs.getString("art_gen")%></td>
 						<td><div
 								style="background-image:url(<%=rs.getString("art_img")%>)"></div></td>
-						<td><a
-							href="Controlador?opcion=formmodiart&idart=<%=rs.getString("art_id")%>"><i
-								class="fa fa-edit"></i></a>
+						<td>
+							<a href="Controlador?opcion=formmodiart&idart=<%=rs.getString("art_id")%>"><i class="fas fa-microphone-alt"></i></a>
 							<form class="formborrar" action="Controlador" method="get">
-								<button>
-									<i class="fas fa-trash-alt"></i>
-								</button>
-								<input type="hidden" name="idart"
-									value="<%=rs.getString("art_id")%>"> <input
-									type="hidden" name="opcion" value="borrarArt">
-							</form></td>
+								<button><i class="fas fa-trash-alt"></i></button>
+								<input type="hidden" name="idart" value="<%=rs.getString("art_id")%>">
+								<input type="hidden" name="opcion" value="borrarArt">
+							</form>
+						</td>
 					</tr>
 					<%
 					}
@@ -277,17 +271,16 @@ function inFormCrearuser() {
 						<td><%=rs.getString("disc_idart")%></td>
 						<td><div style="background-image:url(<%=rs.getString("disc_img")%>)"></div></td>
 						<td><%=rs.getString("disc_pre")%></td>
-						<td><a
-							href="Controlador?opcion=formmodidisc&iddisc=<%=rs.getString("disc_id")%>"><i
-								class="fa fa-edit"></i></a>
+						<td>
+							<a href="Controlador?opcion=formmodidisc&iddisc=<%=rs.getString("disc_id")%>"><i class="fas fa-compact-disc"></i></a>
 							<form class="formborrar" action="Controlador" method="get">
 								<button>
 									<i class="fas fa-trash-alt"></i>
 								</button>
-								<input type="hidden" name="iddisc"
-									value="<%=rs.getString("disc_id")%>"> <input
-									type="hidden" name="opcion" value="borrarDisc">
-							</form></td>
+								<input type="hidden" name="iddisc" value="<%=rs.getString("disc_id")%>">
+								<input type="hidden" name="opcion" value="borrarDisc">
+							</form>
+						</td>
 					</tr>
 					<%
 					}
@@ -325,9 +318,8 @@ function inFormCrearuser() {
 								<button>
 									<i class="fas fa-trash-alt"></i>
 								</button>
-								<input type="hidden" name="idcomp"
-									value="<%=rs.getString("comp_id")%>"> <input
-									type="hidden" name="opcion" value="borrarComp">
+								<input type="hidden" name="idcomp" value="<%=rs.getString("comp_id")%>">
+								<input type="hidden" name="opcion" value="borrarComp">
 							</form>
 						</td>
 					</tr>
@@ -365,19 +357,15 @@ function inFormCrearuser() {
 			</div>
 		</div>
 
-		<%
-		} else {
-		%>
+		<%} else {%>
 		
 		
 		<!-- +++++++++++++++++++++++++++++++++++ CLIENTE +++++++++++++++++++++++++++++++++++++++++++++++++ -->
-		<%
-		sql = "select * from t_compra where comp_idclien=?";
+		<% sql = "select * from t_compra where comp_idclien=?";
 		PreparedStatement pst = con.prepareStatement(sql);
 		pst.setString(1,user.getId());
 		rs = pst.executeQuery();
-		ResultSet rsc= null;
-		%>
+		ResultSet rsc= null; %>
 		<div id="botonesart">
 			<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
 			<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
@@ -390,7 +378,6 @@ function inFormCrearuser() {
 				pst = con.prepareStatement(sql);
 				pst.setString(1, rs.getString("comp_iddisc"));
 				rsc = pst.executeQuery();
-				
 				
 				while(rsc.next()){%>
 					<a href="Controlador?opcion=art&idart=<%=rsc.getString("disc_idart")%>" class="discoscomp">
@@ -464,7 +451,7 @@ function inFormCrearuser() {
 						</form>
 					</div>
 			<%}else{%>  
-				<div class="imgcarrito"></div>
+				<a href="artistas.jsp" class="imgcarrito"></a>
 				<h3>No hay nada</h3>
 				<%}}%>
 

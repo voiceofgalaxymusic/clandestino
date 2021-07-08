@@ -16,6 +16,7 @@
 	<%@include file="header.jsp" %>
 	<div class="catalogo">
 	<div class="catal">
+	<a class="linkcatal" href="artistas.jsp">Artistas<span></span></a>
 		<% Connection con = Conexion.getInstance().getConnection();
 		String sql = "select * from t_art ";
 		Statement st = con.createStatement();
@@ -31,6 +32,7 @@
 		<%}%>
 	</div>
 	<div class="catal cataldisc">
+	<a class="linkcatal" href="discos.jsp">Discos<span></span></a>
 		<%sql = "select * from t_disc";
 		rs = st.executeQuery(sql);
 		for (int i = 0; i<10; i++) {

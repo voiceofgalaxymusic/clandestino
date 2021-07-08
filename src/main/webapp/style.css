@@ -34,34 +34,34 @@ body::before{
 	z-index: -1;
 }
 /*+++++++++++++++++++++++ header y nav ++++++++++++++++++++++++++*/
-header{
-	background-image: linear-gradient(to right, #dadada, #525252);
+header {
+	background-image: linear-gradient(to right, #fff, #525252);
 	overflow: hidden;
 }
-.logo{
-	font-size: 150px;
+.logo {
+	/* font-size: 150px; */
 	font-family: 'Stardos Stencil', cursive;
-	height: 180px;
+	height: 12vw;
 	margin-left: 60px;
 	padding-top: 20px;
 	transform: rotate(2deg);
 }
-header a{
+header a {
 	color: white;
-	font-size: 150px;
+	font-size: 9vw;
 }
 /*++++++++menu hambuergesa+++++*/
 #flag{
 	display: none;
 }
-.menu-toogle{
+.menu-toogle {
 	position: absolute;
 	display: block;
 	width: 45px;
 	height: 45px;
 	cursor: pointer;
 	right: 20px;
-	top: 210px;
+	top: calc(12vw + 25px);
 	z-index: 1;
 }
 .menu-toogle span{
@@ -101,6 +101,8 @@ nav{
 nav ul{
 	margin-right: 80px;
 }
+
+
 /*++++++++++ ANIMATION HAMBUR +++++++++*/
 #flag:checked+.menu-toogle span{
 	background: none;
@@ -157,6 +159,18 @@ nav ul li a{
 nav ul li:hover{
 	background-color: #525252;
 	transition: 0.3s;
+}
+
+@media screen and (max-width: 750px){
+	nav ul li{
+		padding: 5px 10px;
+	}
+	nav ul li a{
+		font-size: 20px;
+	}
+	.menu-toogle {
+	top: calc(12vw + 14px);
+	}
 }
 /*   +++++++++++++++++++++++++++++++++++ desplegar tablas   +++++++++++++++++++++++++++++++++++*/
 #tabuser, #tabart, #tabdisc, #tabcomp{
@@ -322,8 +336,6 @@ nav ul li:hover{
 	transition: 0.3s;
 	padding: 30px;
 	transform: rotate(-5deg);
-}
-@media screen and (max-width: 1400px){
 }
 
 .msgerr {
@@ -605,6 +617,7 @@ section h2 {
 	width: 100px;
 	height: 100px;
 	margin: auto;
+	display: block;
 }
 #carritoventana {
 	display: none;
@@ -765,12 +778,13 @@ section h2 {
 .artdisca{
 	background-size: cover;
 	background-position: center;
-	width: 33%;
+	width: 25%;
 	display: inline-block;
+	left:50vw;
 }
 .artdisca div {
 	position: relative;
-	height: 500px;
+	height: 22vw;
 	background-image: linear-gradient(to top, #dadada, rgba(255,255,255,0) 50%);
 	transition: 0.5s;
 }
@@ -793,20 +807,43 @@ section h2 {
 	
 	transition: 0.5s;
 }
-.artdisca{
-	left:50vw;
-}
 /*+++++++++++++++++++++++++++++++++ Index ++++++++++++++++++++++++++++*/
 .catalogo {
 	margin-bottom: 100px;
 }
 .catal {
 	width: 40vw;
-	margin-left: 70px;
-	margin-top: 50px;
+	margin-left: 6vw;
+	margin-top: 20px;
 	display: inline-block;
 	font-size: 0px;
 }
+.linkcatal {
+	display: block;
+	color: #000;
+	font-size: 50px;
+	font-family: 'Bree Serif', serif;
+	text-align: left;
+	position: relative;
+	margin-bottom: 5px;
+}
+.linkcatal span {
+	height: 3px;
+	width: 0vw;
+	display: block;
+	margin: -10px auto 10px auto;
+	transition: 1s;
+	left: 0;
+	position: absolute;
+}
+.linkcatal:hover {
+	color: #a8199f ;
+}
+.linkcatal:hover span{
+	background-color: #a8199f;
+	width: 40vw;
+	transition: 1s;
+	}
 .catalogos{
 	background-size: cover;
 	background-position: center;
@@ -815,7 +852,7 @@ section h2 {
 }
 .catalogos div {
 	position: relative;
-	height: 350px;
+	height: 20vw;
 	background-image: linear-gradient(to top, #dadada, rgba(255,255,255,0) 50%);
 	transition: 0.5s;
 }
@@ -840,7 +877,14 @@ section h2 {
 .cataldisc {
 	left: 50vw;
 }
-
+@media screen and (max-width: 750px){
+	.artdisca {
+	width: 33%;
+}
+.artdisca div {
+	position: relative;
+	height: 28vw;
+}
 /*++++++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++++++*/
 .footer {
 	bottom: 0;
@@ -934,4 +978,3 @@ footer p {
 	font-family: Bree Serif, serif;
 	text-align: center;
 }
-
