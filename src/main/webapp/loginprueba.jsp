@@ -9,6 +9,7 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="style.css">
 <link href="https://pagecdn.io/lib/easyfonts/fonts.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://arigar.com/wp-content/uploads/2017/06/favicon-music.png">
 <title>Login o Crear Usuario</title>
 </head>
 <body>
