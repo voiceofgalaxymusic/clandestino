@@ -14,7 +14,7 @@
 <body>
 <%@include file="header.jsp" %>
 
-	<div class="bodysection" style="margin-top:50px;">
+	<div class="bodysection" style="margin: 50px auto 200px;">
 	<form class="formlogin" action="Controlador" method="post">
 		<h1 style="margin-bottom:50px; color:white;">Regístrese como usuario</h1>
 		<input type="hidden" name="rollUser" value="client">
@@ -44,5 +44,6 @@
 		<input class="botonlogin" type="submit" value="Login">
 		
 	</form></div>
+	<%@include file="footer.jsp" %>
 </body>
 </html>

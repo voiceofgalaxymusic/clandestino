@@ -32,13 +32,20 @@
 	function outFormCrearart() {
 	  document.getElementById("formcrearart").style.left = "-110vw";
 	}
-	
+
 	<!-- ++++++++++++++++++++++++++++++ disco ++++++++++++++++++++++++++++++++++++++ -->
 	function inFormCreardisc() {
 	  document.getElementById("formcreardisc").style.left = "-7.5vw";
 	}
 	function outFormCreardisc() {
 	  document.getElementById("formcreardisc").style.left = "-110vw";
+	}
+	<!-- ++++++++++++++++++++++++ ventana del carrito ++++++++++++++++++++++++++++++ -->
+	function incarritoventana() {
+	  document.getElementById("carritoventana").style.display = "block";
+	}
+	function outcarritoventana() {
+	  document.getElementById("carritoventana").style.display = "none";
 	}
 </script>
 <body>
@@ -83,6 +90,7 @@
 			</button>
 		</form>
 		</div>
+		<a href="/Clandestino/ServletVisitas">Servlet de Visitas</a>
 		<%
 		sql = "select * from t_user";
 		st = con.createStatement();
@@ -91,11 +99,10 @@
 		%>
 		<div class="bodysection">
 			<!--  +++++++++++++++++++++++++++++++++++  tabla de usuarios +++++++++++++++++++++++++++++++++++++ -->
-			<h2>Usuarios</h2>
-
+			<h2>Usuarios
 			<button class="botoncrear" onclick="inFormCrearuser()">
 				<i class="fa fa-user-plus"></i>
-			</button>
+			</button></h2>
 			<div class="tablas">
 				<table class="tablacrear">
 					<tr>
@@ -120,8 +127,7 @@
 						<td><%=rs.getString("user_ciu")%></td>
 						<td><div
 								style="background-image:url(<%=rs.getString("user_img")%>)"></div></td>
-						<td><a
-							href="Controlador?opcion=formmodiuser&iduser=<%=rs.getString("user_id")%>"><i
+						<td><a href="Controlador?opcion=formmodiuser&iduser=<%=rs.getString("user_id")%>"><i
 								class="fa fa-edit"></i></a>
 							<form class="formborrar" action="Controlador" method="get">
 								<button>
@@ -139,10 +145,10 @@
 			</div>
 
 			<!--  +++++++++++++++++++++++++++++++++++  tabla de artistas ++++l+++++++++++++++++++++++++++++++++ -->
-			<h2>Artistas</h2>
+			<h2>Artistas
 			<button class="botoncrear" onclick="inFormCrearart()">
 				<i class="fa fa-user-plus"></i>
-			</button>
+			</button></h2>
 			<div class="tablas">
 				<table class="tablacrear">
 					<%
@@ -185,10 +191,10 @@
 			</div>
 
 			<!--  +++++++++++++++++++++++++++++++++++  tabla de discos +++++++++++++++++++++++++++++++++++++ -->
-			<h2>Discos</h2>
+			<h2>Discos
 			<button class="botoncrear" onclick="inFormCreardisc()">
 				<i class="fa fa-user-plus"></i>
-			</button>
+			</button></h2>
 			<div class="tablas">
 				<table class="tablacrear">
 					<%
@@ -235,11 +241,9 @@
 			<h2>Compras</h2>
 			<div class="tablas">
 				<table class="tablacrear">
-					<%
-					sql = "select * from t_compra";
+					<%sql = "select * from t_compra";
 					st = con.createStatement();
-					rs = st.executeQuery(sql);
-					%>
+					rs = st.executeQuery(sql);%>
 					<tr>
 						<th>ID de Compra</th>
 						<th>ID del Cliente</th>
@@ -247,9 +251,7 @@
 						<th>Cantidad</th>
 						<th>Acción</th>
 					</tr>
-					<%
-					while (rs.next()) {
-					%>
+					<%while (rs.next()) {%>
 					<tr>
 						<td><%=rs.getString("comp_id")%></td>
 						<td><%=rs.getString("comp_idclien")%></td>
@@ -266,9 +268,7 @@
 							</form>
 						</td>
 					</tr>
-					<%
-					}
-					%>
+					<%}%>
 				</table>
 			</div>
 		</div>
@@ -316,6 +316,10 @@
 		ResultSet rsc= null;
 		%>
 
+		<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
+		<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
+		<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a>
+		
 		<div class="disccomp">
 		<h1>Tus Compras</h1>
 			<%while (rs.next()) {
@@ -323,13 +327,15 @@
 				pst = con.prepareStatement(sql);
 				pst.setString(1, rs.getString("comp_iddisc"));
 				rsc = pst.executeQuery();
+				
+				
 				while(rsc.next()){%>
-					<div class="discosart">
+					<a href="Controlador?opcion=art&idart=<%=rsc.getString("disc_idart")%>" class="discoscomp">
 						<img src="<%=rsc.getString("disc_img")%>">
 						<h3><%=rsc.getString("disc_nom")%></h3>
 						<h3><%=rsc.getString("disc_pre")%><i class="fa fa-euro-sign"></i></h3>
 						<h3>Cantidad: <%=rs.getString("comp_cant")%></h3>
-					</div>
+					</a>
 				<%}}%>
 		</div>
 		<div class="carrito">
@@ -354,37 +360,55 @@
 					while(rsc.next()){
 						preDisc = Double.parseDouble(rsc.getString("disc_pre"));
 						totalCompra = totalCompra + (preDisc * Double.parseDouble(discCant));
-						%><div class="discosart">
+						%><a href="Controlador?opcion=art&idart=<%=rsc.getString("disc_idart")%>" class="discoscomp">
 						<img src="<%=rsc.getString("disc_img")%>">
 						<h3><%= rsc.getString("disc_nom") %></h3>
 						<h3><%= rsc.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h3>
 						<h3><%= discCant %></h3>
-						</div><%
+						</a><%
 					}
 				}
 				%> <h2>Precio total: <%= totalCompra %></h2>
-					<form action="Controlador" method="post">
-						<input type="hidden" name="iduser" value="<%= user.getId()%>">
-						<input type="hidden" name="opcion" value="comp">
-						<button><h2>Comprar</h2></button>
-					</form>
-				<%
-			}else{
-				//Falta añadir imagen de carrito vacío
-				%> <h1>No hay nada</h1> <%
-			}
-			}
-			%>
+				<botton class="botonventcarrito" onclick="incarritoventana()"><h2>Comprar</h2></botton>
+					<div  id="carritoventana">
+					<button class="outventanacarrito" onclick="outcarritoventana()">
+							<i class="fa fa-times-circle"></i>
+						</button>
+						<form class="formcarritoboton" action="Controlador" method="post">
+						
+						<%for (int i=0;i<discosList.size();i++){
+							idDisc = discosList.get(i);
+							discCant = discosCant.get(i);
+							sql = "SELECT * FROM t_disc WHERE disc_id = ?";
+							pst = con.prepareStatement(sql);
+							pst.setString(1, idDisc);
+							rsc = pst.executeQuery();
+							while(rsc.next()){
+								preDisc = Double.parseDouble(rsc.getString("disc_pre"));
+								totalCompra = totalCompra + (preDisc * Double.parseDouble(discCant));
+								%><div class="discoscaritoventana">
+								<img src="<%=rsc.getString("disc_img")%>">
+								<h3><%= rsc.getString("disc_nom") %></h3>
+								<h3><%= rsc.getString("disc_pre") %><i class="fa fa-euro-sign"></i></h3>
+								<h3><%= discCant %></h3>
+								</div><%
+							}
+						} %>
+							<h2>Precio total: <%= totalCompra %><i class="fa fa-euro-sign"></i></h2>
+							<input type="hidden" name="iduser" value="<%= user.getId()%>">
+							<input type="hidden" name="opcion" value="comp">
+							<button><h2>Comprar</h2></button>
+						</form>
+					</div>
+			<%}else{%>  
+				<div class="imgcarrito"></div>
+				<h3>No hay nada</h3>
+				<%}}%>
 
 		</div>
-
-
-
-		<%
-		rs.close();
+		<%rs.close();
 		st.close();
-		con.close();
-		%>
+		con.close();%>
 	</section>
 	<%@include file="footer.jsp" %>
 </body>

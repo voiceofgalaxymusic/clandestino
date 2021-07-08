@@ -47,13 +47,21 @@ public class Controlador extends HttpServlet {
 			HttpSession sesion = request.getSession();
 			if (sesion.getAttribute("login") == null) {
 				destPage = "loginprueba.jsp";
-
 			} else {
 				if (sesion.getAttribute("login").equals("on")) {
 					destPage = "user.jsp";
 				} else {
 					destPage = "loginprueba.jsp";
 				}
+			}
+			break;
+		case "formmodiuserclient":
+			destPage = "formmodiuserclient.jsp";
+			try {
+				user = udao.getUser(iduser);
+				request.setAttribute("user", user);
+			} catch (SQLException e1) {
+				e1.printStackTrace();
 			}
 			break;
 		case "formmodiuser":

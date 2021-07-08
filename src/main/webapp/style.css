@@ -2,6 +2,7 @@
 	margin: 0px;
 	padding: 0px;
 	text-decoration: none;
+	list-style: none;
 }
 
 h1, h2, h3 {
@@ -25,12 +26,19 @@ a {
 }
 
 body {
-	background-size: 900px;
+	background-size: 800px;
+	background-image: url("https://img.wallpapersafari.com/desktop/1024/576/62/28/89hAtx.jpg"), url("https://media.tarkett-image.com/large/TH_25094225_25187225_001.jpg");
 	background-blend-mode: luminosity;
-	background-image:
-		url("https://media.istockphoto.com/vectors/rock-music-party-seamless-background-vector-id1249258739"),
-		url("https://media.tarkett-image.com/large/TH_25094225_25187225_001.jpg");
-	background-blend-mode: exclusion;
+	background-attachment: fixed;
+}
+body::before {
+	content: '';
+	background-color: rgba(156, 156, 156,0.8);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
 }
 /*+++++++++++++++++++++++ header y nav ++++++++++++++++++++++++++*/
 header {
@@ -100,8 +108,8 @@ header a {
 	bottom: 0px;
 }
 
-nav {
-	height: 60px;
+nav{
+
 	position: relative;
 	bottom: -60px;
 	transition: all 0.5s ease;
@@ -164,13 +172,18 @@ nav {
 
 nav ul li {
 	display: inline-block;
-	margin: 15px 20px;
+	padding: 15px 20px;
 	font-size: 25px;
+	transition: 0.1s;
 }
 
 nav ul li a {
 	color: white;
 	font-size: 25px;
+}
+nav ul li:hover{
+	background-color: #525252;
+	transition: 0.3s;
 }
 /*++++++++++++++++++ tablas ++++++++++++++++++++++++++*/
 .botoncrear {
@@ -278,7 +291,8 @@ nav ul li a {
 	background-color: #a8199f;
 	text-align: right;
 	padding: 50px;
-	position: relative;
+	position:relative;
+	border-radius: 15px;
 }
 
 .formlogin h2 {
@@ -418,6 +432,7 @@ nav ul li a {
 	position: absolute;
 	left: calc(50vw - 200px);
 	top: calc(50vh - 215px);
+	border-radius: 15px;
 }
 
 .backform {
@@ -427,6 +442,7 @@ nav ul li a {
 	background-color: rgba(255, 255, 255, 0.5);
 	left: 0px;
 	z-index: -1;
+	filter: blur(400px);
 }
 
 #formuser1 {
@@ -455,7 +471,7 @@ nav ul li a {
 	border: none;
 	cursor: pointer;
 	left: calc(50vw - 200px);
-	top: calc(50vh - 215px);
+	top: calc(50vh - 219px);
 	z-index: 1;
 	font-size: 30px;
 }
@@ -544,8 +560,7 @@ form label {
 /*+++++++++++++++++++++++++ Pagina de Usuario ++++++++++++++++++++++*/
 section {
 	width: 85vw;
-	margin: auto;
-	margin-top: 50px;
+	margin: 50px auto;
 	padding: 50px;
 	background-color: white;
 }
@@ -554,11 +569,8 @@ section h2 {
 	text-align: center;
 }
 
-section h2, button {
-	display: inline-block;
-}
+.headuser{
 
-.headuser {
 	position: relative;
 	margin-bottom: 50px;
 }
@@ -625,10 +637,82 @@ section h2, button {
 	margin-left: 10px;
 }
 
-.carrito {
+.carrito, .disccomp {
+
 	text-align: center;
+	min-height: 200px;
+	max-height: 600px;
+	overflow: auto;
+	margin-bottom: 50px;
 }
-/*++++++++++++++++++++++++++++ página de artista +++++++++++++++++++++++++++*/
+
+.discoscomp {
+	margin: 30px auto;
+	display: inline-block;
+	width: 250px;
+	color: #000;
+}
+.discoscomp *{
+	display: block;
+}
+.discoscomp img{
+	width: 200px;
+	margin: auto;
+}
+.discoscomp .fa-euro-sign{
+	font-size: 15px;
+}
+.imgcarrito {
+	background-image: url(https://ih1.redbubble.net/image.1026630873.2447/flat,750x,075,f-pad,750x1000,f8f8f8.jpg);
+	background-size: 150px;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 100px;
+	margin: auto;
+}
+#carritoventana {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: rgba(255,255,255,0.8);
+	z-index: 1;
+	padding: 0px calc(50vw - 400px) calc(50vh - 100px);
+	width: 800px;
+}
+.botonventcarrito {
+	background-color: #525252;
+	width: 200px;
+	display: block;
+	margin: auto;
+	cursor: pointer;
+}
+.botonventcarrito:hover{
+	background-color: #a8199f;
+}
+.formcarritoboton {
+	background-color: #a8199f;
+	padding: 100px 0px;
+	border-radius: 15px;
+}
+.discoscaritoventana {
+	display: inline-block;
+	width: 200px;
+}
+.discoscaritoventana img{
+	width: 50px;
+}
+.outventanacarrito {
+	position: absolute;
+	background: none;
+	border: none;
+	cursor: pointer;
+	left: calc(50vw - 400px);
+	top: -5px;
+	font-size: 30px;
+}
+/*++++++++++++++++++++++++++++ página del artista +++++++++++++++++++++++++++*/
 .headart {
 	position: relative;
 	margin-bottom: 50px;
@@ -650,8 +734,8 @@ section h2, button {
 	position: absolute;
 	bottom: 0px;
 	padding: 0px 20px;
-	right: 10vw;
-	background-color: rgba(82, 82, 82, 0.3);
+	right:10vw;
+	background-color: rgba(200, 200, 200, 0.5);
 	text-align: right;
 }
 
@@ -729,8 +813,51 @@ section h2, button {
 	color: #a8199f;
 }
 
+/*+++++++++++++++++++++++++++++++++ artistas  ++++++++++++++++++++++++++++*/
+.artdisc {
+	width: 90vw;
+	margin: 5vw;
+	display: inline-block;
+	font-size: 0px;
+}
+.artdisca{
+	background-size: cover;
+	background-position: center;
+	width: 33%;
+	display: inline-block;
+}
+.artdisca div {
+	position: relative;
+	height: 500px;
+	background-image: linear-gradient(to top, #dadada, rgba(255,255,255,0) 50%);
+	transition: 0.5s;
+}
+.artdisca div *{
+	position: absolute;
+	color: #a8199f;
+	bottom: 0px;
+	margin-left: 10px;
+}
+.artdisca div h2 {
+	bottom: 35px;
+	line-height: 30px;
+}
+.artdisca div .fa{
+	left: 30px;
+	font-size: 19px;
+}
+.artdisca div:hover{
+	background-color: rgba(255,255,255,0.5);
+	
+	transition: 0.5s;
+}
+.artdisca{
+	left:50vw;
+}
+
 /*+++++++++++++++++++++++++++++++++ Imdex ++++++++++++++++++++++++++++*/
 .catalogo {
+
 	height: 1500px;
 	position: relative;
 }
@@ -738,25 +865,40 @@ section h2, button {
 .catal {
 	width: 45vw;
 	margin-left: 50px;
+    height: 1900px;
+    position: relative;
+}
+
+.catal {
+	width: 40vw;
+	margin-left: 70px;
 	margin-top: 50px;
 	display: inline-block;
 	position: absolute;
 	font-size: 0px;
 }
 
+
 .catalogos {
 	height: 250px;
+}
+.catalogos{
+
 	background-size: cover;
 	background-position: center;
-	width: 16vw;
+	width: 50%;
 	display: inline-block;
 }
 
 .catalogos div {
 	position: relative;
+
 	height: 250px;
 	background-image: linear-gradient(to top, #dadada, rgba(255, 255, 255, 0)
 		50%);
+	height: 350px;
+	background-image: linear-gradient(to top, #dadada, rgba(255,255,255,0) 50%);
+
 	transition: 0.5s;
 }
 
