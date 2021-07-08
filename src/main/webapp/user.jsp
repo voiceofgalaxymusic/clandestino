@@ -13,16 +13,28 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://pagecdn.io/lib/easyfonts/fonts.css" rel="stylesheet">
+<link rel="shortcut icon" href="http://arigar.com/wp-content/uploads/2017/06/favicon-music.png">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <title>Usuario</title>
 </head>
 <script>
 <!-- +++++++++++++++++++++++++++++++++++++ user ++++++++++++++++++++++++++++++++++++++ -->
-	function inFormCrearuser() {
+function inFormCrearuser() {
 	  document.getElementById("formcreauser").style.left = "-7.5vw";
 	}
 	function outFormCrearuser() {
 	  document.getElementById("formcreauser").style.left = "-110vw";
+	}
+	function DesplegarTabUser() {
+		document.getElementById("tabuser").style.height = "500px";
+		document.getElementById("botondesplegar1").style.rotate = "180deg";
+		document.getElementById("botonplegar1").style.display = "inline-block";
+		
+	}
+	function PlegarTabUser() {
+		document.getElementById("tabuser").style.height = "0px";
+		document.getElementById("botonplegar1").style.display = "none";
+		document.getElementById("botondesplegar1").style.rotate = "0deg";
 	}
 	
 	<!-- ++++++++++++++++++++++++++++++ artista ++++++++++++++++++++++++++++++++++++++ -->
@@ -32,7 +44,17 @@
 	function outFormCrearart() {
 	  document.getElementById("formcrearart").style.left = "-110vw";
 	}
-
+	function DesplegarTabArt() {
+		document.getElementById("tabart").style.height = "500px";
+		document.getElementById("botondesplegar2").style.rotate = "180deg";
+		document.getElementById("botonplegar2").style.display = "inline-block";
+		
+	}
+	function PlegarTabArt() {
+		document.getElementById("tabart").style.height = "0px";
+		document.getElementById("botonplegar2").style.display = "none";
+		document.getElementById("botondesplegar2").style.rotate = "0deg";
+	}
 	<!-- ++++++++++++++++++++++++++++++ disco ++++++++++++++++++++++++++++++++++++++ -->
 	function inFormCreardisc() {
 	  document.getElementById("formcreardisc").style.left = "-7.5vw";
@@ -40,12 +62,32 @@
 	function outFormCreardisc() {
 	  document.getElementById("formcreardisc").style.left = "-110vw";
 	}
+	function DesplegarTabDisc() {
+		document.getElementById("tabdisc").style.height = "500px";
+		document.getElementById("botondesplegar3").style.rotate = "180deg";
+		document.getElementById("botonplegar3").style.display = "inline-block";
+	}
+	function PlegarTabDisc() {
+		document.getElementById("tabdisc").style.height = "0px";
+		document.getElementById("botonplegar3").style.display = "none";
+		document.getElementById("botondesplegar3").style.rotate = "0deg";
+	}
 	<!-- ++++++++++++++++++++++++ ventana del carrito ++++++++++++++++++++++++++++++ -->
 	function incarritoventana() {
 	  document.getElementById("carritoventana").style.display = "block";
 	}
 	function outcarritoventana() {
 	  document.getElementById("carritoventana").style.display = "none";
+	}
+	function DesplegarTabComp() {
+		document.getElementById("tabcomp").style.height = "500px";
+		document.getElementById("botondesplegar4").style.rotate = "180deg";
+		document.getElementById("botonplegar4").style.display = "inline-block";
+	}
+	function PlegarTabComp() {
+		document.getElementById("tabcomp").style.height = "0px";
+		document.getElementById("botonplegar4").style.display = "none";
+		document.getElementById("botondesplegar4").style.rotate = "0deg";
 	}
 </script>
 <body>
@@ -100,10 +142,17 @@
 		<div class="bodysection">
 			<!--  +++++++++++++++++++++++++++++++++++  tabla de usuarios +++++++++++++++++++++++++++++++++++++ -->
 			<h2>Usuarios
-			<button class="botoncrear" onclick="inFormCrearuser()">
-				<i class="fa fa-user-plus"></i>
-			</button></h2>
-			<div class="tablas">
+				<button class="botoncrear" onclick="inFormCrearuser()">
+					<i class="fa fa-user-plus"></i>
+				</button>
+				<button id="botondesplegar1" class="botondesplegar" onclick="DesplegarTabUser()">
+					<i class="fas fa-chevron-down"></i>
+				</button>
+				<button id="botonplegar1" class="botonplegar" onclick="PlegarTabUser()">
+				</button>
+			</h2>
+			
+			<div class="tablas" id="tabuser">
 				<table class="tablacrear">
 					<tr>
 						<th>ID</th>
@@ -148,8 +197,13 @@
 			<h2>Artistas
 			<button class="botoncrear" onclick="inFormCrearart()">
 				<i class="fa fa-user-plus"></i>
+			</button>
+			<button id="botondesplegar2" class="botondesplegar" onclick="DesplegarTabArt()">
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<button id="botonplegar2" class="botonplegar" onclick="PlegarTabArt()">
 			</button></h2>
-			<div class="tablas">
+			<div class="tablas" id="tabart">
 				<table class="tablacrear">
 					<%
 					sql = "select * from t_art ";
@@ -194,8 +248,13 @@
 			<h2>Discos
 			<button class="botoncrear" onclick="inFormCreardisc()">
 				<i class="fa fa-user-plus"></i>
+			</button>
+			<button id="botondesplegar3" class="botondesplegar" onclick="DesplegarTabDisc()">
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<button id="botonplegar3" class="botonplegar" onclick="PlegarTabDisc()">
 			</button></h2>
-			<div class="tablas">
+			<div class="tablas" id="tabdisc">
 				<table class="tablacrear">
 					<%
 					sql = "select * from t_disc";
@@ -238,8 +297,13 @@
 			</div>
 
 			<!--  +++++++++++++++++++++++++++++++++++  compras  +++++++++++++++++++++++++++++++++++++ -->
-			<h2>Compras</h2>
-			<div class="tablas">
+			<h2>Compras
+			<button id="botondesplegar4" class="botondesplegar" onclick="DesplegarTabComp()">
+				<i class="fas fa-chevron-down"></i>
+			</button>
+			<button id="botonplegar4" class="botonplegar" onclick="PlegarTabComp()">
+			</button></h2>
+			<div class="tablas" id="tabcomp">
 				<table class="tablacrear">
 					<%sql = "select * from t_compra";
 					st = con.createStatement();
@@ -262,9 +326,9 @@
 								<button>
 									<i class="fas fa-trash-alt"></i>
 								</button>
-								<input type="hidden" name="iddisc"
+								<input type="hidden" name="idcomp"
 									value="<%=rs.getString("comp_id")%>"> <input
-									type="hidden" name="opcion" value="borrarDisc">
+									type="hidden" name="opcion" value="borrarComp">
 							</form>
 						</td>
 					</tr>
@@ -315,10 +379,10 @@
 		rs = pst.executeQuery();
 		ResultSet rsc= null;
 		%>
-
-		<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
-		<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
-		<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a>
+		<div id="botonesart">
+			<a href="artistas.jsp"><i class="fas fa-microphone-alt"></i></a>
+			<a href="discos.jsp"><i class="fas fa-compact-disc"></i></a>
+			<a href="Controlador?opcion=formmodiuserclient&iduser=<%=user.getId()%>"><i class="fa fa-edit"></i></a></div>
 		
 		<div class="disccomp">
 		<h1>Tus Compras</h1>

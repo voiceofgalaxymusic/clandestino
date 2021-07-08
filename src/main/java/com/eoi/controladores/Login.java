@@ -70,8 +70,6 @@ public class Login extends HttpServlet {
 				
 				HttpSession sesion = request.getSession();
 			
-				//PREGUNTAR JESUS, SI ESTÁ UTILIZANDO ESTO?
-				// PUES CREO QUE PARA MANTENER SESIÓN ABIERTA, DEBEMOS UTILIZAR:
 				sesion.setAttribute("id", user.getId());
 				sesion.setAttribute("rol", user.getRol());
 				sesion.setAttribute("nik", user.getNik());
@@ -81,14 +79,10 @@ public class Login extends HttpServlet {
 				sesion.setAttribute("ciu", user.getCiu());
 				sesion.setAttribute("img", user.getImg());
 				
-				//ADEMÁS SE PODRÍAN UTILIZAR PARA COMPLETAR LA PÁGINA DE USUARIO CON EL NOM... CREO RECORDAR.
 				sesion.setAttribute("login", "on");
 			}
-		
 	
 		RequestDispatcher rd = request.getRequestDispatcher(pagDest);
 		rd.forward(request, response);
-		
 	}
-
 }

@@ -4,12 +4,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.eoi.controladores.Conexion;
+import com.eoi.controladores.Login;
 
 public class UsuarioDAO {
 	private Connection con;
 	private PreparedStatement pst;
+	private Statement st;
 	private ResultSet rs;
 
 	public Usuario login(String nik, String pass) {
@@ -50,9 +56,6 @@ public class UsuarioDAO {
 	}
 
 	public void altaUser(Usuario u) throws SQLException {
-		
-		System.out.println("DATOS QUE RECIBE EL MÉTODO altaUser" + u);
-		
 		String sql = "insert into t_user (user_id, user_rol, user_nik, user_pass, user_nom, user_pai, user_ciu, user_img) values (?,?,?,?,?,?,?,?)";
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
@@ -66,7 +69,7 @@ public class UsuarioDAO {
 		pst.setString(8, u.getImg());
 
 		pst.executeUpdate();
-		
+	
 		System.out.println("USUARIO INCLUIDO EN BBDD: " + u);
 		
 		pst.close();
