@@ -34,7 +34,7 @@
 	</div>
 	<div class="urlavatar">
 		<label for="imguser">URL Avatar</label>
-		<input type="text" class="imginput" name="imguser"  value="<%= art.getImg() %>" >
+		<input type="text" class="imginput" name="imgart"  value="<%= art.getImg() %>" >
 	</div>
 	<input type="hidden" name="opcion" value="modiArt">
 	<input class="botmodi" type="submit" class="botonform2" value="Modificar">

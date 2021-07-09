@@ -223,7 +223,7 @@ function inFormCrearuser() {
 						<td><div
 								style="background-image:url(<%=rs.getString("art_img")%>)"></div></td>
 						<td>
-							<a href="Controlador?opcion=formmodiart&idart=<%=rs.getString("art_id")%>"><i class="fas fa-microphone-alt"></i></a>
+							<a href="Controlador?opcion=formmodiart&idart=<%=rs.getString("art_id")%>"><i class="fa fa-edit"></i></a>
 							<form class="formborrar" action="Controlador" method="get">
 								<button><i class="fas fa-trash-alt"></i></button>
 								<input type="hidden" name="idart" value="<%=rs.getString("art_id")%>">
@@ -272,7 +272,7 @@ function inFormCrearuser() {
 						<td><div style="background-image:url(<%=rs.getString("disc_img")%>)"></div></td>
 						<td><%=rs.getString("disc_pre")%></td>
 						<td>
-							<a href="Controlador?opcion=formmodidisc&iddisc=<%=rs.getString("disc_id")%>"><i class="fas fa-compact-disc"></i></a>
+							<a href="Controlador?opcion=formmodidisc&iddisc=<%=rs.getString("disc_id")%>"><i class="fa fa-edit"></i></a>
 							<form class="formborrar" action="Controlador" method="get">
 								<button>
 									<i class="fas fa-trash-alt"></i>
@@ -282,9 +282,7 @@ function inFormCrearuser() {
 							</form>
 						</td>
 					</tr>
-					<%
-					}
-					%>
+					<% } %>
 				</table>
 			</div>
 

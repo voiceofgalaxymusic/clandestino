@@ -239,6 +239,7 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		case "modiArt":
+			System.out.println(a2.toString());
 			try {
 				adao.modificarArtista(a2);
 			} catch (SQLException e) {
