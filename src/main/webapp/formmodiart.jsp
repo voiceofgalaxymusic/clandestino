@@ -16,7 +16,7 @@
 <body>
 <% Artista art = (Artista) request.getAttribute("art"); %>
 	<form class="formmodi formmodiart" action="Controlador" method="post">
-	<input type="hidden" name="iduser" value="<%= art.getidart() %>">
+	<input type="hidden" name="idart" value="<%= art.getidart() %>">
 	<h1>Modificar Artista</h1>
 		<div class="tablaform1">
 		<div class="imgform" style="background-image: url(<%= art.getImg() %>)" ></div>

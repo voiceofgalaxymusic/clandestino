@@ -268,7 +268,10 @@ public class Controlador extends HttpServlet {
 			}
 			break;
 		}
-		RequestDispatcher rd = request.getRequestDispatcher(destPage);
-		rd.forward(request, response);
+		
+		response.sendRedirect(destPage);  
+		
+		/*RequestDispatcher rd = request.getRequestDispatcher(destPage);
+		rd.forward(request, response);*/
 	}
 }

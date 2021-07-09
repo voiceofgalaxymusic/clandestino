@@ -47,8 +47,10 @@ public class ServletCarritoDiscos extends HttpServlet {
 			discosList.add(discoNuevo);
 			discosCant.add(discoCant);
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("user.jsp");  
+		
+		/*RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
+		dispatcher.forward(request, response);*/
 
 	}
 
