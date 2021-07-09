@@ -23,7 +23,7 @@
 		<div>
 			<table class="tablaform2">
 				<tr>
-					<td></td>
+					<td> <input type="hidden" name="rollUser" value="client"></td>
 					<td></td>
 					<td>Nombre</td>
 					<td><input type="text" name="nomUser"  value="<%= user.getNom() %>"></td>

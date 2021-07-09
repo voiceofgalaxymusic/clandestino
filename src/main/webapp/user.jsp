@@ -424,7 +424,8 @@ function inFormCrearuser() {
 						</button>
 						<form class="formcarritoboton" action="Controlador" method="post">
 						
-						<%for (int i=0;i<discosList.size();i++){
+						<%totalCompra = 0;
+						for (int i=0;i<discosList.size();i++){
 							idDisc = discosList.get(i);
 							discCant = discosCant.get(i);
 							sql = "SELECT * FROM t_disc WHERE disc_id = ?";
@@ -443,7 +444,7 @@ function inFormCrearuser() {
 							}
 						} %>
 							<h2>Precio total: <%= totalCompra %><i class="fa fa-euro-sign"></i></h2>
-							<input type="hidden" name="iduser" value="<%= user.getId()%>">
+							<input type="hidden" name="iduser" value="<%= sesion.getAttribute("id") %>">
 							<input type="hidden" name="opcion" value="comp">
 							<button><h2>Comprar</h2></button>
 						</form>

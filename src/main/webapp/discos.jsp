@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://pagecdn.io/lib/easyfonts/fonts.css" rel="stylesheet">
 <link rel="shortcut icon" href="http://arigar.com/wp-content/uploads/2017/06/favicon-music.png">
-<title>Artistas</title>
+<title>Discos</title>
 </head>
 <body>
 	<%@include file="header.jsp" %>

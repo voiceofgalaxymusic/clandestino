@@ -195,14 +195,24 @@ public class Controlador extends HttpServlet {
 			System.out.println(u2.getNik());
 			System.out.println(iduser);
 			try {
+				HttpSession sesion = request.getSession();
+
+				sesion.setAttribute("id", u.getId());
+				sesion.setAttribute("rol", u.getRol());
+				sesion.setAttribute("nik", u.getNik());
+				sesion.setAttribute("nom", u.getNom());
+				sesion.setAttribute("pass", u.getPass());
+				sesion.setAttribute("pai", u.getPai());
+				sesion.setAttribute("ciu", u.getCiu());
+				sesion.setAttribute("img", u.getImg());
+
+				sesion.setAttribute("login", "on");
 				udao.modificarUser(u2);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			break;
 		case "altaUserAdmin":
-			System.out.println(u.toString());
-			System.out.println("A");
 			try {
 				if(udao.altaUser(u) == true) {
 					

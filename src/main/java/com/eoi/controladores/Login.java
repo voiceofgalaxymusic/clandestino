@@ -81,6 +81,7 @@ public class Login extends HttpServlet {
 			sesion.setAttribute("pai", user.getPai());
 			sesion.setAttribute("ciu", user.getCiu());
 			sesion.setAttribute("img", user.getImg());
+			System.out.println(sesion.getAttribute("id")); 
 
 			// ADEMÁS SE PODRÍAN UTILIZAR PARA COMPLETAR LA PÁGINA DE USUARIO CON EL NOM...
 			// CREO RECORDAR.

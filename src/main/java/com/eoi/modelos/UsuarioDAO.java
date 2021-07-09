@@ -95,6 +95,8 @@ public boolean altaUser(Usuario u) throws SQLException {
 
 	public void modificarUser(Usuario u) throws SQLException {
 		String sql = "update t_user set user_rol=?, user_nik=?, user_pass=?, user_nom=? , user_pai=? , user_ciu=? , user_img=? where user_id=?";
+		System.out.println(u.toString());
+		System.out.println();
 		con = Conexion.getInstance().getConnection();
 		pst = con.prepareStatement(sql);
 		pst.setString(1, u.getRol());
